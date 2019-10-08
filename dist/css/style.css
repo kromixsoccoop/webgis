@@ -107,7 +107,7 @@ strong {
   font-weight: bold; }
 
 body {
-  color: #878787;
+  color: #f1f1f1;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -825,12 +825,11 @@ address .address-head {
   color: #fff; }
 
 blockquote {
-  padding: 15px 20px;
   margin: 0 0 20px;
-  font-size: 16px;
-  border-left: 4px solid #2879ff;
+  font-size: 12px;
+  border-left: 3px solid #2879ff;
   background: transparent;
-  color: #fff; }
+  color: #f1f1f1; }
   blockquote small {
     font-size: 70%;
     text-transform: uppercase;
@@ -2292,10 +2291,10 @@ button.fc-agendaWeek-button, .fc-prev-button, .fc-next-button, .fc-today-button 
     .fixed-sidebar-left .side-nav > li > ul > li a {
       padding: 7px 15px 7px 51px;
       display: block;
-      color: #878787; }
+      color: #fff; }
       .fixed-sidebar-left .side-nav > li > ul > li a:hover, .fixed-sidebar-left .side-nav > li > ul > li a:focus, .fixed-sidebar-left .side-nav > li > ul > li a:active {
         background: rgba(33, 33, 33, 0.05);
-        color: #878787; }
+        color: #fff; }
     .fixed-sidebar-left .side-nav > li > ul > li > ul > li a {
       padding-left: 62px;
       color: #878787; }
@@ -2410,8 +2409,8 @@ a#toggle_mobile_nav {
 
 .setting-panel {
   z-index: 1030;
-  margin-right: -220px;
-  width: 220px;
+  margin-right: -660px;
+  width: 660px;
   top: 0; }
   .setting-panel h6, .setting-panel .panel-title {
     color: #212121; }
@@ -2605,12 +2604,12 @@ a#toggle_mobile_nav {
     background: #fff; }
   .wrapper.theme-4-active .navbar.navbar-inverse,
   .wrapper.theme-4-active .navbar.navbar-inverse.navbar-fixed-top .mobile-only-brand {
-    background: #212121; }
+    background: #234151; }
   .wrapper.theme-4-active .fixed-sidebar-left .side-nav {
-    background: #333; }
+    background: #4E6877; }
   .wrapper.theme-5-active .navbar.navbar-inverse,
   .wrapper.theme-5-active .navbar.navbar-inverse.navbar-fixed-top .mobile-only-brand {
-    background: #284152; }
+    background: #234151; }
   .wrapper.theme-5-active .fixed-sidebar-left .side-nav {
     background: #375468; }
   .wrapper.theme-6-active .navbar.navbar-inverse,
@@ -2641,9 +2640,9 @@ a#toggle_mobile_nav {
     .wrapper.theme-3-active .navbar.navbar-inverse.navbar-fixed-top .nav > li > a:active, .wrapper.theme-3-active .navbar.navbar-inverse.navbar-fixed-top .nav > li > a:hover, .wrapper.theme-3-active .navbar.navbar-inverse.navbar-fixed-top .nav > li > a:focus, .wrapper.theme-4-active .navbar.navbar-inverse.navbar-fixed-top .nav > li > a:active, .wrapper.theme-4-active .navbar.navbar-inverse.navbar-fixed-top .nav > li > a:hover, .wrapper.theme-4-active .navbar.navbar-inverse.navbar-fixed-top .nav > li > a:focus, .wrapper.theme-5-active .navbar.navbar-inverse.navbar-fixed-top .nav > li > a:active, .wrapper.theme-5-active .navbar.navbar-inverse.navbar-fixed-top .nav > li > a:hover, .wrapper.theme-5-active .navbar.navbar-inverse.navbar-fixed-top .nav > li > a:focus, .wrapper.theme-6-active .navbar.navbar-inverse.navbar-fixed-top .nav > li > a:active, .wrapper.theme-6-active .navbar.navbar-inverse.navbar-fixed-top .nav > li > a:hover, .wrapper.theme-6-active .navbar.navbar-inverse.navbar-fixed-top .nav > li > a:focus {
       color: #fff; }
   .wrapper.theme-1-active.pimary-color-red .fixed-sidebar-left .side-nav li.navigation-header > span, .wrapper.theme-2-active.pimary-color-red .fixed-sidebar-left .side-nav li.navigation-header > span, .wrapper.theme-3-active.pimary-color-red .fixed-sidebar-left .side-nav li.navigation-header > span, .wrapper.theme-4-active.pimary-color-red .fixed-sidebar-left .side-nav li.navigation-header > span, .wrapper.theme-5-active.pimary-color-red .fixed-sidebar-left .side-nav li.navigation-header > span, .wrapper.theme-6-active.pimary-color-red .fixed-sidebar-left .side-nav li.navigation-header > span {
-    color: #ff2a00; }
+    color: #fff; }
   .wrapper.theme-1-active.pimary-color-red .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-2-active.pimary-color-red .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-3-active.pimary-color-red .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-4-active.pimary-color-red .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-5-active.pimary-color-red .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-6-active.pimary-color-red .fixed-sidebar-left .side-nav > li > a.active {
-    background: #ff2a00; }
+    background: #234151; }
   .wrapper.theme-1-active.pimary-color-blue .fixed-sidebar-left .side-nav li.navigation-header > span, .wrapper.theme-2-active.pimary-color-blue .fixed-sidebar-left .side-nav li.navigation-header > span, .wrapper.theme-3-active.pimary-color-blue .fixed-sidebar-left .side-nav li.navigation-header > span, .wrapper.theme-4-active.pimary-color-blue .fixed-sidebar-left .side-nav li.navigation-header > span, .wrapper.theme-5-active.pimary-color-blue .fixed-sidebar-left .side-nav li.navigation-header > span, .wrapper.theme-6-active.pimary-color-blue .fixed-sidebar-left .side-nav li.navigation-header > span {
     color: #2879ff; }
   .wrapper.theme-1-active.pimary-color-blue .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-2-active.pimary-color-blue .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-3-active.pimary-color-blue .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-4-active.pimary-color-blue .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-5-active.pimary-color-blue .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-6-active.pimary-color-blue .fixed-sidebar-left .side-nav > li > a.active {
@@ -4608,12 +4607,12 @@ button.btn-small.btn-select.fc-agendaWeek-button, .btn-small.btn-select.fc-prev-
 .treeview .list-group {
   margin-bottom: 0; }
   .treeview .list-group .list-group-item {
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid #234151;
     height: 42px;
     padding: 10px 12px;
     background: transparent; }
     .treeview .list-group .list-group-item.node-selected {
-      background: #2879ff !important; }
+      background: #57707E !important; }
     .treeview .list-group .list-group-item:hover {
       background: rgba(255, 255, 255, 0.05); }
     .treeview .list-group .list-group-item:first-child, .treeview .list-group .list-group-item:last-child {
