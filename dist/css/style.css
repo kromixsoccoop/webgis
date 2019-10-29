@@ -2993,7 +2993,7 @@ a#toggle_mobile_nav {
   margin-left: 44px; }
 
 .card-view {
-  background: #212121;
+  background: #f1f1f1;
   margin-bottom: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 2px;
@@ -3753,7 +3753,8 @@ ul.wysihtml5-toolbar a.btn.wysihtml5-command-active, ul.wysihtml5-toolbar .wizar
   margin-bottom: 0;
   margin-top: 0;
   box-shadow: none;
-  background: transparent; }
+  background: #234151;
+ }
   .accordion-struct.panel-group .panel .panel-heading {
     border-radius: 0;
     padding: 0;
@@ -3784,9 +3785,9 @@ ul.wysihtml5-toolbar a.btn.wysihtml5-command-active, ul.wysihtml5-toolbar .wizar
     .accordion-struct.accordion-style-1.panel-group .panel .panel-heading.activestate .icon-ac-wrap .plus-ac {
       opacity: 0; }
     .accordion-struct.accordion-style-1.panel-group .panel .panel-heading.activestate a {
-      color: #878787; }
+      color: #fff; }
   .accordion-struct.accordion-style-1.panel-group .panel .panel-heading a {
-    color: #878787; }
+    color: #fff; }
 .accordion-struct.accordion-style-1 .icon-ac-wrap {
   display: inline;
   position: relative;
@@ -3837,7 +3838,7 @@ ul.wysihtml5-toolbar a.btn.wysihtml5-command-active, ul.wysihtml5-toolbar .wizar
       -moz-transition: 0.2s ease;
       transition: 0.2s ease; }
       .nav-tabs > li > a:active, .nav-tabs > li > a:focus, .nav-tabs > li > a:hover {
-        background: #f2f2f2;
+        background: #234151;
         color: #fff; }
     .nav-tabs > li.active > a, .nav-tabs > li.open > a {
       background: #f2f2f2;
@@ -3848,11 +3849,11 @@ ul.wysihtml5-toolbar a.btn.wysihtml5-command-active, ul.wysihtml5-toolbar .wizar
         color: #fff;
         border-color: transparent; }
     .nav-tabs > li:first-child > a {
-      border-top-left-radius: 10px; }
+       }
     .nav-tabs > li:last-child {
       margin-right: 0; }
       .nav-tabs > li:last-child > a {
-        border-top-right-radius: 10px; }
+         }
 
 .nav-tab-reverse .nav-tabs > li {
   float: right;
@@ -3900,10 +3901,11 @@ ul.wysihtml5-toolbar a.btn.wysihtml5-command-active, ul.wysihtml5-toolbar .wizar
     border-top-right-radius: 0; }
 
 .custom-tab-1 .nav-tabs > li > a {
-  background: transparent !important;
-  border: none; }
+  color: #fff;
+   }
 .custom-tab-1 .nav-tabs > li.active > a {
-  border-bottom: 3px solid #01c853; }
+  border-bottom: 3px solid #E91E63 !important;
+  background: #234151 !important; }
 .custom-tab-1.vertical-tab .ver-nav-tab > li {
   background: transparent !important; }
   .custom-tab-1.vertical-tab .ver-nav-tab > li.active > a {
@@ -5413,7 +5415,7 @@ a.compose-mail {
 .dropdown-menu {
   border-radius: 2px;
   border: none;
-  background: #2a2a2a;
+  background: #E91E63;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.175); }
   .dropdown-menu > li > a {
     color: #fff; }
