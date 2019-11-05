@@ -620,8 +620,8 @@ ul.uo-list {
 		background:rgba(233,30,99,1);
 		border:solid 1px rgba(233,30,99,1);
 		&:hover,&:active,&:focus {
-			background:rgba(233,30,99,.85);
-			border:solid 1px rgba(233,30,99,.1);
+			background:rgb(157, 8, 59);
+			border:solid 1px rgb(157, 8, 59)	;
 			
 		}
 	}
@@ -681,7 +681,7 @@ ul.uo-list {
 			border:solid 1px rgba(233,30,99,.5);
 			color: $pink;
 			&:hover,&:focus,&:active {
-				border:solid 1px rgba(233,30,99,1);
+				border:solid 1px rgb(157, 8, 59);
 			}
 		}
 		&.btn-primary {
@@ -1187,8 +1187,8 @@ ul.uo-list {
 			background:rgba(233,30,99,1);
 			border:solid 1px rgba(233,30,99,1);
 			&:hover,&:active,&:focus {
-				background:rgba(233,30,99,.85);
-				border:solid 1px rgba(233,30,99,.1);
+				background:rgb(157, 8, 59);
+				border:solid 1px rgb(157, 8, 59);
 				
 			}
 		}
@@ -2664,11 +2664,8 @@ footer {
 }
 /*Form*/
 .form-control {
-	border: 1px solid rgba(255, 255, 255, 0.12);
-	background-color:$black;
 	border-radius: 0;
     box-shadow: none;
-    color: $white;
     height: 42px;
 	&:focus {
 		border-color:rgba(255, 255, 255, 0.3);

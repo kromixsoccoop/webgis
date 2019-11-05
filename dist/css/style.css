@@ -843,7 +843,7 @@ ul.uo-list {
 button.fc-month-button.fc-state-default.fc-corner-left,
 button.fc-agendaWeek-button, .fc-prev-button, .fc-next-button, .fc-today-button {
   color: #fff;
-  padding: 10px 25px;
+  padding: 21px;
   text-transform: capitalize;
   border-radius: 2px;
   outline: none;
@@ -901,8 +901,8 @@ button.fc-agendaWeek-button, .fc-prev-button, .fc-next-button, .fc-today-button 
     button.btn-info.fc-agendaWeek-button:active, .btn-info.fc-prev-button:active, .btn-info.fc-next-button:active, .btn-info.fc-today-button:active, .btn.btn-info:focus, .wizard > .actions a.btn-info:focus, .dt-buttons .btn-info.dt-button:focus, .tablesaw-sortable th.tablesaw-sortable-head button.btn-info:focus, .sweet-alert button.btn-info:focus, .owl-theme .owl-nav .btn-info[class*="owl-"]:focus, button.btn-info.fc-agendaDay-button.fc-state-default.fc-corner-right:focus,
     button.btn-info.fc-month-button.fc-state-default.fc-corner-left:focus,
     button.btn-info.fc-agendaWeek-button:focus, .btn-info.fc-prev-button:focus, .btn-info.fc-next-button:focus, .btn-info.fc-today-button:focus {
-      background: rgba(233, 30, 99, 0.85);
-      border: solid 1px rgba(233, 30, 99, 0.1); }
+      background: rgb(157, 8, 59);
+      border: solid 1px rgb(157, 8, 59); }
   .btn.btn-primary, .wizard > .actions .disabled a, .wizard > .actions .disabled a:hover, .wizard > .actions .disabled a:active, .wizard > .actions a, .wizard > .actions a:hover, .wizard > .actions a:active, .dt-buttons .dt-button, .tablesaw-sortable th.tablesaw-sortable-head button.btn-primary, .tablesaw-sortable th.tablesaw-sortable-head .dt-buttons button.dt-button, .dt-buttons .tablesaw-sortable th.tablesaw-sortable-head button.dt-button, .sweet-alert button.btn-primary, .owl-theme .owl-nav .btn-primary[class*="owl-"], .owl-theme .owl-nav .wizard > .actions a[class*="owl-"], .wizard > .actions .owl-theme .owl-nav a[class*="owl-"], .owl-theme .owl-nav .dt-buttons [class*="owl-"].dt-button, .dt-buttons .owl-theme .owl-nav [class*="owl-"].dt-button, button.btn-primary.fc-agendaDay-button.fc-state-default.fc-corner-right, .dt-buttons button.fc-agendaDay-button.fc-state-default.fc-corner-right.dt-button,
   button.btn-primary.fc-month-button.fc-state-default.fc-corner-left,
   .dt-buttons button.fc-month-button.fc-state-default.fc-corner-left.dt-button,
@@ -1446,7 +1446,7 @@ button.fc-agendaWeek-button, .fc-prev-button, .fc-next-button, .fc-today-button 
       .btn.btn-lable-wrap .btn-label i, .wizard > .actions a.btn-lable-wrap .btn-label i, .dt-buttons .btn-lable-wrap.dt-button .btn-label i, .tablesaw-sortable th.tablesaw-sortable-head button.btn-lable-wrap .btn-label i, .sweet-alert button.btn-lable-wrap .btn-label i, .owl-theme .owl-nav .btn-lable-wrap[class*="owl-"] .btn-label i, button.btn-lable-wrap.fc-agendaDay-button.fc-state-default.fc-corner-right .btn-label i,
       button.btn-lable-wrap.fc-month-button.fc-state-default.fc-corner-left .btn-label i,
       button.btn-lable-wrap.fc-agendaWeek-button .btn-label i, .btn-lable-wrap.fc-prev-button .btn-label i, .btn-lable-wrap.fc-next-button .btn-label i, .btn-lable-wrap.fc-today-button .btn-label i {
-        font-size: 14px; }
+        font-size: 20px; }
     .btn.btn-lable-wrap.left-label .btn-label, .wizard > .actions a.btn-lable-wrap.left-label .btn-label, .dt-buttons .btn-lable-wrap.left-label.dt-button .btn-label, .tablesaw-sortable th.tablesaw-sortable-head button.btn-lable-wrap.left-label .btn-label, .sweet-alert button.btn-lable-wrap.left-label .btn-label, .owl-theme .owl-nav .btn-lable-wrap.left-label[class*="owl-"] .btn-label, button.btn-lable-wrap.left-label.fc-agendaDay-button.fc-state-default.fc-corner-right .btn-label,
     button.btn-lable-wrap.left-label.fc-month-button.fc-state-default.fc-corner-left .btn-label,
     button.btn-lable-wrap.left-label.fc-agendaWeek-button .btn-label, .btn-lable-wrap.left-label.fc-prev-button .btn-label, .btn-lable-wrap.left-label.fc-next-button .btn-label, .btn-lable-wrap.left-label.fc-today-button .btn-label {
@@ -1914,8 +1914,8 @@ button.fc-agendaWeek-button, .fc-prev-button, .fc-next-button, .fc-today-button 
   .open button.dropdown-toggle.btn-info.fc-agendaWeek-button:active, .open .dropdown-toggle.btn-info.fc-prev-button:active, .open .dropdown-toggle.btn-info.fc-next-button:active, .open .dropdown-toggle.btn-info.fc-today-button:active, .open .dropdown-toggle.btn.btn-info:focus, .open .wizard > .actions a.dropdown-toggle.btn-info:focus, .wizard > .actions .open a.dropdown-toggle.btn-info:focus, .open .dt-buttons .dropdown-toggle.btn-info.dt-button:focus, .dt-buttons .open .dropdown-toggle.btn-info.dt-button:focus, .open .tablesaw-sortable th.tablesaw-sortable-head button.dropdown-toggle.btn-info:focus, .tablesaw-sortable th.tablesaw-sortable-head .open button.dropdown-toggle.btn-info:focus, .open .sweet-alert button.dropdown-toggle.btn-info:focus, .sweet-alert .open button.dropdown-toggle.btn-info:focus, .open .owl-theme .owl-nav .dropdown-toggle.btn-info[class*="owl-"]:focus, .owl-theme .owl-nav .open .dropdown-toggle.btn-info[class*="owl-"]:focus, .open button.dropdown-toggle.btn-info.fc-agendaDay-button.fc-state-default.fc-corner-right:focus,
   .open button.dropdown-toggle.btn-info.fc-month-button.fc-state-default.fc-corner-left:focus,
   .open button.dropdown-toggle.btn-info.fc-agendaWeek-button:focus, .open .dropdown-toggle.btn-info.fc-prev-button:focus, .open .dropdown-toggle.btn-info.fc-next-button:focus, .open .dropdown-toggle.btn-info.fc-today-button:focus {
-    background: rgba(233, 30, 99, 0.85);
-    border: solid 1px rgba(233, 30, 99, 0.1); }
+    background: #fff!important;
+    border: solid 1px rgb(157, 8, 59)!important; }
 .open .dropdown-toggle.btn.btn-primary, .open .wizard > .actions a.dropdown-toggle, .wizard > .actions .open a.dropdown-toggle, .open .dt-buttons .dropdown-toggle.dt-button, .dt-buttons .open .dropdown-toggle.dt-button, .open .tablesaw-sortable th.tablesaw-sortable-head button.dropdown-toggle.btn-primary, .tablesaw-sortable th.tablesaw-sortable-head .open button.dropdown-toggle.btn-primary, .open .sweet-alert button.dropdown-toggle.btn-primary, .sweet-alert .open button.dropdown-toggle.btn-primary, .open .owl-theme .owl-nav .dropdown-toggle.btn-primary[class*="owl-"], .owl-theme .owl-nav .open .dropdown-toggle.btn-primary[class*="owl-"], .open button.dropdown-toggle.btn-primary.fc-agendaDay-button.fc-state-default.fc-corner-right,
 .open button.dropdown-toggle.btn-primary.fc-month-button.fc-state-default.fc-corner-left,
 .open button.dropdown-toggle.btn-primary.fc-agendaWeek-button, .open .dropdown-toggle.btn-primary.fc-prev-button, .open .dropdown-toggle.btn-primary.fc-next-button, .open .dropdown-toggle.btn-primary.fc-today-button {
@@ -2223,7 +2223,7 @@ button.fc-agendaWeek-button, .fc-prev-button, .fc-next-button, .fc-today-button 
   position: fixed;
   top: 66px;
   left: 0;
-  width: 225px;
+  width: 300px;
   margin-left: 0;
   bottom: 0;
   z-index: 101;
@@ -2247,7 +2247,7 @@ button.fc-agendaWeek-button, .fc-prev-button, .fc-next-button, .fc-today-button 
     background-color: #fff;
     backface-visibility: hidden; }
     .fixed-sidebar-left .side-nav li {
-      width: 225px; }
+      width: 300px; }
       .fixed-sidebar-left .side-nav li.navigation-header > span, .fixed-sidebar-left .side-nav li.navigation-header > i {
         padding: 11px 15px; }
       .fixed-sidebar-left .side-nav li.navigation-header > span {
@@ -2543,7 +2543,7 @@ a#toggle_mobile_nav {
   pointer-events: none; }
 
 .page-wrapper {
-  margin-left: 225px;
+  margin-left: 300px;
   padding: 66px 6px;
   background: #000;
   position: relative;
@@ -3118,11 +3118,8 @@ footer {
 .select2-container--default .select2-selection--single, .select2-selection.select2-selection--multiple, .wizard .content > .body input, .mce-floatpanel .mce-textbox, .mce-floatpanel .mce-btn, .dataTables_wrapper .dataTables_filter input, .dataTables_wrapper .dataTables_length select, .jsgrid-cell input, .jsgrid-cell select, .tablesaw-bar .btn-select select, .dd-handle, .dd3-content, .app-search .form-control:focus,
 .app-search .select2-container--default .select2-selection--single:focus,
 .select2-container--default .app-search .select2-selection--single:focus, .app-search .select2-selection.select2-selection--multiple:focus, .app-search .mce-floatpanel .mce-textbox:focus, .mce-floatpanel .app-search .mce-textbox:focus, .app-search .mce-floatpanel .mce-btn:focus, .mce-floatpanel .app-search .mce-btn:focus, .app-search .dataTables_wrapper .dataTables_filter input:focus, .dataTables_wrapper .dataTables_filter .app-search input:focus, .app-search .dataTables_wrapper .dataTables_length select:focus, .dataTables_wrapper .dataTables_length .app-search select:focus, .app-search .jsgrid-cell input:focus, .jsgrid-cell .app-search input:focus, .app-search .jsgrid-cell select:focus, .jsgrid-cell .app-search select:focus, .app-search .tablesaw-bar .btn-select select:focus, .tablesaw-bar .btn-select .app-search select:focus, .app-search .dd-handle:focus, .app-search .dd3-content:focus {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background-color: #212121;
   border-radius: 0;
   box-shadow: none;
-  color: #fff;
   height: 42px; }
   .form-control:focus, .select2-container--default .select2-selection--single .select2-selection__rendered:focus,
   .select2-container--default .select2-selection--single:focus, .select2-selection.select2-selection--multiple:focus, .wizard .content > .body input:focus, .mce-floatpanel .mce-textbox:focus, .mce-floatpanel .mce-btn:focus, .dataTables_wrapper .dataTables_filter input:focus, .dataTables_wrapper .dataTables_length select:focus, .jsgrid-cell input:focus, .jsgrid-cell select:focus, .tablesaw-bar .btn-select select:focus, .dd-handle:focus, .dd3-content:focus, .app-search .form-control:focus, .app-search .jsgrid-cell input:focus, .jsgrid-cell .app-search input:focus, .app-search .jsgrid-cell select:focus, .jsgrid-cell .app-search select:focus, .app-search .dd-handle:focus, .app-search .dd3-content:focus {
