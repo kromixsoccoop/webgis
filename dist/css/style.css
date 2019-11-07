@@ -2545,7 +2545,7 @@ a#toggle_mobile_nav {
 .page-wrapper {
   margin-left: 300px;
   padding: 66px 6px;
-  background: #000;
+  background: #ede9e6;
   position: relative;
   -webkit-transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
@@ -2698,7 +2698,7 @@ a#toggle_mobile_nav {
     min-height: 66px;
     padding: 0 15px 0 0; }
     .navbar.navbar-inverse.navbar-fixed-top .nav-header {
-      width: 225px;
+      width: 300px;
       padding-left: 15px;
       height: 66px;
       -webkit-transition: 0.4s ease;
@@ -2999,8 +2999,8 @@ a#toggle_mobile_nav {
   border-radius: 2px;
   box-shadow: none;
   padding: 15px 15px 0;
-  margin-left: -9px;
-  margin-right: -9px; }
+  margin-left: 0px;
+  margin-right: 0px; }
   .card-view.panel > .panel-heading {
     border: none;
     color: inherit;
@@ -3796,6 +3796,177 @@ ul.wysihtml5-toolbar a.btn.wysihtml5-command-active, ul.wysihtml5-toolbar .wizar
     opacity: 0; }
   .accordion-struct.accordion-style-1 .icon-ac-wrap .plus-ac {
     opacity: 1; }
+
+    /* Accordion Normative */
+
+    .accordion-struct.panel-group .panel-normative {
+      border: medium none;
+      border-radius: 0;
+      margin-bottom: 0;
+      margin-top: 0;
+      box-shadow: none;
+      background: #5aa0c8;
+     }
+      .accordion-struct.panel-group .panel-normative .panel-heading {
+        border-radius: 0;
+        padding: 0;
+        background: rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .accordion-struct.panel-group .panel-normative .panel-heading.activestate {
+          background: #01c853;
+          border-bottom: 1px solid #01c853; }
+          .accordion-struct.panel-group .panel-normative .panel-heading.activestate a {
+            color: #fff; }
+        .accordion-struct.panel-group .panel-normative .panel-heading a {
+          color: #878787;
+          text-transform: capitalize;
+          padding: 10px 20px;
+          width: 100%;
+          display: block; }
+      .accordion-struct.panel-group .panel-normative:last-child .panel-heading {
+        border-bottom: none; }
+      .accordion-struct.panel-group .panel-normative .panel-body {
+        border: none;
+        background: #fff;
+        color: #777; }
+    .accordion-struct.accordion-style-1.panel-group .panel-normative .panel-heading {
+      background: transparent;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+      .accordion-struct.accordion-style-1.panel-group .panel-normative .panel-heading.activestate {
+        background: transparent; }
+        .accordion-struct.accordion-style-1.panel-group .panel-normative .panel-heading.activestate .icon-ac-wrap .minus-ac {
+          opacity: 1; }
+        .accordion-struct.accordion-style-1.panel-group .panel-normative .panel-heading.activestate .icon-ac-wrap .plus-ac {
+          opacity: 0; }
+        .accordion-struct.accordion-style-1.panel-group .panel-normative .panel-heading.activestate a {
+          color: #fff; }
+      .accordion-struct.accordion-style-1.panel-group .panel-normative .panel-heading a {
+        color: #fff; }
+    .accordion-struct.accordion-style-1 .icon-ac-wrap {
+      display: inline;
+      position: relative;
+      color: #01c853; }
+      .accordion-struct.accordion-style-1 .icon-ac-wrap .minus-ac {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0; }
+      .accordion-struct.accordion-style-1 .icon-ac-wrap .plus-ac {
+        opacity: 1; }
+
+        /* Accordion Catasto */
+
+    .accordion-struct.panel-group .panel-catasto {
+      border: medium none;
+      border-radius: 0;
+      margin-bottom: 0;
+      margin-top: 0;
+      box-shadow: none;
+      background: #138944;
+     }
+      .accordion-struct.panel-group .panel-catasto .panel-heading {
+        border-radius: 0;
+        padding: 0;
+        background: rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .accordion-struct.panel-group .panel-catasto .panel-heading.activestate {
+          background: #01c853;
+          border-bottom: 1px solid #01c853; }
+          .accordion-struct.panel-group .panel-catasto .panel-heading.activestate a {
+            color: #fff; }
+        .accordion-struct.panel-group .panel-catasto .panel-heading a {
+          color: #878787;
+          text-transform: capitalize;
+          padding: 10px 20px;
+          width: 100%;
+          display: block; }
+      .accordion-struct.panel-group .panel-catasto:last-child .panel-heading {
+        border-bottom: none; }
+      .accordion-struct.panel-group .panel-catasto .panel-body {
+        border: none;
+        background: #fff;
+        color: #777; }
+    .accordion-struct.accordion-style-1.panel-group .panel-catasto .panel-heading {
+      background: transparent;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+      .accordion-struct.accordion-style-1.panel-group .panel-catasto .panel-heading.activestate {
+        background: transparent; }
+        .accordion-struct.accordion-style-1.panel-group .panel-catasto .panel-heading.activestate .icon-ac-wrap .minus-ac {
+          opacity: 1; }
+        .accordion-struct.accordion-style-1.panel-group .panel-catasto .panel-heading.activestate .icon-ac-wrap .plus-ac {
+          opacity: 0; }
+        .accordion-struct.accordion-style-1.panel-group .panel-catasto .panel-heading.activestate a {
+          color: #fff; }
+      .accordion-struct.accordion-style-1.panel-group .panel-catasto .panel-heading a {
+        color: #fff; }
+    .accordion-struct.accordion-style-1 .icon-ac-wrap {
+      display: inline;
+      position: relative;
+      color: #01c853; }
+      .accordion-struct.accordion-style-1 .icon-ac-wrap .minus-ac {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0; }
+      .accordion-struct.accordion-style-1 .icon-ac-wrap .plus-ac {
+        opacity: 1; }
+
+        /* Accordion CDU */
+
+    .accordion-struct.panel-group .panel-cdu {
+      border: medium none;
+      border-radius: 0;
+      margin-bottom: 0;
+      margin-top: 0;
+      box-shadow: none;
+      background: #d18742;
+     }
+      .accordion-struct.panel-group .panel-cdu .panel-heading {
+        border-radius: 0;
+        padding: 0;
+        background: rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .accordion-struct.panel-group .panel-cdu .panel-heading.activestate {
+          background: #01c853;
+          border-bottom: 1px solid #01c853; }
+          .accordion-struct.panel-group .panel-cdu .panel-heading.activestate a {
+            color: #fff; }
+        .accordion-struct.panel-group .panel-cdu .panel-heading a {
+          color: #878787;
+          text-transform: capitalize;
+          padding: 10px 20px;
+          width: 100%;
+          display: block; }
+      .accordion-struct.panel-group .panel-cdu:last-child .panel-heading {
+        border-bottom: none; }
+      .accordion-struct.panel-group .panel-cdu .panel-body {
+        border: none;
+        background: #fff;
+        color: #777; }
+    .accordion-struct.accordion-style-1.panel-group .panel-cdu .panel-heading {
+      background: transparent;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+      .accordion-struct.accordion-style-1.panel-group .panel-cdu .panel-heading.activestate {
+        background: transparent; }
+        .accordion-struct.accordion-style-1.panel-group .panel-cdu .panel-heading.activestate .icon-ac-wrap .minus-ac {
+          opacity: 1; }
+        .accordion-struct.accordion-style-1.panel-group .panel-cdu .panel-heading.activestate .icon-ac-wrap .plus-ac {
+          opacity: 0; }
+        .accordion-struct.accordion-style-1.panel-group .panel-cdu .panel-heading.activestate a {
+          color: #fff; }
+      .accordion-struct.accordion-style-1.panel-group .panel-cdu .panel-heading a {
+        color: #fff; }
+    .accordion-struct.accordion-style-1 .icon-ac-wrap {
+      display: inline;
+      position: relative;
+      color: #01c853; }
+      .accordion-struct.accordion-style-1 .icon-ac-wrap .minus-ac {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0; }
+      .accordion-struct.accordion-style-1 .icon-ac-wrap .plus-ac {
+        opacity: 1; }
 
 /*Tabs*/
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
