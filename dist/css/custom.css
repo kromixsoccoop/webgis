@@ -15,18 +15,19 @@
     transition: 0.3s;
     font-size: 14px;
     float: left;
+    width: 100px;
   }
   
   /* Change background color of buttons on hover */
   .tab button:hover {
     background-color: #234151;
-    border-bottom: 2px solid #f1f1f1;
+    border-bottom: 2px solid #E91E63;
   }
   
   /* Create an active/current tablink class */
   .tab button.active {
     background-color: #234151;
-    border-bottom: 2px solid #f1f1f1;
+    border-bottom: 2px solid #E91E63;
   }
   
   /* Style the tab content */

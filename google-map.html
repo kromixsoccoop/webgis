@@ -16,6 +16,9 @@
 		<!-- Custom CSS -->
 		<link href="dist/css/style.css" rel="stylesheet" type="text/css">
 		<link href="dist/css/custom.css" rel="stylesheet" type="text/css">
+
+		<!-- Treeview -->
+		<link href="dist/css/hummingbird-treeview.css" rel="stylesheet">
 		
 
 	</head>
@@ -94,8 +97,50 @@
 									</div>
 											
 									<div id="strati" class="tabcontent">
-										<blockquote>Tasto destro sui singoli layer per accedere alle funzionalità aggiuntive</blockquote>
-										<div class="treeview" id="albero"></div>
+										<blockquote>Tasto destro sui singoli layer per accedere alle funzionalità aggiuntive</blockquote>											  	
+										<ul id="treeview">
+											<li> <i class="fa fa-angle-right"></i>
+												<label>
+												<input id="xnode-0" data-id="custom-0" type="checkbox" />
+												node-0 </label>
+												<ul>
+												<li> <i class="fa fa-angle-right"></i>
+													<label>
+													<input  id="xnode-0-1" data-id="custom-0-1" type="checkbox" />
+													node-0-1 </label>
+													<ul>
+													<li>
+														<label>
+														<input class="hummingbirdNoParent" id="xnode-0-1-1" data-id="custom-0-1-1" type="checkbox" />
+														node-0-1-1 </label>
+													</li>
+													<li>
+														<label>
+														<input class="hummingbirdNoParent" id="xnode-0-1-2" data-id="custom-0-1-2" type="checkbox" />
+														node-0-1-2 </label>
+													</li>
+													</ul>
+												</li>
+												<li> <i class="fa fa-angle-right"></i>
+													<label>
+													<input  id="xnode-0-2" data-id="custom-0-2" type="checkbox" />
+													node-0-2 </label>
+													<ul>
+													<li>
+														<label>
+														<input class="hummingbirdNoParent" id="xnode-0-2-1" data-id="custom-0-2-1" type="checkbox" />
+														node-0-2-1 </label>
+													</li>
+													<li>
+														<label>
+														<input class="hummingbirdNoParent" id="xnode-0-2-2" data-id="custom-0-2-2" type="checkbox" />
+														node-0-2-2 </label>
+													</li>
+													</ul>
+												</li>
+												</ul>
+											</li>
+										</ul>	  
 									</div>
 										
 									<div id="basi" class="tabcontent">
@@ -791,6 +836,9 @@
 
 		<!-- Tabs -->
 		<script src="dist/js/custom.js"></script>
+
+		<!-- Treeview -->
+		<script src="dist/js/hummingbird-treeview.js"></script>
 		
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNjVGwuoILK_f4HhnF--PvuYDmtN6L4-k&libraries=geometry"></script>
 		<script type="text/javascript" src="dist/js/maps-api.js"></script>
@@ -802,6 +850,8 @@
 				  center: {lat: 39.081563, lng: 17.135190},
 				  zoom: 16
 				});
+
+				$("#treeview").hummingbird();
 			});
 		</script>
 		
