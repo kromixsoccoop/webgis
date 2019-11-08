@@ -3079,7 +3079,7 @@ a#toggle_mobile_nav {
     color: #fff; }
 
 .breadcrumb > li + li::before {
-  color: #fff;
+  color: #777;
   opacity: .5;
   font-family: FontAwesome;
   content: "\f105";
@@ -5243,7 +5243,9 @@ a.compose-mail {
   z-index: 5; }
 
 .carousel-indicators {
-  z-index: 1; }
+    z-index: 1;
+    display: none; }
+  
   .carousel-indicators li {
     border-color: #878787;
     background: #878787;

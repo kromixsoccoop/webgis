@@ -4,7 +4,7 @@ jQuery(document).ready(function($) {
 	
 	/*owl carousel*/
 	$("#owl_demo_1").owlCarousel({
-		navigation : true, // Show next and prev buttons
+		navigation : false, // Show next and prev buttons
 		slideSpeed : 300,
 		paginationSpeed : 400,
 		items : 1, 

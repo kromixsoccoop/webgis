@@ -17,8 +17,6 @@
 	
 	<!-- Data table CSS -->
 	<link href="vendors/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
-	
-	<link href="vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet" type="text/css">
 		
 	<!-- Custom CSS -->
 	<link href="dist/css/style.css" rel="stylesheet" type="text/css">
@@ -828,55 +826,29 @@
             <div class="container-fluid pt-25">
 				<div class="row">
 					<div class="col-md-4">
-						<div style="background: #234151;" class="panel panel-default card-view">
+						<div style="background-image: url('dist/img/earth.png'); background-size: cover;" class="panel panel-default card-view">
 							<div class="panel-wrapper collapse in">
 								<div class="panel-body">
 									<!-- START carousel-->
 									<div id="testimonial_slider" data-ride="carousel" class="carousel slide testimonial-slider-wrap text-slider">
 										<ol class="carousel-indicators">
-											<li data-target="#testimonial_slider" data-slide-to="0" class=""></li>
 											<li data-target="#testimonial_slider" data-slide-to="1" class="active"></li>
-											<li data-target="#testimonial_slider" data-slide-to="2" class=""></li>
+										
 										</ol>
-										<div role="listbox" class="carousel-inner mb-50">
-											<div class="item active left"> 
-												<div class="testimonial-wrap text-center  pl-30 pr-30">
-													<img class="img-circle" src="dist/img/user1.png" alt="First slide image"> 
-													<p class="mt-20 font-16">"Activist, criteria planned giving dignity, committed democratizing the global financial system progressive."</p>
+										<div role="listbox" class="carousel-inner">
+											<div class="item active"> 
+												<div class="testimonial-wrap text-center pl-30 pr-30">
+													
+													<h2 class="mt-20 font-20">WebGis</h2>
 													<span class="testi-pers-name block mt-15  txt-dark capitalize-font head-font">
-														Jens Brincker
+														3 Progetti caricati
 													</span>
+													<br />
 													<span class="testi-pers-desg block capitalize-font">
-														Interaction Designer
+														<a href="progetti.php" class="btn btn-default btn-xs btn-outline">Accedi</a>
 													</span>
 												</div>
 											</div>
-											<div class="item next left"> 
-												<div class="testimonial-wrap text-center  pl-30 pr-30">
-													<img class="img-circle" src="dist/img/user2.png" alt="First slide image"> 
-													<p class="mt-20 font-16">"Nelson Mandela equal opportunity change accelerate pathway to a better life invest our ambitions catalyst."</p>
-													<span class="testi-pers-name block mt-15  txt-dark capitalize-font head-font">
-														Mark Hay
-													</span>
-													<span class="testi-pers-desg block capitalize-font">
-														Interface Designer
-													</span>
-												</div>
-											</div>
-											
-											<div class="item"> 
-												<div class="testimonial-wrap text-center  pl-30 pr-30">
-													<img class="img-circle" src="dist/img/user3.png" alt="First slide image"> 
-													<p class="pt-20 font-16">"Making progress contribution compassion Ford Foundation, cross-agency coordination Bill development."</p>
-													<span class="testi-pers-name block mt-15  txt-dark capitalize-font head-font">
-														Anthony Davie	
-													</span>
-													<span class="testi-pers-desg block capitalize-font">
-														Project Manager
-													</span>
-												</div>
-											</div>
-											
 										</div>
 									</div>
 									<!-- END carousel-->
@@ -893,7 +865,7 @@
 						<div class="panel-group accordion-struct accordion-style-1" id="accordion_2" role="tablist" aria-multiselectable="true">
 							<div class="panel-normative panel-default">
 								<div class="panel-heading" role="tab" id="heading_10">
-									<a role="button" data-toggle="collapse" data-parent="#accordion_2" href="#collapse_normative" aria-expanded="false" class="collapsed"><div class="icon-ac-wrap pr-20"><span class="plus-ac"><i style="color: #fff;" class="ti-plus"></i></span><span style="color: #fff;" class="minus-ac"><i class="ti-minus"></i></span></div>Normative</a> 
+									<a role="button" data-toggle="collapse" data-parent="#accordion_2" href="#collapse_normative" aria-expanded="false" class="collapsed"><div class="icon-ac-wrap pr-20"><span class="plus-ac"><i style="color: #fff;" class="ti-plus"></i></span><span style="color: #fff;" class="minus-ac"><i class="ti-minus"></i></span></div>Normative <i style="float: right; color: #276c91; margin-top: -5px; margin-top: -5px; font-size: 30px;" class="fa fa-gavel" aria-hidden="true"></i></a>
 								</div>
 								<div id="collapse_normative" class="panel-collapse collapse" role="tabpanel" aria-expanded="false" style="height: 0px;">
 									<div class="panel-body pa-15">Modulo di Gestione delle Normative<a style="float: right" href="#" class="btn btn-primary btn-xs btn-outline">Accedi</a></div>
@@ -982,7 +954,6 @@
 	<!-- Morris Charts JavaScript -->
     <script src="vendors/bower_components/raphael/raphael.min.js"></script>
     <script src="vendors/bower_components/morris.js/morris.min.js"></script>
-    <script src="vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
 	
 	<!-- Switchery JavaScript -->
 	<script src="vendors/bower_components/switchery/dist/switchery.min.js"></script>
