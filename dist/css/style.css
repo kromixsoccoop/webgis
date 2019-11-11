@@ -758,7 +758,7 @@ small {
 hr {
   margin-top: 10px;
   margin-bottom: 35px;
-  border-top: 1px solid #01c853; }
+  border-top: 1px solid #4E6877; }
   hr.light-grey-hr {
     border-top: 1px solid rgba(255, 255, 255, 0.1); }
 
@@ -2517,7 +2517,7 @@ a#toggle_mobile_nav {
   position: relative;
   border-left: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0;
-  background: #212121;
+  background: #4E6877;
   overflow: hidden; }
   .right-sidebar .card-view:hover {
     box-shadow: none; }
@@ -2526,7 +2526,7 @@ a#toggle_mobile_nav {
     .right-sidebar .custom-tab-1 .nav-tabs > li {
       margin-right: 0;
       text-align: center;
-      width: 33.33%; }
+      width: 100%; }
       .right-sidebar .custom-tab-1 .nav-tabs > li > a {
         padding: 8px 20px;
         font-size: 13px;
@@ -2759,7 +2759,7 @@ a#toggle_mobile_nav {
     .navbar.navbar-inverse.navbar-fixed-top .nav > li.full-width-drp {
       position: static; }
     .navbar.navbar-inverse.navbar-fixed-top .nav > li > a {
-      color: #878787;
+      color: #fff;
       background: transparent !important;
       -webkit-transition: 0.3s ease;
       -moz-transition: 0.3s ease;
@@ -3097,7 +3097,10 @@ footer {
   footer p {
     display: block;
     font-size: 12px;
-    line-height: 40px; }
+    line-height: 40px; 
+    color: #000;
+  }
+   
   footer .brand {
     display: block;
     float: left;
@@ -4795,9 +4798,9 @@ button.btn-small.btn-select.fc-agendaWeek-button, .btn-small.btn-select.fc-prev-
 .modal-dialog .modal-content {
   border-radius: 2px;
   border: none;
-  background-color: #2a2a2a; }
+  background-color: #234151; }
 .modal-dialog .modal-header {
-  border-bottom: 1px solid #565656; }
+  border-bottom: 1px solid #4E6877; }
 .modal-dialog .modal-footer {
   border: none; }
 
