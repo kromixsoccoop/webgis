@@ -69,7 +69,8 @@ Project:	Hound
 	++Login Form++
 	++Error Page++
 	++Products++
-	++Cropperjs++
+  ++Cropperjs++
+  ++Custom++
 
 ++++ Mediaqueries ++++
 -------------------------------------------------------------------*/
@@ -2262,12 +2263,14 @@ button.fc-agendaWeek-button, .fc-prev-button, .fc-next-button, .fc-today-button 
       .fixed-sidebar-left .side-nav li a[aria-expanded="true"] {
         background: rgba(33, 33, 33, 0.05); }
         .fixed-sidebar-left .side-nav li a[aria-expanded="true"] > i {
-          color: #e2724c; }
+          color: #68bdff; }
+          .fixed-sidebar-left .side-nav li a[aria-expanded="true"] > span {
+            color: #68bdff; }
         .fixed-sidebar-left .side-nav li a[aria-expanded="true"] .pull-right i:before {
           content: '\f2f8'; }
       .fixed-sidebar-left .side-nav li a {
         width: 100%;
-        text-transform: capitalize;
+      
         -webkit-transition: 0.3s ease;
         -moz-transition: 0.3s ease;
         transition: 0.3s ease; }
@@ -7514,4 +7517,37 @@ ul.inbox-nav li a:hover, ul.inbox-nav li.active a, ul.inbox-nav li a:focus {
   .form-actions button.fc-agendaWeek-button, .form-actions button.fc-prev-button, .form-actions button.fc-next-button, .form-actions button.fc-today-button {
     margin-bottom: 20px; } }
 
-/*# sourceMappingURL=style.css.map */
+/************* Custom *************/
+
+.map1{
+  background-image: url('../img/map1.png');
+  width: 100%;
+  height: 120px;
+  background-size: cover;
+  border-radius: 5px;
+  border: 1px solid #e91e63;
+}
+.map1:hover{
+  background-image: url('../img/map1-hover.png');
+  width: 100%;
+  height: 120px;
+  background-size: cover;
+  border-radius: 5px;
+  border: 1px solid #e91e63;
+}
+.map2{
+  background-image: url('../img/map2.png');
+  width: 100%;
+  height: 120px;
+  background-size: cover;
+  border-radius: 5px;
+  border: 1px solid #e91e63;
+}
+.map2:hover{
+  background-image: url('../img/map2-hover.png');
+  width: 100%;
+  height: 120px;
+  background-size: cover;
+  border-radius: 5px;
+  border: 1px solid #e91e63;
+}
