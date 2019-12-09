@@ -166,8 +166,7 @@ h5 {
 
 h6, .panel-title {
   font-size: 16px;
-  line-height: 24px;
-  text-transform: capitalize; }
+  line-height: 24px; }
 
 p {
   font-size: 14px;
@@ -620,13 +619,13 @@ code {
   background: #fff !important; }
 
 .bg-dark {
-  background: #fff !important; }
+  background: #234151 !important; }
 
 .bg-twitter {
   background: #00aced !important; }
 
 .txt-dark {
-  color: #fff !important; }
+  color: #234151 !important; }
 
 .txt-light {
   color: #fff !important; }
@@ -3071,7 +3070,7 @@ a#toggle_mobile_nav {
   .breadcrumb a, .breadcrumb span {
     text-transform: capitalize; }
   .breadcrumb a {
-    color: #fff;
+    color: #234151;
     opacity: .5;
     -webkit-transition: 0.3s ease;
     -moz-transition: 0.3s ease;
@@ -3079,7 +3078,7 @@ a#toggle_mobile_nav {
     .breadcrumb a:hover {
       opacity: 1; }
   .breadcrumb span {
-    color: #fff; }
+    color: #234151; }
 
 .breadcrumb > li + li::before {
   color: #777;
@@ -3165,7 +3164,7 @@ footer {
     border: 1px solid rgba(255, 255, 255, 0.1); }
 
 .control-label {
-  color: #fff; }
+  color: #234151; }
 
 .input-group-addon {
   background: transparent none repeat scroll 0 0;
@@ -4200,7 +4199,7 @@ ul.wysihtml5-toolbar a.btn.wysihtml5-command-active, ul.wysihtml5-toolbar .wizar
 
 .table > tbody > tr > td, .jsgrid-table > tbody > tr > td, .table > tbody > tr > th, .jsgrid-table > tbody > tr > th, .table > tfoot > tr > td, .jsgrid-table > tfoot > tr > td, .table > tfoot > tr > th, .jsgrid-table > tfoot > tr > th, .table > thead > tr > td, .jsgrid-table > thead > tr > td, .table > thead > tr > th, .jsgrid-table > thead > tr > th {
   padding: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid #234151;
   vertical-align: middle; }
 
 .table > thead > tr > th, .jsgrid-table > thead > tr > th, .table > tfoot > tr > th, .jsgrid-table > tfoot > tr > th {
@@ -4223,7 +4222,7 @@ ul.wysihtml5-toolbar a.btn.wysihtml5-command-active, ul.wysihtml5-toolbar .wizar
   border: 1px solid rgba(255, 255, 255, 0.1); }
 
 .table-striped > tbody > tr:nth-of-type(2n+1) {
-  background-color: rgba(255, 255, 255, 0.05); }
+  background-color: #dee3e5 !important; }
 
 .color-bg-table .table > caption + thead > tr:first-child > td, .color-bg-table .jsgrid-table > caption + thead > tr:first-child > td, .color-bg-table .table >
 caption + thead > tr:first-child > th, .color-bg-table .jsgrid-table >
