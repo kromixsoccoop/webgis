@@ -322,7 +322,7 @@
 												</div>
 												<div class="clearfix"></div>
 											</div>
-											<div id="collapse_1" class="panel-wrapper collapse in" aria-expanded="true" style="">
+											<div id="collapse_1" class="panel-wrapper collapse in" aria-expanded="true">
 												<div class="panel-body">
 													<div class="panel-group accordion-struct accordion-style-1" id="accordion_2" role="tablist" aria-multiselectable="true">
 														<div class="panel panel-default">
@@ -424,45 +424,49 @@
 							<div class="panel panel-default card-view">
 								<div class="panel-heading">
 									<div class="pull-left">
-										<button title="Adatta a Distanza" class="btn left-label btn-info btn-lable-wrap">
+										<button title="Imposta a pieno schermo" class="btn left-label btn-info btn-lable-wrap all-btn">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 2px;" class="fa fa-arrows-alt"> </i></span>
 										</button>
-										<button title="Ingrandisci" class="btn left-label btn-info btn-lable-wrap">
+										<button title="Ingrandisci" class="btn left-label btn-info btn-lable-wrap all-btn" onclick="zoomIn()">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 2px;" class="fa fa-search-plus"> </i></span>
 										</button>
-										<button title="Diminuisci" class="btn left-label btn-info btn-lable-wrap">
+										<button title="Diminuisci" class="btn left-label btn-info btn-lable-wrap all-btn" onclick="zoomOut()">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 2px;" class="fa fa-search-minus"> </i></span>
 										</button>
-										<button title="Ingrandisci Riquadro" class="btn left-label btn-info btn-lable-wrap">
+										<button title="Ingrandisci Riquadro" class="btn left-label btn-info btn-lable-wrap all-btn">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 3px;" class="fa fa-plus-square-o"> </i></span>
 										</button>
-										<button title="Informazioni" class="btn left-label btn-info btn-lable-wrap">
+										<button title="Informazioni" class="btn left-label btn-info btn-lable-wrap all-btn">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 3px;" class="fa fa-info-circle"> </i></span>
 										</button>
-										<button title="Street View" class="btn left-label btn-info btn-lable-wrap">
+										<button title="Street View" class="btn left-label btn-info btn-lable-wrap all-btn">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 3px;" class="fa fa-street-view"> </i></span>
 										</button>
-										<button title="Aggiungi Livello" class="btn left-label btn-info btn-lable-wrap">
+										<button title="Aggiungi Livello" class="btn left-label btn-info btn-lable-wrap all-btn">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 3px; font-size: 15px;" class="fa fa-object-ungroup"> </i></span>
 										</button>
-										<button title="Misura Area" class="btn left-label btn-info btn-lable-wrap">
+										<button title="Misura Area" id="toggleArea" class="btn left-label btn-info btn-lable-wrap all-btn" onclick="mostraArea()">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 2px;" class="ti-ruler-alt-2"> </i></span>
 										</button>
-										<button title="Misura Distanza" id="toggleRighello" class="btn left-label btn-info btn-lable-wrap" onclick="righello()">
+										<button title="Misura Distanza" id="toggleRighello" class="btn left-label btn-info btn-lable-wrap all-btn" onclick="righello()">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 2px;" class="fa fa-sort-numeric-asc"> </i></span>
 										</button>
-										<button title="Screenshot" class="btn left-label btn-info btn-lable-wrap">
+										<button title="Screenshot" id="screenshot" class="btn left-label btn-info btn-lable-wrap all-btn" onclick="screenShot()">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 2px; font-size: 15px;" class="fa fa-camera"> </i></span>
 										</button>
-										<button title="Segnalazione guasti e Disservizi" class="btn left-label btn-info btn-lable-wrap">
+										<button title="Segnalazione guasti e Disservizi" class="btn left-label btn-info btn-lable-wrap all-btn">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 2px; font-size: 15px;" class="fa fa-flag"> </i></span>
 										</button>
+									</div>
+									<div class="pull-right">
+										<h2><span class="badge badge-info" id="infoMappa"></span></h2>
 									</div>
 									<div class="clearfix"></div>
 								</div>
 								<div class="panel-wrapper collapse in">
 									<div class="panel-body">
 										<div id="map" style="height:750px; width: 100%"></div>
+										<div id="imgMap"></div>
 									</div>
 								</div>
 
@@ -655,9 +659,12 @@
 
 		<!-- Treeview -->
 		<script src="dist/js/hummingbird-treeview.js"></script>
+
+		<script type="text/javascript" src="vendors/html2canvas/html2canvas.min.js"></script>
 		
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNjVGwuoILK_f4HhnF--PvuYDmtN6L4-k&libraries=geometry"></script>
 		<script type="text/javascript" src="dist/js/maps-api.js"></script>
+		
 		
 		<script type="text/javascript">
 			$(document).ready(function()
@@ -671,9 +678,13 @@
 				  //$('#primo-lay').hide();
 				});	
 
+				
+
 				map = new google.maps.Map(document.getElementById('map'), {
 				  center: {lat: 39.081563, lng: 17.135190},
-				  zoom: 16
+				  zoom: 16,
+				  zoomControl: false,
+				  scaleControl: false
 				});
 
 				$("#treeview").hummingbird();

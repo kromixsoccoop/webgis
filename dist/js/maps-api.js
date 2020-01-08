@@ -7,12 +7,12 @@ function Label(opt_options) {
 	var span = this.span_ = document.createElement('span');
 	span.style.cssText = 'position: relative; left: 0%; top: -8px; ' +
 			  'white-space: nowrap; border: 0px; font-family:arial; font-weight:bold;' +
-			  'padding: 2px; background-color: #ddd; '+
-				'opacity: .75; '+
-				'filter: alpha(opacity=75); '+
-				'-ms-filter: "alpha(opacity=75)"; '+
-				'-khtml-opacity: .75; '+
-				'-moz-opacity: .75;';
+			  'padding: 2px; background-color: #000000; color: #FFFFFF; '+
+				'opacity: .99; '+
+				'filter: alpha(opacity=99); '+
+				'-ms-filter: "alpha(opacity=99)"; '+
+				'-khtml-opacity: .99; '+
+				'-moz-opacity: .99;';
 
 	var div = this.div_ = document.createElement('div');
 	div.appendChild(span);
@@ -157,7 +157,9 @@ function righello()
 	listaMarker = Array();
 	listaLabel = Array();
 	
-	$('button#toggleRighello').html("NASCONDI RIGHELLO");
+	//$('button#toggleRighello').html("NASCONDI RIGHELLO");
+	$('button#toggleRighello').addClass("btn-warning");
+	$('button.all-btn').not("#toggleRighello").not("#screenshot").prop("disabled", true);
 	$('button#toggleRighello').attr("onclick", "togliRighello()");
 	
 	lineaRighello = new google.maps.Polyline({
@@ -194,6 +196,7 @@ function righello()
 		{
 			var distanzaTotale = 0.00;
 			
+			
 			lineaRighello.setMap(null);
 			
 			listaPosizioniMarker = Array();
@@ -201,16 +204,21 @@ function righello()
 			
 			for(i=1;i<listaMarker.length;i++)
 			{
+				
 				distanzaTotale += distanzaPunti(listaMarker[(i-1)], listaMarker[i]);
 				listaPosizioniMarker.push(listaMarker[i].position);
 				
 			}
+
+			var distanzaParziale = 0.00;
+			distanzaParziale = distanzaPunti(listaMarker[(listaMarker.length-1)], listaMarker[(listaMarker.length-2)]);
 			
 			lineaRighello.setPath(listaPosizioniMarker);
 			
 			//alert(distanzaTotale);
 			
-			label_punto.set('text',formatDistance(distanzaTotale));
+			label_punto.set('text',formatDistance(distanzaParziale));
+			$('span#infoMappa').html("DISTANZA TOT. RIGHELLO: " + formatDistance(distanzaTotale));
 			
 			
 			lineaRighello.setMap(map);
@@ -260,8 +268,10 @@ function togliRighello()
 	listaPosizioniMarker = Array();
 	
 	ilRighello = false;
-	$('button#toggleRighello').html("RIGHELLO");
+	$('button#toggleRighello').removeClass("btn-warning");
+	$('button.all-btn').prop("disabled", false);
 	$('button#toggleRighello').attr("onclick", "righello()");
+	$('span#infoMappa').html("");
 }
 
 var lArea = false;
@@ -271,6 +281,8 @@ var lineaPoligono;
 var labelArea;
 var puntoLabel;
 
+var disegno;
+
 function mostraArea()
 {
 	var centro = { lat: 0, lng: 0 }
@@ -278,7 +290,8 @@ function mostraArea()
 	listaMarkerArea = Array();
 	var distanza = 0.00;
 	
-	$('button#toggleArea').html("NASCONDI AREA");
+	$('button#toggleArea').addClass("btn-warning");
+	$('button.all-btn').not("#toggleArea").not("#screenshot").prop("disabled", true);
 	$('button#toggleArea').attr("onclick", "togliArea()");
 	
 	lineaPoligono = new google.maps.Polygon({
@@ -359,6 +372,7 @@ function mostraArea()
 			distanza = google.maps.geometry.spherical.computeArea( listaPosizioniMarkerArea );
 			
 			labelArea.set('text',formatDistance(distanza));
+			$('span#infoMappa').html("AREA TOTALE MISURATA: " + formatDistance(distanza));
 			
 			
 			//labelArea.setMap(null);
@@ -403,6 +417,78 @@ function togliArea()
 	listaPosizioniMarkerArea = Array();
 	
 	lArea = false;
-	$('button#toggleArea').html("AREA");
+	$('button#toggleArea').removeClass("btn-warning");
+	$('button.all-btn').prop("disabled", false);
 	$('button#toggleArea').attr("onclick", "mostraArea()");
+	$('span#infoMappa').html("");
+}
+
+/* scala */
+/*
+20 : 1128.497220
+19 : 2256.994440
+18 : 4513.988880
+17 : 9027.977761
+16 : 18055.955520
+15 : 36111.911040
+14 : 72223.822090
+13 : 144447.644200
+12 : 288895.288400
+11 : 577790.576700
+10 : 1155581.153000
+9  : 2311162.307000
+8  : 4622324.614000
+7  : 9244649.227000
+6  : 18489298.450000
+5  : 36978596.910000
+4  : 73957193.820000
+3  : 147914387.600000
+2  : 295828775.300000
+1  : 591657550.500000
+*/
+
+function zoomIn()
+{
+	var zoom = map.getZoom();
+
+	if(zoom < 20)
+	{
+		zoom++;
+		map.setZoom(zoom);
+	}
+}
+
+function zoomOut()
+{
+	var zoom = map.getZoom();
+
+	if(zoom > 0)
+	{
+		zoom--;
+		map.setZoom(zoom);
+	}
+}
+
+function screenShot()
+{
+	$('#imgMap').html("");
+	disegno = null;
+
+	disegno = html2canvas(document.getElementById('map').getElementsByTagName( 'div' )[0].getElementsByClassName( 'gm-style' )[0], {
+		allowTaint: true,
+		backgroundColor: null,
+		foreignObjectRendering: false,
+		height: 750,
+		logging: false
+	}).then(function(canvas) {
+		$('#imgMap').html(canvas);
+
+		
+		/*var image = canvas.toDataURL("image/png");
+
+    	return image.replace(/^data:image\/(png|jpg);base64,/, "");*/
+		
+
+	});
+
 }
