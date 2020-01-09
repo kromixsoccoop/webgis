@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<title>Hound I Fast build Admin dashboard for any platform</title>
+		<title>Arkigis</title>
 		<meta name="description" content="Hound is a Dashboard & Admin Site Responsive Template by hencework." />
 		<meta name="keywords" content="admin, admin dashboard, admin template, cms, crm, Hound Admin, Houndadmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application" />
 		<meta name="author" content="hencework"/>
@@ -14,6 +14,8 @@
 		
 		<!-- vector map CSS -->
 		<link href="vendors/bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<!-- Bootstrap Dropify CSS -->
+		<link href="vendors/bower_components/dropify/dist/css/dropify.min.css" rel="stylesheet" type="text/css"/>
 		
 		<!-- Custom CSS -->
 		<link href="dist/css/style.css" rel="stylesheet" type="text/css">
@@ -135,14 +137,15 @@
 					<!-- Title -->
 					<div class="row heading-bg">
 						<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-							<h5 class="txt-dark">Progetti</h5>
+							<h5 class="txt-dark">Nuovo Progetto</h5>
 						</div>
 					
 						<!-- Breadcrumb -->
 						<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
 							<ol class="breadcrumb">
 								<li><a href="index.html">Dashboard</a></li>
-								<li class="active"><span>Progetti</span></li>
+								<li><a href="#"><span>Progetti</span></a></li>
+								<li class="active"><span>Nuovo Progetto</span></li>
 							</ol>
 						</div>
 						<!-- /Breadcrumb -->
@@ -153,96 +156,174 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="panel panel-default card-view">
-								<div class="panel-heading">
-									<div class="pull-left">
-										<h6 class="panel-title txt-dark">Cerca un Progetto</h6>
-									</div>
-									<div class="pull-right">
-										<a href="addProgetto.php" class="btn btn-sm btn-info">Nuovo Progetto</a>
-									</div>
-									<div class="clearfix"></div>
-								</div>
 								<div class="panel-wrapper collapse in">
 									<div class="panel-body">
-										<form action="" id="" method="get">
+										<form action="" id="" method="get" enctype="multipart/form-data">
 											<div class="row">
 												<div class="col-md-4">
 													<div class="form-group">
-														<label class="control-label mb-10 text-left">Nome Progetto</label>
-														<input type="text" class="form-control" name="" id="" value="">
+														<label class="control-label mb-10 text-left font-500" for="nome">Nome Progetto <sup>*</sup></label>
+														<input type="text" class="form-control" name="nome" id="nome" value="">
 													</div>
 												</div>
 												<div class="col-md-4">
 													<div class="form-group">
-														<label class="control-label mb-10 text-left">Data Progetto</label>
-														<input type="date" class="form-control" name="data" id="" value="">
+														<label class="control-label mb-10 text-left font-500" for="data">Data Progetto <sup>*</sup></label>
+														<input type="date" class="form-control" name="data" id="data" value="">
 													</div>
 												</div>
 												<div class="col-md-4">
 													<div class="form-group">
-														<button style="padding: 11px;" type="button" class="btn btn-sm btn-block mt-30 btn-success btn-anim"><i class="icon-rocket"></i><span class="btn-text">Cerca</span></button>
+														<label class="control-label mb-10 text-left font-500" for="layer">Layer <sup>*</sup></label>
+														<select class="form-control" name="layer" id="layer">
+															<option value="0"></option>
+															<option value="1">Catasto</option>
+															<option value="2">Irriguo</option>
+														</select>
 													</div>
 												</div>
 											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-group">
+														<label class="control-label mb-10 text-left font-500" for="descrizione">Descrizione <sup>*</sup></label>
+														<textarea rows="3" class="form-control" name="descrizione" id="descrizione"></textarea>
+													</div>
+												</div>
+											</div>
+											<br />
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-group">
+														<label style="font-weight: 500;" class="control-label mb-10 text-left">Carica file .kmz</label>
+														<input type="file" id="qgis" name="qgis" class="form-control dropify" data-max-file-size="2M" />
+													</div>
+												</div>
+											</div>
+											<br>
+											<div class="row">
+												<div class="col-md-12">
+													<p class="mb-10" style="color: #234151; font-weight: 500;">Lista file</p>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<div class="table-responsive">
+														<table class="table table-striped mb-0">
+															<thead class="bg-dark">
+																<tr>
+																	<th>Nome</th>
+																	<th class="text-nowrap"></th>
+															</tr>
+															</thead>
+															<tbody>
+																<tr class="txt-dark">
+																	<td>ddsahudishaidahbdahduai.kmz</td>
+																	<td class="text-nowrap text-right">
+																		<a href="#" data-toggle="tooltip" data-original-title="Elimina file .kmz"><i class="fa fa-close text-danger"></i> </a> 
+																	</td>
+																</tr>
+																<tr class="txt-dark">
+																	<td>ddsahudishaidahbdahduai.kmz</td>
+																	<td class="text-nowrap text-right">
+																		<a href="#" data-toggle="tooltip" data-original-title="Elimina file .kmz"><i class="fa fa-close text-danger"></i> </a> 
+																	</td>
+																</tr>
+																<tr class="txt-dark">
+																	<td>ddsahudishaidahbdahduai.kmz</td>
+																	<td class="text-nowrap text-right">
+																		<a href="#" data-toggle="tooltip" data-original-title="Elimina file .kmz"><i class="fa fa-close text-danger"></i> </a> 
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+											<hr />
+											<div class="row">
+												<div class="col-md-12">
+													<p class="mb-20" style="color: #234151; font-weight: 500;">Allega Foto</p>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-4">
+													<div class="form-group">
+														<label class="control-label mb-10 text-left font-500" for="titolo_foto">Titolo</label>
+														<input type="text" class="form-control" name="titolo_foto" id="titolo_foto" value="">
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="form-group">
+														<label class="control-label mb-10 text-left font-500" for="foto">Foto</label>
+														<input type="file" class="form-control" name="foto" id="foto" value="">
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="form-group">
+														<label class="control-label mb-10 text-left font-500" for="ordine_foto">Ordine</label>
+														<input type="number" class="form-control" name="ordine_foto" id="ordine_foto" value="">
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-4">
+													<div class="form-group">
+														<label class="control-label mb-10 text-left font-500" for="titolo_foto">Titolo</label>
+														<input type="text" class="form-control" name="titolo_foto" id="titolo_foto" value="">
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="form-group">
+														<label class="control-label mb-10 text-left font-500" for="foto">Foto</label>
+														<input type="file" class="form-control" name="foto" id="foto" value="">
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="form-group">
+														<label class="control-label mb-10 text-left font-500" for="ordine_foto">Ordine</label>
+														<input type="number" class="form-control" name="ordine_foto" id="ordine_foto" value="">
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-4">
+													<div class="form-group">
+														<label class="control-label mb-10 text-left font-500" for="titolo_foto">Titolo</label>
+														<input type="text" class="form-control" name="titolo_foto" id="titolo_foto" value="">
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="form-group">
+														<label class="control-label mb-10 text-left font-500" for="foto">Foto</label>
+														<input type="file" class="form-control" name="foto" id="foto" value="">
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="form-group">
+														<label class="control-label mb-10 text-left font-500" for="ordine_foto">Ordine</label>
+														<input type="number" class="form-control" name="ordine_foto" id="ordine_foto" value="">
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<p class="text-center"><a class="btn btn-sm btn-info">Aggiungi Foto</a></p>
+												</div>
+											</div>
+											<hr />
+											<div class="row">
+												<div class="col-md-12">
+													<div class="pull-left">
+														<a href="progetti.php" class="btn btn-sm btn-danger">Indietro</a>
+													</div>
+													<div class="pull-right">
+														<a href="#" class="btn btn-sm btn-success">Salva</a>
+													</div>
+												</div>
+											</div>
+											
 										</form>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="row">
-						<div class="col-md-12">
-							<div class="panel panel-default card-view">
-								<div class="panel-heading">
-									<div class="pull-left">
-										<h6 class="panel-title txt-dark">Lista Progetti</h6>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-								<div class="panel-wrapper collapse in">
-									<div class="panel-body">
-										<div class="table-responsive">
-											<table class="table table-striped mb-0">
-												<thead class="bg-dark">
-													<tr>
-														<th>Progetto</th>
-														<th>Descrizione</th>
-														<th>Data Progetto</th>
-														<th class="text-nowrap"></th>
-												</tr>
-												</thead>
-												<tbody>
-													<tr class="txt-dark">
-														<td>Progetto 1</td>
-														<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
-														<td>09/12/2019</td>
-														<td class="text-nowrap">
-															<a href="#" class="mr-25 text-warning" data-toggle="tooltip" data-original-title="Modifica progetto"><i class="fa fa-pencil m-r-10"></i></a> 
-															<a href="#" class="text-danger" data-toggle="tooltip" data-original-title="Elimina progetto"><i class="fa fa-close"></i> </a> 
-														</td>
-													</tr>
-													<tr class="txt-dark">
-														<td>Progetto 1</td>
-														<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
-														<td>09/12/2019</td>
-														<td class="text-nowrap">
-															<a href="#" class="mr-25 text-warning" data-toggle="tooltip" data-original-title="Modifica progetto"><i class="fa fa-pencil m-r-10"></i></a> 
-															<a href="#" class="text-danger" data-toggle="tooltip" data-original-title="Elimina progetto"><i class="fa fa-close"></i> </a> 
-														</td>
-													</tr>
-													<tr class="txt-dark">
-														<td>Progetto 1</td>
-														<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
-														<td>09/12/2019</td>
-														<td class="text-nowrap">
-															<a href="#" class="mr-25 text-warning" data-toggle="tooltip" data-original-title="Modifica progetto"><i class="fa fa-pencil m-r-10"></i></a> 
-															<a href="#" class="text-danger" data-toggle="tooltip" data-original-title="Elimina progetto"><i class="fa fa-close"></i> </a> 
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -275,6 +356,12 @@
 		<!-- Bootstrap Core JavaScript -->
 		<script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script src="vendors/bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
+		
+		<!-- Bootstrap Daterangepicker JavaScript -->
+		<script src="vendors/bower_components/dropify/dist/js/dropify.min.js"></script>
+		
+		<!-- Form Flie Upload Data JavaScript -->
+		<script src="dist/js/form-file-upload-data.js"></script>
 		
 		<!-- Slimscroll JavaScript -->
 		<script src="dist/js/jquery.slimscroll.js"></script>
