@@ -1,3 +1,7 @@
+<?php
+
+	include 'include/functions.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -149,11 +153,11 @@
 										<div class="row">
 											<div class="col-md-6">
 												<!--<a href="#"><div class="map1">&nbsp;</div></a>-->
-												<div class="map1">&nbsp;</div>
+												<div class="map1" onclick="satellite()" style="cursor: pointer">&nbsp;</div>
 											</div>
 											<div class="col-md-6">
 												<!--<a href="#"><div class="map2">&nbsp;</div></a>-->
-												<div class="map2">&nbsp;</div>
+												<div class="map2" onclick="roadmap()" style="cursor: pointer">&nbsp;</div>
 											</div>
 										</div>
 									</div>
@@ -454,7 +458,7 @@
 										<button title="Screenshot" id="screenshot" class="btn left-label btn-info btn-lable-wrap all-btn" onclick="screenShot()">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 2px; font-size: 15px;" class="fa fa-camera"> </i></span>
 										</button>
-										<button title="Segnalazione guasti e Disservizi" class="btn left-label btn-info btn-lable-wrap all-btn">
+										<button data-toggle="modal" data-target="#guasti" title="Segnalazione guasti e Disservizi" class="btn left-label btn-info btn-lable-wrap all-btn">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 2px; font-size: 15px;" class="fa fa-flag"> </i></span>
 										</button>
 									</div>
@@ -473,23 +477,26 @@
 								<div class="row">
 									<div class="col-md-2">
 										<div class="form-group mt-30 mb-30">
-											<select class="form-control">
-												<option>1:3355689</option>
-												<option>1:3355689</option>
-												<option>1:3355689</option>
-												<option>1:3355689</option>
-												<option>1:3355689</option>
+											<select class="form-control" id="scalaMap" onchange="cambiaZoom(this.options[this.selectedIndex].value)">
+												<option value="0">Full MAP</option>
+												<?php
+													for($i=1;$i<23;$i++)
+													{
+												?>
+												<option value="<?=$i?>">Zoom <?=$i?> | Scala 1:<?=getScala($i)?></option>
+												<?php
+													}
+												?>
+												
 											</select>
 										</div>
 									</div>
 									
 									<div class="col-md-4">
-										<button style="padding: 10px;" class="btn left-label btn-info btn-lable-wrap mt-30"><i class="fa fa-arrows-h"></i> &nbsp;&nbsp;123584564897,221513</button>
-										<button style="padding: 10px;" class="btn left-label btn-info btn-lable-wrap mt-30"><i class="fa fa-arrows-v"></i> &nbsp;&nbsp;123584564897,221513</button>
+										<button style="padding: 10px;" class="btn left-label btn-info btn-lable-wrap mt-30"><i class="fa fa-arrows-h"></i> &nbsp;&nbsp;<span id="currentLat"></span></button>
+										<button style="padding: 10px;" class="btn left-label btn-info btn-lable-wrap mt-30"><i class="fa fa-arrows-v"></i> &nbsp;&nbsp;<span id="currentLng"></span></button>
 									</div>
-									<div class="col-md-6">
-										<button style="padding: 10px;" class="btn left-label btn-info btn-lable-wrap mt-30 pull-right">5 km</button>
-									</div>
+									
 								</div>
 							</div>
 						</div>
@@ -683,12 +690,36 @@
 				map = new google.maps.Map(document.getElementById('map'), {
 				  center: {lat: 39.081563, lng: 17.135190},
 				  zoom: 16,
+				  disableDefaultUI: true,
 				  zoomControl: false,
-				  scaleControl: false
+				  panControl: false,
+				  fullscreenControl: true,
+				  scaleControl: false,
+				  streetViewControl: true,
+				  mapTypeId: google.maps.MapTypeId.ROADMAP
 				});
 
 				$("#treeview").hummingbird();
 
+				
+
+			});
+
+			$(function()
+			{
+				setTimeout(
+					function() 
+					{
+						map.setOptions({streetViewControl: true});
+
+						google.maps.event.addListener(map, 'mousemove', function (event) {
+							displayCoordinates(event.latLng);               
+						});
+
+						$('#scalaMap').val(map.getZoom());
+					}
+				, 1000);
+				
 			});
 		</script>
 		

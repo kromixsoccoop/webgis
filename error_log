@@ -1,0 +1,4 @@
+[09-Jan-2020 12:10:43 Europe/Rome] PHP Fatal error:  Uncaught Error: Call to undefined function getScala() in D:\Server Locale\Progetti\webgis\google-map.php:482
+Stack trace:
+#0 {main}
+  thrown in D:\Server Locale\Progetti\webgis\google-map.php on line 482

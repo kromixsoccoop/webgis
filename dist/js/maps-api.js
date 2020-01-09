@@ -447,15 +447,34 @@ function togliArea()
 1  : 591657550.500000
 */
 
+function getScala(zoom)
+{
+	var ratio = 591657550.500000;
+
+	for(i=1; i<zoom; i++)
+	{
+		ratio = ratio / 2;
+	}
+
+	return ratio.round(2);
+}
+
 function zoomIn()
 {
 	var zoom = map.getZoom();
 
-	if(zoom < 20)
+	if(zoom < 22)
 	{
 		zoom++;
 		map.setZoom(zoom);
 	}
+}
+
+function cambiaZoom(zoom)
+{
+	var zooma = parseInt(zoom);
+
+	map.setZoom(zooma);
 }
 
 function zoomOut()
@@ -491,4 +510,29 @@ function screenShot()
 
 	});
 
+}
+
+
+
+function displayCoordinates(pnt) {
+
+	var lat = pnt.lat();
+	lat = lat.toFixed(4);
+	var lng = pnt.lng();
+	lng = lng.toFixed(4);
+	$('span#currentLat').html(lat);
+	$('span#currentLng').html(lng);
+	//console.log("Latitude: " + lat + "  Longitude: " + lng);
+}
+
+
+function roadmap()
+{
+	map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+	
+}
+
+function satellite()
+{
+	map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
 }
