@@ -658,8 +658,7 @@
 		<script src="dist/js/init.js"></script>
 
 		<!-- Google Map JavaScript -->
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxXt2P7-U38bK0xEFIT-ebZJ1ngK8wjww"></script>
-		<script src="dist/js/gmap-data.js"></script>
+		
 
 		<!-- Tabs -->
 		<script src="dist/js/custom.js"></script>
@@ -669,7 +668,7 @@
 
 		<script type="text/javascript" src="vendors/html2canvas/html2canvas.min.js"></script>
 		
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNjVGwuoILK_f4HhnF--PvuYDmtN6L4-k&libraries=geometry"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7jca5iL-nLyladEfsgi82vLv1Sb3VJlU&libraries=geometry"></script>
 		<script type="text/javascript" src="dist/js/maps-api.js"></script>
 		
 		
