@@ -452,6 +452,12 @@
 		<!-- Form Flie Upload Data JavaScript -->
 		<script src="dist/js/form-file-upload-data.js"></script>
 		
+		<!-- Treeview JavaScript -->
+		<script src="vendors/bower_components/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
+
+		<!-- Treeview Init JavaScript -->
+		<script src="dist/js/treeview-data.js"></script>
+		
 		<!-- Slimscroll JavaScript -->
 		<script src="dist/js/jquery.slimscroll.js"></script>
 	
