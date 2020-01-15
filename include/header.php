@@ -22,10 +22,7 @@
 	<div id="mobile_only_nav" class="mobile-only-nav pull-right">
 		<ul class="nav navbar-right top-nav pull-right">
 			<li>
-				<a id="open_right_sidebar" href="#">Cambia Mappa</a>
-			</li>
-			<li class="dropdown app-drp">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="zmdi zmdi-settings top-nav-icon"></i></a>							
+				<a id="open_right_sidebar" href="#">Benvenuto <strong>Nome Utente</strong></a>
 			</li>
 		</ul>
 	</div>	

@@ -2230,13 +2230,14 @@ button.fc-agendaWeek-button, .fc-prev-button, .fc-next-button, .fc-today-button 
 
 /* Admin Basic */
 .fixed-sidebar-left {
+  background: #4E6877;
   position: fixed;
-  top: 66px;
+  top: 0px;
   left: 0;
   width: 300px;
   margin-left: 0;
   bottom: 0;
-  z-index: 101;
+  z-index: 9999;
   border-right: 1px solid rgba(33, 33, 33, 0.1);
   -webkit-transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
@@ -2325,7 +2326,7 @@ button.fc-agendaWeek-button, .fc-prev-button, .fc-next-button, .fc-today-button 
 a.toggle-left-nav-btn,
 a#toggle_mobile_nav,
 a#toggle_mobile_search {
-  color: #878787;
+  color: #fff;
   position: relative;
   line-height: 66px; }
   a.toggle-left-nav-btn i,
@@ -2575,7 +2576,7 @@ a#toggle_mobile_nav {
   display: block; }
 
 .wrapper {
-  background: #212121; }
+  background: #234151; }
   .wrapper.no-transition .fixed-sidebar-left, .wrapper.no-transition .page-wrapper {
     /*Only for Setting Panel*/
     -webkit-transition: all 0s ease;
@@ -2616,7 +2617,7 @@ a#toggle_mobile_nav {
     background: #fff; }
   .wrapper.theme-4-active .navbar.navbar-inverse,
   .wrapper.theme-4-active .navbar.navbar-inverse.navbar-fixed-top .mobile-only-brand {
-    background: #234151; }
+    background: #4E6877; }
   .wrapper.theme-4-active .fixed-sidebar-left .side-nav {
     background: #4E6877; }
   .wrapper.theme-5-active .navbar.navbar-inverse,
@@ -2990,7 +2991,7 @@ a#toggle_mobile_nav {
   .slide-nav-toggle .fixed-sidebar-left .collapse.in {
     display: none; }
   .slide-nav-toggle .fixed-sidebar-left:hover {
-    width: 225px; }
+    width: 300px; }
     .slide-nav-toggle .fixed-sidebar-left:hover .side-nav li.navigation-header > span {
       display: block; }
     .slide-nav-toggle .fixed-sidebar-left:hover .side-nav li.navigation-header > i {
@@ -3174,7 +3175,13 @@ footer {
     border: 1px solid rgba(255, 255, 255, 0.1); }
 
 .control-label {
-  color: #234151; }
+  color: #234151; 
+ 
+}
+
+.control-label-login {
+  color: #fff; 
+}
 
 .input-group-addon {
   background: transparent none repeat scroll 0 0;
@@ -6950,7 +6957,8 @@ ul.inbox-nav li a:hover, ul.inbox-nav li.active a, ul.inbox-nav li a:focus {
 
 /*Login Form*/
 .page-wrapper.auth-page {
-  background: #212121; }
+  background: url('../img/bg.jpg');
+}
 
 .sp-header {
   position: absolute;

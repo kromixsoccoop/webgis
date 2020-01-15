@@ -60,14 +60,14 @@
 					<!-- Title -->
 					<div class="row heading-bg">
 						<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-							<h5 class="txt-dark">Progetti</h5>
+							<h5 class="txt-dark">Lista Utenti</h5>
 						</div>
 					
 						<!-- Breadcrumb -->
 						<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
 							<ol class="breadcrumb">
 								<li><a href="index.html">Dashboard</a></li>
-								<li class="active"><span>Progetti</span></li>
+								<li class="active"><span>Lista Utenti</span></li>
 							</ol>
 						</div>
 						<!-- /Breadcrumb -->
@@ -80,10 +80,10 @@
 							<div class="panel panel-default card-view">
 								<div class="panel-heading">
 									<div class="pull-left">
-										<h6 class="panel-title txt-dark">Cerca un Progetto</h6>
+										<h6 class="panel-title txt-dark">Cerca un Utente</h6>
 									</div>
 									<div class="pull-right">
-										<a href="addProgetto.php" class="btn btn-sm btn-info">Nuovo Progetto</a>
+										<a href="addUtente.php" class="btn btn-sm btn-info">Nuovo Utente</a>
 									</div>
 									<div class="clearfix"></div>
 								</div>
@@ -93,14 +93,14 @@
 											<div class="row">
 												<div class="col-md-4">
 													<div class="form-group">
-														<label class="control-label mb-10 text-left">Nome Progetto</label>
-														<input type="text" class="form-control" name="" id="" value="">
+														<label class="control-label mb-10 text-left">Nome</label>
+														<input type="text" class="form-control" name="nome" id="nome" value="">
 													</div>
 												</div>
 												<div class="col-md-4">
 													<div class="form-group">
-														<label class="control-label mb-10 text-left">Data Progetto</label>
-														<input type="date" class="form-control" name="data" id="" value="">
+														<label class="control-label mb-10 text-left">Cognome</label>
+														<input type="text" class="form-control" name="cognome" id="cognome" value="">
 													</div>
 												</div>
 												<div class="col-md-4">
@@ -138,7 +138,7 @@
 							<div class="panel panel-default card-view">
 								<div class="panel-heading">
 									<div class="pull-left">
-										<h6 class="panel-title txt-dark">Lista Progetti</h6>
+										<h6 class="panel-title txt-dark">Lista Utenti</h6>
 									</div>
 									<div class="clearfix"></div>
 								</div>
@@ -148,9 +148,11 @@
 											<table class="table table-striped mb-0">
 												<thead class="bg-dark">
 													<tr>
-														<th>Progetto</th>
-														<th>Descrizione</th>
-														<th>Data Progetto</th>
+														<th>Nome</th>
+														<th>Cognome</th>
+														<th>Nome Utente</th>
+														<th>Livello</th>
+														<th>Data Creazione</th>
 														<th class="text-nowrap"></th>
 												</tr>
 												</thead>
@@ -162,14 +164,15 @@
 														{
 												?>
 													<tr class="txt-dark">
-														<td><?=dequotes($riga['nome_progetto'])?></td>
-														<td><?=dequotes($riga['descrizione'])?></td>
+														<td><?=dequotes($riga['nome'])?></td>
+														<td><?=dequotes($riga['cognome'])?></td>
+														<td><?=dequotes($riga['utente'])?></td>
+														<td><?=dequotes($riga['livello'])?></td>
+														<td><?=dequotes($riga['inserimento'])?></td>
 														<td><?=date("d/m/Y", strtotime($riga['data_progetto']))?></td>
 														<td class="text-nowrap">
-															<a href="google-map.php" class="mr-25 text-info" data-toggle="tooltip" data-original-title="Visualizza Mappa"><i class="fa fa-globe m-r-10"></i></a> 
-															<a href="addProgetto.php?act=addLayer&prj=<?=$riga['id']?>" class="mr-25 text-success" data-toggle="tooltip" data-original-title="Nuovo Layer"><i class="fa fa-plus m-r-10"></i></a> 
-															<a href="addProgetto.php?prj=<?=$riga['id']?>" class="mr-25 text-warning" data-toggle="tooltip" data-original-title="Modifica progetto"><i class="fa fa-pencil m-r-10"></i></a> 
-															<a href="javascript:;" onclick="delProgetto(<?=$riga['id']?>)" class="text-danger" data-toggle="tooltip" data-original-title="Elimina progetto"><i class="fa fa-close"></i> </a> 
+															<a href="#" class="mr-25 text-warning" data-toggle="tooltip" data-original-title="Modifica Utente"><i class="fa fa-pencil m-r-10"></i></a> 
+															<a href="#" class="text-danger" data-toggle="tooltip" data-original-title="Elimina Utente"><i class="fa fa-close"></i> </a> 
 														</td>
 													</tr>
 												<?php
@@ -179,7 +182,7 @@
 													{
 												?>
 													<tr class="txt-dark">
-														<td colspan="4">Nessun progetto trovato ...</td>
+														<td colspan="7">Nessun progetto trovato ...</td>
 													</tr>
 												<?php
 													}

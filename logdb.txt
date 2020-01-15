@@ -1,2 +1,4 @@
 14/01/2020 17:17:44 - Si è verificato un errore:  - Query: 
 14/01/2020 17:20:04 - Si è verificato un errore:  - Query: 
+15/01/2020 14:45:32 - Si è verificato un errore:  - Query: SELECT * FROM wg_progetti ORDER BY id DESC
+15/01/2020 14:48:01 - Si è verificato un errore:  - Query: SELECT * FROM wg_progetti ORDER BY id DESC

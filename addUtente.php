@@ -59,39 +59,6 @@
 			<!-- Left Sidebar Menu -->
 			<?php include 'include/menu.php'; ?>
 			<!-- /Left Sidebar Menu -->				
-			<?php
-										
-				if(empty($_GET['act']))
-				{
-
-					if(isset($_GET['prj']))
-					{
-						$prj = (int)$_GET['prj'];
-
-						// dati progetto
-
-						$s = $db->Query("SELECT * FROM wg_progetti WHERE id = '$prj'");
-
-						if($db->Found($s))
-						{
-							$f = $db->getObject($s);
-
-							$modifica = true;
-						}
-						else
-						{
-							$modifica = false;
-							
-						}
-
-
-					}
-					else
-					{
-						$modifica = false;
-					}
-					
-			?>
 					<!-- Main Content -->
 					<div class="page-wrapper">
 						<div class="container-fluid">
@@ -99,15 +66,15 @@
 							<!-- Title -->
 							<div class="row heading-bg">
 								<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-									<h5 class="txt-dark">Nuovo Progetto</h5>
+									<h5 class="txt-dark">Nuovo Utente</h5>
 								</div>
 							
 								<!-- Breadcrumb -->
 								<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
 									<ol class="breadcrumb">
 										<li><a href="index.html">Dashboard</a></li>
-										<li><a href="#"><span>Progetti</span></a></li>
-										<li class="active"><span>Nuovo Progetto</span></li>
+										<li><a href="#"><span>Lista Utenti</span></a></li>
+										<li class="active"><span>Nuovo Utente</span></li>
 									</ol>
 								</div>
 								<!-- /Breadcrumb -->
@@ -122,87 +89,67 @@
 											<div class="panel-body">
 												<form action="" id="" method="get" enctype="multipart/form-data">
 													<div class="row">
-														<div class="col-md-8">
+														<div class="col-md-4">
 															<div class="form-group">
-																<label class="control-label mb-10 text-left font-500" for="nome_progetto">Nome Progetto <sup>*</sup></label>
-																<input type="text" class="form-control" name="nome_progetto" id="nome_progetto" value="">
+																<label class="control-label mb-10 text-left font-500" for="nome">Nome <sup>*</sup></label>
+																<input type="text" class="form-control" name="nome" id="nome" value="">
 															</div>
 														</div>
 														<div class="col-md-4">
 															<div class="form-group">
-																<label class="control-label mb-10 text-left font-500" for="data_progetto">Data Progetto <sup>*</sup></label>
-																<input type="date" class="form-control" name="data_progetto" id="data_progetto" value="">
+																<label class="control-label mb-10 text-left font-500" for="data_progetto">Cognome <sup>*</sup></label>
+																<input type="text" class="form-control" name="cognome" id="cognome" value="">
 															</div>
 														</div>
-													</div>
-													<div class="row">
-														<div class="col-md-12">
+														<div class="col-md-4">
 															<div class="form-group">
-																<label class="control-label mb-10 text-left font-500" for="descrizione">Descrizione <sup>*</sup></label>
-																<textarea rows="3" class="form-control" name="descrizione" id="descrizione"></textarea>
+																<label class="control-label mb-10 text-left font-500" for="email">Email <sup>*</sup></label>
+																<input type="text" class="form-control" name="email" id="email" value="">
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-md-4">
+															<div class="form-group">
+																<label class="control-label mb-10 text-left font-500" for="user">Nome Utente <sup>*</sup></label>
+																<input type="text" class="form-control" name="user" id="user" value="">
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label class="control-label mb-10 text-left font-500" for="pass">Password <sup>*</sup></label>
+																<input type="password" class="form-control" name="pass" id="pass" value="">
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label class="control-label mb-10 text-left font-500" for="rip_pass">Ripeti Password <sup>*</sup></label>
+																<input type="password" class="form-control" name="rip_pass" id="rip_pass" value="">
 															</div>
 														</div>
 													</div>
 													<hr />
 													<div class="row">
-														<div class="col-md-12">
-															<p class="mb-20" style="color: #234151; font-weight: 500;">Allega Foto</p>
-														</div>
-													</div>
-													<div id="nuovefoto">
-														
-													</div>
-													<input type="hidden" name="nfoto" id="nfoto" value="0" />
-													<div class="row">
-														<div class="col-md-12">
-															<p class="text-center"><a class="btn btn-sm btn-info" onclick="addNewFoto()">Aggiungi Foto</a></p>
-														</div>
-													</div>
-													<br />
-													<br />
-													<div class="row">
-														<div class="col-md-12">
-															<div class="table-responsive">
-																<table class="table table-striped mb-0">
-																	<thead class="bg-dark">
-																		<tr>
-																			<th>Nome File</th>
-																			<th>Ordine</th>
-																			<th class="text-nowrap"></th>
-																	</tr>
-																	</thead>
-																	<tbody>
-																		<tr class="txt-dark">
-																			<td>ddsahudishaidahbdahduai.jpg</td>
-																			<td>1</td>
-																			<td class="text-nowrap text-right">
-																				<a href="#" data-toggle="tooltip" data-original-title="Elimina file"><i class="fa fa-close text-danger"></i> </a> 
-																			</td>
-																		</tr>
-																		<tr class="txt-dark">
-																			<td>ddsahudishaidahbdahduai.jpg</td>
-																			<td>2</td>
-																			<td class="text-nowrap text-right">
-																				<a href="#" data-toggle="tooltip" data-original-title="Elimina file"><i class="fa fa-close text-danger"></i> </a> 
-																			</td>
-																		</tr>
-																		<tr class="txt-dark">
-																			<td>ddsahudishaidahbdahduai.jpg</td>
-																			<td>3</td>
-																			<td class="text-nowrap text-right">
-																				<a href="#" data-toggle="tooltip" data-original-title="Elimina file"><i class="fa fa-close text-danger"></i> </a> 
-																			</td>
-																		</tr>
-																	</tbody>
-																</table>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label class="control-label mb-10 text-left font-500" for="livello">Livello <sup>*</sup></label>
+																<input type="text" class="form-control" name="livello" id="livello" value="">
 															</div>
 														</div>
-													</div>
-													<hr />
+														<div class="col-md-4">
+															<div class="form-group">
+																<label class="control-label mb-10 text-left font-500" for="attivo">Utente Attivo <sup>*</sup></label>
+																<select class="form-control" name="attivo" id="attivo">
+																	<option value="0">No</option>
+																	<option value="1">Si</option>
+																</select>
+															</div>
+														</div>
+													</div>													
 													<div class="row">
 														<div class="col-md-12">
 															<div class="pull-left">
-																<a href="progetti.php" class="btn btn-sm btn-danger">Indietro</a>
+																<a href="utenti.php" class="btn btn-sm btn-danger">Indietro</a>
 															</div>
 															<div class="pull-right">
 																<a href="#" class="btn btn-sm btn-success">Salva</a>
@@ -232,8 +179,7 @@
 					</div>
 					<!-- /Main Content -->
 			<?php
-				}
-				elseif($_GET['act'] == 'addLayer')
+				if($_GET['act'] == 'addLayer')
 				{
 			?>
 					<!-- Main Content -->
@@ -414,24 +360,5 @@
 		
 		<!-- Treeview -->
 		<script src="dist/js/hummingbird-treeview.js"></script>
-		
-		<script type="text/javascript">
-			$(document).ready(function()
-			{
-				
-				$("#treeview").hummingbird();
-			});
-
-			function addNewFoto()
-			{
-				var nfoto = parseInt($('input#nfoto').val());
-
-				nfoto += 1;
-
-				$('div#nuovefoto').append('<div class="row"><div class="col-md-4"><div class="form-group"><label class="control-label mb-10 text-left font-500" for="titolo_foto' + nfoto + '">Titolo</label><input type="text" class="form-control" name="titolo_foto' + nfoto + '" id="titolo_foto1" value=""></div></div><div class="col-md-4"><div class="form-group"><label class="control-label mb-10 text-left font-500" for="foto' + nfoto + '">Foto</label><input type="file" class="form-control" name="foto' + nfoto + '" id="foto' + nfoto + '" value=""></div></div><div class="col-md-4"><div class="form-group"><label class="control-label mb-10 text-left font-500" for="ordine_foto' + nfoto + '">Ordine</label><input type="number" class="form-control" name="ordine_foto' +  nfoto + '" id="ordine_foto' +  nfoto + '" value=""></div></div></div>');
-
-				$('input#nfoto').val(nfoto);
-			}
-		</script>
 	</body>
 </html>
