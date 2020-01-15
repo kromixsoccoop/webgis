@@ -1,3 +1,20 @@
+<?php session_start();
+	require_once("include/db.php");
+	require_once("include/functions.php");
+
+	/*if(!is_logged())
+	{
+		phpRedir("login.php");
+	}*/
+
+	/*if(!isLevel('admin'))
+	{
+		phpRedir("index.php");
+	}*/
+
+	
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -138,6 +155,35 @@
 										
 				if(empty($_GET['act']))
 				{
+
+					if(isset($_GET['prj']))
+					{
+						$prj = (int)$_GET['prj'];
+
+						// dati progetto
+
+						$s = $db->Query("SELECT * FROM wg_progetti WHERE id = '$prj'");
+
+						if($db->Found($s))
+						{
+							$f = $db->getObject($s);
+
+							$modifica = true;
+						}
+						else
+						{
+							$modifica = false;
+
+							
+						}
+
+
+					}
+					else
+					{
+						$modifica = false;
+					}
+					
 			?>
 					<!-- Main Content -->
 					<div class="page-wrapper">
@@ -171,14 +217,14 @@
 													<div class="row">
 														<div class="col-md-8">
 															<div class="form-group">
-																<label class="control-label mb-10 text-left font-500" for="nome">Nome Progetto <sup>*</sup></label>
-																<input type="text" class="form-control" name="nome" id="nome" value="">
+																<label class="control-label mb-10 text-left font-500" for="nome_progetto">Nome Progetto <sup>*</sup></label>
+																<input type="text" class="form-control" name="nome_progetto" id="nome_progetto" value="">
 															</div>
 														</div>
 														<div class="col-md-4">
 															<div class="form-group">
-																<label class="control-label mb-10 text-left font-500" for="data">Data Progetto <sup>*</sup></label>
-																<input type="date" class="form-control" name="data" id="data" value="">
+																<label class="control-label mb-10 text-left font-500" for="data_progetto">Data Progetto <sup>*</sup></label>
+																<input type="date" class="form-control" name="data_progetto" id="data_progetto" value="">
 															</div>
 														</div>
 													</div>
@@ -196,30 +242,13 @@
 															<p class="mb-20" style="color: #234151; font-weight: 500;">Allega Foto</p>
 														</div>
 													</div>
-													<div class="row">
-														<div class="col-md-4">
-															<div class="form-group">
-																<label class="control-label mb-10 text-left font-500" for="titolo_foto">Titolo</label>
-																<input type="text" class="form-control" name="titolo_foto" id="titolo_foto" value="">
-															</div>
-														</div>
-														<div class="col-md-4">
-															<div class="form-group">
-																<label class="control-label mb-10 text-left font-500" for="foto">Foto</label>
-																<input type="file" class="form-control" name="foto" id="foto" value="">
-															</div>
-														</div>
-														<div class="col-md-4">
-															<div class="form-group">
-																<label class="control-label mb-10 text-left font-500" for="ordine_foto">Ordine</label>
-																<input type="number" class="form-control" name="ordine_foto" id="ordine_foto" value="">
-															</div>
-														</div>
+													<div id="nuovefoto">
+														
 													</div>
-													
+													<input type="hidden" name="nfoto" id="nfoto" value="0" />
 													<div class="row">
 														<div class="col-md-12">
-															<p class="text-center"><a class="btn btn-sm btn-info">Aggiungi Foto</a></p>
+															<p class="text-center"><a class="btn btn-sm btn-info" onclick="addNewFoto()">Aggiungi Foto</a></p>
 														</div>
 													</div>
 													<br />
@@ -476,8 +505,20 @@
 		<script type="text/javascript">
 			$(document).ready(function()
 			{
+				
 				$("#treeview").hummingbird();
 			});
+
+			function addNewFoto()
+			{
+				var nfoto = parseInt($('input#nfoto').val());
+
+				nfoto += 1;
+
+				$('div#nuovefoto').append('<div class="row"><div class="col-md-4"><div class="form-group"><label class="control-label mb-10 text-left font-500" for="titolo_foto' + nfoto + '">Titolo</label><input type="text" class="form-control" name="titolo_foto' + nfoto + '" id="titolo_foto1" value=""></div></div><div class="col-md-4"><div class="form-group"><label class="control-label mb-10 text-left font-500" for="foto' + nfoto + '">Foto</label><input type="file" class="form-control" name="foto' + nfoto + '" id="foto' + nfoto + '" value=""></div></div><div class="col-md-4"><div class="form-group"><label class="control-label mb-10 text-left font-500" for="ordine_foto' + nfoto + '">Ordine</label><input type="number" class="form-control" name="ordine_foto' +  nfoto + '" id="ordine_foto' +  nfoto + '" value=""></div></div></div>');
+
+				$('input#nfoto').val(nfoto);
+			}
 		</script>
 	</body>
 </html>
