@@ -2,3 +2,30 @@
 Stack trace:
 #0 {main}
   thrown in D:\Server Locale\Progetti\webgis\google-map.php on line 482
+[14-Jan-2020 16:14:18 Europe/Rome] PHP Warning:  require_once(include/db.php): failed to open stream: No such file or directory in D:\Server Locale\Progetti\webgis\progetti.php on line 2
+[14-Jan-2020 16:14:18 Europe/Rome] PHP Stack trace:
+[14-Jan-2020 16:14:18 Europe/Rome] PHP   1. {main}() D:\Server Locale\Progetti\webgis\progetti.php:0
+[14-Jan-2020 16:14:18 Europe/Rome] PHP Fatal error:  require_once(): Failed opening required 'include/db.php' (include_path='.;C:\php\pear') in D:\Server Locale\Progetti\webgis\progetti.php on line 2
+[14-Jan-2020 16:14:18 Europe/Rome] PHP Stack trace:
+[14-Jan-2020 16:14:18 Europe/Rome] PHP   1. {main}() D:\Server Locale\Progetti\webgis\progetti.php:0
+[14-Jan-2020 17:17:44 Europe/Rome] PHP Notice:  Undefined index: s in D:\Server Locale\Progetti\webgis\progetti.php on line 151
+[14-Jan-2020 17:17:44 Europe/Rome] PHP Stack trace:
+[14-Jan-2020 17:17:44 Europe/Rome] PHP   1. {main}() D:\Server Locale\Progetti\webgis\progetti.php:0
+[14-Jan-2020 17:17:44 Europe/Rome] PHP Warning:  mysqli::query(): Empty query in D:\Server Locale\Progetti\webgis\include\SQLManager.class.php on line 246
+[14-Jan-2020 17:17:44 Europe/Rome] PHP Stack trace:
+[14-Jan-2020 17:17:44 Europe/Rome] PHP   1. {main}() D:\Server Locale\Progetti\webgis\progetti.php:0
+[14-Jan-2020 17:17:44 Europe/Rome] PHP   2. Paginazione->Paginazione() D:\Server Locale\Progetti\webgis\progetti.php:162
+[14-Jan-2020 17:17:44 Europe/Rome] PHP   3. SQLManager->Query() D:\Server Locale\Progetti\webgis\include\paginazione.inc.php:28
+[14-Jan-2020 17:17:44 Europe/Rome] PHP   4. mysqli->query() D:\Server Locale\Progetti\webgis\include\SQLManager.class.php:246
+[14-Jan-2020 17:20:04 Europe/Rome] PHP Notice:  Undefined index: s in D:\Server Locale\Progetti\webgis\progetti.php on line 151
+[14-Jan-2020 17:20:04 Europe/Rome] PHP Stack trace:
+[14-Jan-2020 17:20:04 Europe/Rome] PHP   1. {main}() D:\Server Locale\Progetti\webgis\progetti.php:0
+[14-Jan-2020 17:20:04 Europe/Rome] PHP Warning:  mysqli::query(): Empty query in D:\Server Locale\Progetti\webgis\include\SQLManager.class.php on line 246
+[14-Jan-2020 17:20:04 Europe/Rome] PHP Stack trace:
+[14-Jan-2020 17:20:04 Europe/Rome] PHP   1. {main}() D:\Server Locale\Progetti\webgis\progetti.php:0
+[14-Jan-2020 17:20:04 Europe/Rome] PHP   2. Paginazione->Paginazione() D:\Server Locale\Progetti\webgis\progetti.php:162
+[14-Jan-2020 17:20:04 Europe/Rome] PHP   3. SQLManager->Query() D:\Server Locale\Progetti\webgis\include\paginazione.inc.php:28
+[14-Jan-2020 17:20:04 Europe/Rome] PHP   4. mysqli->query() D:\Server Locale\Progetti\webgis\include\SQLManager.class.php:246
+[14-Jan-2020 17:20:45 Europe/Rome] PHP Notice:  Undefined index: s in D:\Server Locale\Progetti\webgis\progetti.php on line 151
+[14-Jan-2020 17:20:45 Europe/Rome] PHP Stack trace:
+[14-Jan-2020 17:20:45 Europe/Rome] PHP   1. {main}() D:\Server Locale\Progetti\webgis\progetti.php:0
