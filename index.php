@@ -1,3 +1,14 @@
+<?php session_start();
+	require_once("include/db.php");
+	require_once("include/functions.php");
+
+	if(!is_logged())
+	{
+		phpRedir("google-map.php");
+	}
+
+	
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

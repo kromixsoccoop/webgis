@@ -2,15 +2,15 @@
 	require_once("include/db.php");
 	require_once("include/functions.php");
 
-	/*if(!is_logged())
+	if(!is_logged())
 	{
 		phpRedir("login.php");
-	}*/
+	}
 
-	/*if(!isLevel('admin'))
+	if(!isLevel('admin'))
 	{
 		phpRedir("index.php");
-	}*/
+	}
 
 	
 ?>
@@ -161,7 +161,7 @@
 														foreach($record as $riga)
 														{
 												?>
-													<tr class="txt-dark">
+													<tr id="progetto_<?=$riga['id']?>" class="txt-dark">
 														<td><?=dequotes($riga['nome_progetto'])?></td>
 														<td><?=dequotes($riga['descrizione'])?></td>
 														<td><?=date("d/m/Y", strtotime($riga['data_progetto']))?></td>
@@ -235,5 +235,26 @@
 	
 		<!-- Init JavaScript -->
 		<script src="dist/js/init.js"></script>
+
+		<script type="text/javascript">
+			funtion delProgetto(id)
+			{
+				if(confirm("Sei sicuro di voler eliminare questa foto per il progetto?"))
+				{
+					$.post("ajax/_delProgetto.php", "id=" + id, function(dati)
+					{
+						if(dati == '1')
+						{
+							$('tr#progetto_' + id).remove();
+						}
+						else
+						{
+							error("Errore durante la cancellazione della foto...");
+						}
+					});
+				}
+			}
+		</script>
+
 	</body>
 </html>

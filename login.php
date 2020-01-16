@@ -1,3 +1,50 @@
+<?php session_start();
+	require_once("include/db.php");
+	require_once("include/functions.php");
+
+	if(is_logged())
+	{
+		phpRedir("index.php");
+	}
+
+	if(isset($_POST['login']))
+	{
+		$user = aquotes($_POST['user']);
+		$pass = md5($_POST['pass']);
+		$remember = ($_POST['remember']) ? true : false;
+
+		$s = $db->Query("SELECT id, user, pass, livello, nome, cognome FROM wg_utenti WHERE user = '$user' AND pass = '$pass' AND attivo = '1'");
+
+		if($db->Found($s))
+		{
+			$f = $db->getObject($s);
+
+			$_SESSION['usid'] = (int)$f->id;
+			$_SESSION['user'] = dequotes($f->user);
+			$_SESSION['fullname'] = dequotes($f->nome." ".$f->cognome);
+
+			if($remember)
+			{
+				setcookie("usid", (int)$f->id, ((((time() + 60) * 60) * 24) * 365));
+				setcookie("check", md5($f->id.$f->pass), ((((time() + 60) * 60) * 24) * 365));
+			}
+
+			$db->Query("UPDATE wg_utenti SET last_access = NOW() WHERE id = '".$f->id."'");
+
+			scrivi_reg("Login effettuato", "Login");
+
+			$_SESSION['success'] = "Login eseguito correttamente!";
+			phpRedir("index.php");
+		}
+		else
+		{
+			$_SESSION['error'] = "Dati di login errati";
+			error_reg("Login errato da ".$_SERVER['REMOTE_ADDR'], "Login");
+		}
+	}
+
+	
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -43,27 +90,28 @@
 											</h6>
 										</div>	
 										<div class="form-wrap">
-											<form action="#">
+											<form action="" method="post">
 												<div class="form-group">
-													<label class="control-label-login mb-10" for="exampleInputEmail_2">Nome Utente</label>
-													<input type="email" class="form-control" required="" id="exampleInputEmail_2" placeholder="">
+													<label class="control-label-login mb-10" for="user">Nome Utente</label>
+													<input type="text" tabindex="1" class="form-control" autofocus="autofocus" required="" id="user" name="user" placeholder="">
 												</div>
 												<div class="form-group">
-													<label class="pull-left control-label-login mb-10" for="exampleInputpwd_2">Password</label>
+													<label class="pull-left control-label-login mb-10" for="pass">Password</label>
 													<a class="capitalize-font txt-primary block mb-10 pull-right font-12" href="forgot-password.html">Password dimenticata?</a>
 													<div class="clearfix"></div>
-													<input type="password" class="form-control" required="" id="exampleInputpwd_2" placeholder="">
+													<input type="password" tabindex="2" class="form-control" required="" id="pass" name="pass" placeholder="">
 												</div>
 												
 												<div class="form-group">
 													<div class="checkbox checkbox-primary pr-10 pull-left">
-														<input id="checkbox_2" required="" type="checkbox">
-														<label for="checkbox_2"> Ricordami</label>
+														<input id="remember" tabindex="3" name="remember" type="checkbox">
+														<label for="remember"> Ricordami</label>
 													</div>
 													<div class="clearfix"></div>
 												</div>
 												<div class="form-group text-center">
-													<button type="submit" class="btn btn-info btn-sm btn-rounded">Login</button>
+													<input type="hidden" name="login" value="1" id="login">
+													<button type="submit" tabindex="4" class="btn btn-info btn-sm btn-rounded">Login</button>
 												</div>
 											</form>
 										</div>

@@ -3,5 +3,5 @@
 
     $db = new SQLManager(true, "", "logdb.txt", false);
 
-    $db->Open("localhost", "root", "root", "webgis");
+    $db->Open("localhost", "root", "test", "webgis");
 ?>

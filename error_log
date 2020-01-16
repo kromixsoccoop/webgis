@@ -29,3 +29,31 @@ Stack trace:
 [14-Jan-2020 17:20:45 Europe/Rome] PHP Notice:  Undefined index: s in D:\Server Locale\Progetti\webgis\progetti.php on line 151
 [14-Jan-2020 17:20:45 Europe/Rome] PHP Stack trace:
 [14-Jan-2020 17:20:45 Europe/Rome] PHP   1. {main}() D:\Server Locale\Progetti\webgis\progetti.php:0
+[16-Jan-2020 10:20:48 Europe/Rome] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) in D:\Server Locale\Progetti\webgis\include\SQLManager.class.php on line 106
+[16-Jan-2020 10:20:48 Europe/Rome] PHP Stack trace:
+[16-Jan-2020 10:20:48 Europe/Rome] PHP   1. {main}() D:\Server Locale\Progetti\webgis\progetti.php:0
+[16-Jan-2020 10:20:48 Europe/Rome] PHP   2. require_once() D:\Server Locale\Progetti\webgis\progetti.php:2
+[16-Jan-2020 10:20:48 Europe/Rome] PHP   3. SQLManager->Open() D:\Server Locale\Progetti\webgis\include\db.php:6
+[16-Jan-2020 10:20:48 Europe/Rome] PHP   4. mysqli->__construct() D:\Server Locale\Progetti\webgis\include\SQLManager.class.php:106
+[16-Jan-2020 10:20:48 Europe/Rome] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in D:\Server Locale\Progetti\webgis\include\SQLManager.class.php on line 246
+[16-Jan-2020 10:20:48 Europe/Rome] PHP Stack trace:
+[16-Jan-2020 10:20:48 Europe/Rome] PHP   1. {main}() D:\Server Locale\Progetti\webgis\progetti.php:0
+[16-Jan-2020 10:20:48 Europe/Rome] PHP   2. Paginazione->Paginazione() D:\Server Locale\Progetti\webgis\progetti.php:133
+[16-Jan-2020 10:20:48 Europe/Rome] PHP   3. SQLManager->Query() D:\Server Locale\Progetti\webgis\include\paginazione.inc.php:28
+[16-Jan-2020 10:20:48 Europe/Rome] PHP   4. mysqli->query() D:\Server Locale\Progetti\webgis\include\SQLManager.class.php:246
+[16-Jan-2020 10:20:48 Europe/Rome] PHP Warning:  SQLManager::getErr(): Couldn't fetch mysqli in D:\Server Locale\Progetti\webgis\include\SQLManager.class.php on line 192
+[16-Jan-2020 10:20:48 Europe/Rome] PHP Stack trace:
+[16-Jan-2020 10:20:48 Europe/Rome] PHP   1. {main}() D:\Server Locale\Progetti\webgis\progetti.php:0
+[16-Jan-2020 10:20:48 Europe/Rome] PHP   2. Paginazione->Paginazione() D:\Server Locale\Progetti\webgis\progetti.php:133
+[16-Jan-2020 10:20:48 Europe/Rome] PHP   3. SQLManager->Query() D:\Server Locale\Progetti\webgis\include\paginazione.inc.php:28
+[16-Jan-2020 10:20:48 Europe/Rome] PHP   4. SQLManager->getErr() D:\Server Locale\Progetti\webgis\include\SQLManager.class.php:246
+[16-Jan-2020 10:32:49 Europe/Rome] PHP Notice:  Undefined index: usid in D:\Server Locale\Progetti\webgis\include\functions.php on line 5
+[16-Jan-2020 10:32:49 Europe/Rome] PHP Stack trace:
+[16-Jan-2020 10:32:49 Europe/Rome] PHP   1. {main}() D:\Server Locale\Progetti\webgis\login.php:0
+[16-Jan-2020 10:32:49 Europe/Rome] PHP   2. is_logged() D:\Server Locale\Progetti\webgis\login.php:5
+[16-Jan-2020 11:05:28 Europe/Rome] PHP Notice:  Undefined index: remember in D:\Server Locale\Progetti\webgis\login.php on line 14
+[16-Jan-2020 11:05:28 Europe/Rome] PHP Stack trace:
+[16-Jan-2020 11:05:28 Europe/Rome] PHP   1. {main}() D:\Server Locale\Progetti\webgis\login.php:0
+[16-Jan-2020 11:08:38 Europe/Rome] PHP Notice:  Undefined index: remember in D:\Server Locale\Progetti\webgis\login.php on line 14
+[16-Jan-2020 11:08:38 Europe/Rome] PHP Stack trace:
+[16-Jan-2020 11:08:38 Europe/Rome] PHP   1. {main}() D:\Server Locale\Progetti\webgis\login.php:0

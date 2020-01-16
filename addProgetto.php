@@ -2,17 +2,120 @@
 	require_once("include/db.php");
 	require_once("include/functions.php");
 
-	/*if(!is_logged())
+	include 'include/upload.inc.php';
+
+
+	if(!is_logged())
 	{
 		phpRedir("login.php");
-	}*/
+	}
 
-	/*if(!isLevel('admin'))
+	if(!isLevel('admin'))
 	{
 		phpRedir("index.php");
-	}*/
+	}
 
 	
+	if(isset($_POST['sendProgetto']))
+	{
+
+
+		$nome_progetto = aquotes($_POST['nome_progetto']);
+		$data_progetto = aquotes($_POST['data_progetto']);
+		$descrizione = aquotes($_POST['descrizione']);
+
+		$nfoto = (int)$_POST['nfoto'];
+		
+		if(!empty($nome_progetto) && $data_progetto != '0000-00-00' && !empty($descrizione))
+		{
+			$s1 = $db->Query("INSERT INTO wg_progetti (nome_progetto, data_progetto, descrizione) VALUES ('$nome_progetto', '$data_progetto', '$descrizione')");
+
+			$id_progetto = $db->lastID();
+
+
+
+			for($i=1; $i<=$nfoto; $i++)
+			{
+				$titolo_foto = aquotes($_POST['titolo_foto'. $i]);
+				$nome_foto = aquotes($_FILES['foto'. $i]['name']);
+				$ordine_foto = aquotes($_POST['ordine_foto'. $i]);
+
+				if(!empty($nome_foto))
+				{
+					$foto = new Uploader('foto'. $i);
+					$foto->set_opt('controllo estensione', true);
+					$foto->set_opt('estensioni consentite', 'jpg, png, jpeg, JPG, JPEG, PNG');
+					$foto->set_opt('sovrascrittura', false);
+
+					if(!$foto->upload('dati/foto-progetti/'))
+					{
+						$_SESSION['warning'] = "Progetto modificato ma alcune foto presentano degli errori: $foto->getError()";
+					}
+					else
+					{
+						$s2 = $db->Query("INSERT INTO wg_progetti_foto (id_progetto, nome_foto, foto, ordine) VALUES ('$id_progetto', '$titolo_foto', '".$foto->getName()."', '$ordine_foto')");
+					}
+				}
+			}
+
+			$_SESSION['success'] = "Progetto modificato con successo!";
+			phpRedir("progetti.php");
+		}
+		else
+		{
+			$_SESSION['error'] = "Compilare tutti i campi obbligatori";
+		}
+	}
+
+	if(isset($_POST['modProgetto']))
+	{
+
+
+		$nome_progetto = aquotes($_POST['nome_progetto']);
+		$data_progetto = aquotes($_POST['data_progetto']);
+		$descrizione = aquotes($_POST['descrizione']);
+
+		$iddt = (int)$_POST['iddt'];
+		$nfoto = (int)$_POST['nfoto'];
+		
+		if(!empty($nome_progetto) && $data_progetto != '0000-00-00' && !empty($descrizione))
+		{
+			$s1 = $db->Query("UPDATE wg_progetti SET nome_progetto = '$nome_progetto', data_progetto = '$data_progetto', descrizione = '$descrizione' WHERE id = '$iddt'");
+
+			$id_progetto = $iddt;
+
+			for($i=1; $i<=$nfoto; $i++)
+			{
+				$titolo_foto = aquotes($_POST['titolo_foto'. $i]);
+				$nome_foto = aquotes($_FILES['foto'. $i]['name']);
+				$ordine_foto = aquotes($_POST['ordine_foto'. $i]);
+
+				if(!empty($nome_foto))
+				{
+					$foto = new Uploader('foto'. $i);
+					$foto->set_opt('controllo estensione', true);
+					$foto->set_opt('estensioni consentite', 'jpg, png, jpeg, JPG, JPEG, PNG');
+					$foto->set_opt('sovrascrittura', false);
+
+					if(!$foto->upload('dati/foto-progetti/'))
+					{
+						$_SESSION['warning'] = "Progetto caricato ma alcune foto presentano degli errori: $foto->getError()";
+					}
+					else
+					{
+						$s2 = $db->Query("INSERT INTO wg_progetti_foto (id_progetto, nome_foto, foto, ordine) VALUES ('$id_progetto', '$titolo_foto', '".$foto->getName()."', '$ordine_foto')");
+					}
+				}
+			}
+
+			$_SESSION['success'] = "Progetto caricato con successo!";
+			phpRedir("progetti.php");
+		}
+		else
+		{
+			$_SESSION['error'] = "Compilare tutti i campi obbligatori";
+		}
+	}
 ?>
 
 <!DOCTYPE html>
@@ -120,18 +223,18 @@
 									<div class="panel panel-default card-view">
 										<div class="panel-wrapper collapse in">
 											<div class="panel-body">
-												<form action="" id="" method="get" enctype="multipart/form-data">
+												<form action="" id="formProgetto" method="post" enctype="multipart/form-data">
 													<div class="row">
 														<div class="col-md-8">
 															<div class="form-group">
 																<label class="control-label mb-10 text-left font-500" for="nome_progetto">Nome Progetto <sup>*</sup></label>
-																<input type="text" class="form-control" name="nome_progetto" id="nome_progetto" value="">
+																<input type="text" class="form-control" name="nome_progetto" id="nome_progetto" value="<?=dequotes($f->nome_progetto)?>">
 															</div>
 														</div>
 														<div class="col-md-4">
 															<div class="form-group">
 																<label class="control-label mb-10 text-left font-500" for="data_progetto">Data Progetto <sup>*</sup></label>
-																<input type="date" class="form-control" name="data_progetto" id="data_progetto" value="">
+																<input type="date" class="form-control" name="data_progetto" id="data_progetto" value="<?=dequotes($f->data_progetto)?>">
 															</div>
 														</div>
 													</div>
@@ -139,7 +242,7 @@
 														<div class="col-md-12">
 															<div class="form-group">
 																<label class="control-label mb-10 text-left font-500" for="descrizione">Descrizione <sup>*</sup></label>
-																<textarea rows="3" class="form-control" name="descrizione" id="descrizione"></textarea>
+																<textarea rows="3" class="form-control" name="descrizione" id="descrizione"><?=dequotes($f->descrizione)?></textarea>
 															</div>
 														</div>
 													</div>
@@ -160,52 +263,81 @@
 													</div>
 													<br />
 													<br />
+													<?php
+													if($modifica)
+													{
+														$nf = $db->Query("SELECT * FROM wg_progetti_foto WHERE id_progetto = '$prj' ORDER BY ordine ASC");
+
+														if($db->Found($nf))
+														{
+													?>
 													<div class="row">
 														<div class="col-md-12">
 															<div class="table-responsive">
 																<table class="table table-striped mb-0">
 																	<thead class="bg-dark">
 																		<tr>
+																			<th>Titolo</th>
 																			<th>Nome File</th>
-																			<th>Ordine</th>
+																			<th width="20">Ordine</th>
 																			<th class="text-nowrap"></th>
 																	</tr>
 																	</thead>
 																	<tbody>
-																		<tr class="txt-dark">
-																			<td>ddsahudishaidahbdahduai.jpg</td>
-																			<td>1</td>
+																	<?php
+																		while($fnf = $db->getObject($nf))
+																		{
+																	?>
+																		<tr class="txt-dark" id="foto_<?=$fnf->id?>">
+																			<td><?=dequotes($fnf->nome_foto)?></td>
+																			<td><?=dequotes(basename($fnf->foto))?></td>
+																			<td><?=dequotes($fnf->ordine)?></td>
 																			<td class="text-nowrap text-right">
-																				<a href="#" data-toggle="tooltip" data-original-title="Elimina file"><i class="fa fa-close text-danger"></i> </a> 
+																				<a href="javascript:;" onclick="delFoto(<?=$fnf->id?>)" data-toggle="tooltip" data-original-title="Elimina file"><i class="fa fa-close text-danger"></i> </a> 
 																			</td>
 																		</tr>
-																		<tr class="txt-dark">
-																			<td>ddsahudishaidahbdahduai.jpg</td>
-																			<td>2</td>
-																			<td class="text-nowrap text-right">
-																				<a href="#" data-toggle="tooltip" data-original-title="Elimina file"><i class="fa fa-close text-danger"></i> </a> 
-																			</td>
-																		</tr>
-																		<tr class="txt-dark">
-																			<td>ddsahudishaidahbdahduai.jpg</td>
-																			<td>3</td>
-																			<td class="text-nowrap text-right">
-																				<a href="#" data-toggle="tooltip" data-original-title="Elimina file"><i class="fa fa-close text-danger"></i> </a> 
-																			</td>
-																		</tr>
+																	<?php
+																		}
+																	?>
+																		
 																	</tbody>
 																</table>
 															</div>
 														</div>
 													</div>
+													<script type="text/javascript">
+														function delFoto(id)
+														{
+															if(confirm("Sei sicuro di voler eliminare questa foto per il progetto?"))
+															{
+																$.post("ajax/_delFotoProgetto.php", "id=" + id, function(dati)
+																{
+																	if(dati == '1')
+																	{
+																		$('tr#foto_' + id).remove();
+																	}
+																	else
+																	{
+																		error("Errore durante la cancellazione della foto...");
+																	}
+																});
+															}
+														}
+													</script>
+													<?php
+														}
+													}
+													?>
 													<hr />
 													<div class="row">
 														<div class="col-md-12">
 															<div class="pull-left">
 																<a href="progetti.php" class="btn btn-sm btn-danger">Indietro</a>
 															</div>
+															<input type="hidden" name="iddt" id="iddt" value="<?=$prj?>">
 															<div class="pull-right">
-																<a href="#" class="btn btn-sm btn-success">Salva</a>
+																<input type="hidden" name="<?=($modifica) ? 'mod' : 'send'; ?>Progetto" id="<?=($modifica) ? 'mod' : 'send'; ?>Progetto" value="1" />
+																<a href="javascript:;" onclick="creaProgetto()" class="btn btn-sm btn-success">Salva</a>
 															</div>
 														</div>
 													</div>
@@ -431,6 +563,22 @@
 				$('div#nuovefoto').append('<div class="row"><div class="col-md-4"><div class="form-group"><label class="control-label mb-10 text-left font-500" for="titolo_foto' + nfoto + '">Titolo</label><input type="text" class="form-control" name="titolo_foto' + nfoto + '" id="titolo_foto1" value=""></div></div><div class="col-md-4"><div class="form-group"><label class="control-label mb-10 text-left font-500" for="foto' + nfoto + '">Foto</label><input type="file" class="form-control" name="foto' + nfoto + '" id="foto' + nfoto + '" value=""></div></div><div class="col-md-4"><div class="form-group"><label class="control-label mb-10 text-left font-500" for="ordine_foto' + nfoto + '">Ordine</label><input type="number" class="form-control" name="ordine_foto' +  nfoto + '" id="ordine_foto' +  nfoto + '" value=""></div></div></div>');
 
 				$('input#nfoto').val(nfoto);
+			}
+
+			function creaProgetto()
+			{
+				var nome_progetto = $('input#nome_progetto').val();
+				var data_progetto = $('input#data_progetto').val();
+				var descrizione = $('textarea#descrizione').val();
+
+				if(nome_progetto != '' && data_progetto != '' && data_progetto != '00/00/0000' && data_progetto != '0000-00-00' && descrizione != '')
+				{
+					$('form#formProgetto').submit();
+				}
+				else
+				{
+					alert("Compilare tutti i campi obbligatori ...");
+				}
 			}
 		</script>
 	</body>

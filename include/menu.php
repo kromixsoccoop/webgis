@@ -24,5 +24,8 @@
 				</li>
 			</ul>
 		</li>
+		<li>
+			<a href="index.php?act=out"><div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Logout</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
+		</li>
 	</ul>
 </div>

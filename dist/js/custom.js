@@ -464,3 +464,9 @@ function tabs(evt, name) {
     data: json
   });
 });
+
+function error(messaggio)
+{
+  // provvisorio
+  alert(messaggio);
+}
