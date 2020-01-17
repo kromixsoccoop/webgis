@@ -109,7 +109,7 @@
 					{
 						if(file_exists($destinazione.$file))
 						{
-							$cas = md5(rand(0,9999999999));
+							$cas = md5(rand(0, 9999999999));
 							
 							$nome = $this->dividi($file);
 							

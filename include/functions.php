@@ -125,5 +125,62 @@
             break;
         }
     }
+
+    function getLayersDown($madre = 0)
+    {
+        global $db;
+
+        $g = $db->Query("SELECT id, nome_layer FROM wg_progetti_layers WHERE id_madre = '$madre'");
+
+        $listaFigli = array();
+
+        while($fg = $db->getObject($g))
+        {
+            $listaFigli[] = array($fg->id, $fg->nome_layer);
+        }
+
+        return $listaFigli;
+    }
+
+    function treeviewLayers($madre = 0, $prj = 0)
+    {
+        global $db;
+
+        $g = $db->Query("SELECT id, nome_layer, attributi FROM wg_progetti_layers WHERE id_madre = '$madre'");
+
+        while($fg = $db->getObject($g))
+        {
+    ?>
+    
+        <ul>
+            <li> 
+                <i class="fa fa-angle-right txt-dark"></i>
+                <label style="color: #234151; width: 97%"><input id="xnode-0-1" data-id="custom-0-1" type="checkbox" /> <?=dequotes($fg->nome_layer)?> <a href="#" title="Elimina Layer" style="float: right;"><i class="fa fa-close txt-danger"></i></a><?php if(!empty($fg->attributi)): ?> <a href="addProgetto.php?act=modLayer&prj=<?=$prj?>&lyr=<?=$fg->id?>" title="Modifica template Layer" style="float: right;margin-right: 10px"><i class="fa fa-cog txt-primary"></i></a><?php endif; ?></label>
+                <?php
+                    treeviewLayers($fg->id, $prj);
+                ?>
+            </li>
+        </ul>
+    <?php
+        }
+
+    }
+
+    function selectLayers($madre, $livello = 1)
+    {
+        global $db;
+
+        $g = $db->Query("SELECT id, nome_layer FROM wg_progetti_layers WHERE id_madre = '$madre'");
+
+        while($fg = $db->getObject($g))
+        {
+        ?>
+        <option value="<?=$fg->id?>"><?=str_repeat("&nbsp;", $livello * 2)?>⎇ <?=dequotes($fg->nome_layer)?></option>
+        <?php
+            $livello++;
+
+            selectLayers($fg->id, $livello);
+        }
+    }
     
 ?>

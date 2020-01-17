@@ -150,6 +150,7 @@
 													<tr>
 														<th>Progetto</th>
 														<th>Descrizione</th>
+														
 														<th>Data Progetto</th>
 														<th class="text-nowrap"></th>
 												</tr>
@@ -164,6 +165,7 @@
 													<tr id="progetto_<?=$riga['id']?>" class="txt-dark">
 														<td><?=dequotes($riga['nome_progetto'])?></td>
 														<td><?=dequotes($riga['descrizione'])?></td>
+														
 														<td><?=date("d/m/Y", strtotime($riga['data_progetto']))?></td>
 														<td class="text-nowrap">
 															<a href="google-map.php" class="mr-25 text-info" data-toggle="tooltip" data-original-title="Visualizza Mappa"><i class="fa fa-globe m-r-10"></i></a> 

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="vasche" id="vasche">
+	<SimpleField name="id" type="int"></SimpleField>
+	<SimpleField name="Nome" type="string"></SimpleField>
+</Schema>
+<Folder><name>vasche</name>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#vasche">
+		<SimpleData name="Nome">Vasca SA5</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>17.013038191545348,38.938017984853147</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#vasche">
+		<SimpleData name="Nome">Vasca CU4</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>17.013155086732148,38.947833834306607</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#vasche">
+		<SimpleData name="Nome">Vasca SA6</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>17.0528300936883,38.944338697268435</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#vasche">
+		<SimpleData name="Nome">Vasca SA3</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>17.07973571767694,38.96280727921684</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#vasche">
+		<SimpleData name="Nome">Vasca Fondo Valle Tacina</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>16.88191235184113,39.067682455403016</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#vasche">
+		<SimpleData name="Nome">Vasca di Camporaso</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>16.81205377743575,39.102306360579959</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#vasche">
+		<SimpleData name="Nome">Vasca di Cerasara</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>16.803116055545342,39.132111951773418</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#vasche">
+		<SimpleData name="Nome">Vasca Condoleo</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>16.910412390084524,38.967209216859679</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#vasche">
+		<SimpleData name="Nome">Lago S.Anna</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>17.055557902157133,39.0051076692381</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#vasche">
+		<SimpleData name="Nome">Vasca SA1</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>17.097555276683796,39.040726233136937</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#vasche">
+		<SimpleData name="Nome">Vasca CU10</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>17.154674693373362,39.026669985547407</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#vasche">
+		<SimpleData name="Nome">Vasca CU8</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>17.120079204707128,38.974564596736577</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#vasche">
+		<SimpleData name="Nome">Vasca di Calusia</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>16.839474251838375,39.182260446928673</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#vasche">
+		<SimpleData name="Nome">Vasca di Palombella</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>16.955934093506638,38.96832565184679</coordinates></Point>
+  </Placemark>
+</Folder>
+</Document></kml>

@@ -25,10 +25,11 @@
 		$descrizione = aquotes($_POST['descrizione']);
 
 		$nfoto = (int)$_POST['nfoto'];
+		$visibilita = (int)$_POST['visibilita'];
 		
 		if(!empty($nome_progetto) && $data_progetto != '0000-00-00' && !empty($descrizione))
 		{
-			$s1 = $db->Query("INSERT INTO wg_progetti (nome_progetto, data_progetto, descrizione) VALUES ('$nome_progetto', '$data_progetto', '$descrizione')");
+			$s1 = $db->Query("INSERT INTO wg_progetti (nome_progetto, data_progetto, descrizione, visibilita) VALUES ('$nome_progetto', '$data_progetto', '$descrizione', '$visibilita')");
 
 			$id_progetto = $db->lastID();
 
@@ -77,10 +78,11 @@
 
 		$iddt = (int)$_POST['iddt'];
 		$nfoto = (int)$_POST['nfoto'];
+		$visibilita = (int)$_POST['visibilita'];
 		
 		if(!empty($nome_progetto) && $data_progetto != '0000-00-00' && !empty($descrizione))
 		{
-			$s1 = $db->Query("UPDATE wg_progetti SET nome_progetto = '$nome_progetto', data_progetto = '$data_progetto', descrizione = '$descrizione' WHERE id = '$iddt'");
+			$s1 = $db->Query("UPDATE wg_progetti SET nome_progetto = '$nome_progetto', data_progetto = '$data_progetto', descrizione = '$descrizione', visibilita = '$visibilita' WHERE id = '$iddt'");
 
 			$id_progetto = $iddt;
 
@@ -115,6 +117,222 @@
 		{
 			$_SESSION['error'] = "Compilare tutti i campi obbligatori";
 		}
+	}
+
+	if(isset($_POST['sendLayer']))
+	{
+		$nome_layer = aquotes($_POST['nome_layer']);
+		
+		$id_progetto = (int)$_POST['id_progetto'];
+		$id_madre = (int)$_POST['id_madre'];
+		$visibilita = (int)$_POST['visibilita'];
+		$ordine = (int)$_POST['ordine'];
+
+		$qgis = $_FILES['qgis']['name'];
+
+		$nomegis = '';
+
+		if(!empty($qgis))
+		{
+			$gis = new Uploader('qgis');
+			$gis->set_opt('controllo estensione', true);
+			$gis->set_opt('estensioni consentite', 'kml, KML');
+			$gis->set_opt('sovrascrittura', false);
+
+			if(!$gis->upload('dati/layers/'))
+			{
+				$_SESSION['warning'] = "Layer inserito ma il KML presenta degli errori: $gif->getError()";
+			}
+			else
+			{
+				$nomegis = $gis->getName();
+
+				// interpreto i dati GIS
+				$kml = simplexml_load_file("dati/layers/".$nomegis);
+
+				$folder = $kml->Document->Folder;
+
+				$elementiGIS = array();
+				$attributi = array();
+
+				// ogni poligono
+				foreach($folder->Placemark as $particella)
+				{
+					$schema = $particella->ExtendedData->SchemaData;
+
+					$infoparticella = array();
+
+					if(count($schema->SimpleData) > 0)
+					{
+
+						foreach($schema->SimpleData as $attributo)
+						{
+							$testuale = dequotes($attributo->asXML());
+
+							if(preg_match("#name=\"([^\"]+)\"#", $testuale, $q))
+							{
+								if(!in_array($q[1], $attributi))
+									$attributi[] = addslashes((string)$q[1]);
+
+									
+
+								$valattr = preg_match("#>([^<]+)<#", $testuale, $qat);
+
+								
+
+								$infoparticella['attributi'][addslashes($q[1])] = addslashes((string)$qat[1]);
+							}
+						}
+					}
+
+					
+					$poligono = $particella->Polygon;
+
+					if($poligono->outerBoundaryIs)
+					{
+
+						foreach($poligono->outerBoundaryIs as $bordo)
+						{
+							$scoordinate = $bordo->LinearRing->coordinates;
+							
+							$coordinate = explode(" ", $scoordinate);
+							
+							
+							$valco = array();
+							
+							foreach($coordinate as $coo)
+							{
+								$co2 = explode(",", $coo);
+								
+								$valco[] = array(trim((float)$co2[1]), trim((float)$co2[0]));
+							}
+							
+							$infoparticella['bordi'][] = $valco;
+						}
+
+						foreach($poligono->innerBoundaryIs as $bordo)
+						{
+							$scoordinate = $bordo->LinearRing->coordinates;
+							$coordinate = explode(" ", $scoordinate);
+							
+							
+							$valco = array();
+							
+							foreach($coordinate as $coo)
+							{
+								$co2 = explode(",", $coo); 
+								
+								$valco[] = array(trim((float)$co2[1]), trim((float)$co2[0]));
+							}
+							
+							$infoparticella['interno'][] = $valco;
+						}
+					}
+					
+
+
+					// linee
+					$lineePoligono = $particella;
+
+					if($lineePoligono->MultiGeometry)
+					{
+
+						foreach($lineePoligono->MultiGeometry as $bordo)
+						{
+							$scoordinate = $bordo->LineString->coordinates;
+							
+							$coordinate = explode(" ", $scoordinate);
+							
+							
+							$valco = array();
+							
+							foreach($coordinate as $coo)
+							{
+								$co2 = explode(",", $coo);
+								
+								$valco[] = array(trim((float)$co2[1]), trim((float)$co2[0]));
+							}
+							
+							$infoparticella['coo'][] = $valco;
+
+							
+						}
+						
+						foreach($lineePoligono->LineString as $bordo)
+						{
+							$scoordinate = $bordo->coordinates;
+							
+							$coordinate = explode(" ", $scoordinate);
+							
+							
+							$valco = array();
+							
+							foreach($coordinate as $coo)
+							{
+								$co2 = explode(",", $coo);
+								
+								$valco[] = array(trim((float)$co2[1]), trim((float)$co2[0]));
+							}
+							
+							$infoparticella['coo'][] = $valco;
+
+						}
+					}
+
+					if($lineePoligono->Point)
+					{
+
+						// punti
+						foreach($lineePoligono->Point as $bordo)
+						{
+							$scoordinate = $bordo->coordinates;
+							
+							$coordinate = explode(" ", $scoordinate);
+							
+							
+							$valco = array();
+							
+							foreach($coordinate as $coo)
+							{
+								$co2 = explode(",", $coo);
+								
+								$valco[] = array(trim((float)$co2[1]), trim((float)$co2[0]));
+							}
+							
+							$infoparticella['punti'][] = $valco;
+
+							
+						}
+					}
+
+					// aggiungo gli elementi del layer
+					$elementiGIS[] = $infoparticella;
+				}
+			}
+
+			$qgis = serialize($elementiGIS);
+			$attri = serialize($attributi);
+
+			$template = "<h3>Propriet&agrave;</h3>";
+
+			foreach($attributi as $proprieta)
+			{
+				$template .= "<p><strong>".stripslashes($proprieta).":</strong> {{".stripslashes($proprieta)."}}</p>";
+			}
+
+			$add = $db->Query("INSERT INTO wg_progetti_layers (id_progetto, id_madre, nome_layer, ordine, visibilita, attributi, template, boundaries) VALUES ('$id_progetto', '$id_madre', '$nome_layer', '$ordine', '$visibilita', '$attri', '$template', '$qgis')");
+		}
+		else
+		{
+			$add = $db->Query("INSERT INTO wg_progetti_layers (id_progetto, id_madre, nome_layer, ordine, visibilita, attributi, template, boundaries) VALUES ('$id_progetto', '$id_madre', '$nome_layer', '$ordine', '$visibilita', '', '', '')");
+
+		}
+
+		if($add)
+		{
+			phpRedir("addProgetto.php?act=addLayer&prj=".$id_progetto);
+		}
+
 	}
 ?>
 
@@ -225,16 +443,27 @@
 											<div class="panel-body">
 												<form action="" id="formProgetto" method="post" enctype="multipart/form-data">
 													<div class="row">
-														<div class="col-md-8">
+														<div class="col-md-6">
 															<div class="form-group">
 																<label class="control-label mb-10 text-left font-500" for="nome_progetto">Nome Progetto <sup>*</sup></label>
 																<input type="text" class="form-control" name="nome_progetto" id="nome_progetto" value="<?=dequotes($f->nome_progetto)?>">
 															</div>
 														</div>
-														<div class="col-md-4">
+														<div class="col-md-2">
 															<div class="form-group">
 																<label class="control-label mb-10 text-left font-500" for="data_progetto">Data Progetto <sup>*</sup></label>
 																<input type="date" class="form-control" name="data_progetto" id="data_progetto" value="<?=dequotes($f->data_progetto)?>">
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label class="control-label mb-10 text-left font-500" for="visibilita">Visibilit&agrave; Progetto <sup>*</sup></label>
+																<select class="form-control" name="visibilita" id="visibilita">
+																	<option <?=($f->visibilita == 0) ? 'selected="selected"' : ''; ?> value="0">Pubblico</option>
+																	<option <?=($f->visibilita == 1) ? 'selected="selected"' : ''; ?> value="1">Solo Admin</option>
+																	<option <?=($f->visibilita == 2) ? 'selected="selected"' : ''; ?> value="2">Tecnici e Admin</option>
+																	<option <?=($f->visibilita == 3) ? 'selected="selected"' : ''; ?> value="3">Consorziate, Tecnici e Admin</option>
+																</select>
 															</div>
 														</div>
 													</div>
@@ -367,6 +596,7 @@
 				}
 				elseif($_GET['act'] == 'addLayer')
 				{
+					$prj = (int)$_GET['prj'];
 			?>
 					<!-- Main Content -->
 					<div class="page-wrapper">
@@ -398,38 +628,35 @@
 										
 											<h5 class="txt-dark">Layer Caricati</h5>
 											<hr />
+											<?php
+												$g = $db->Query("SELECT id, nome_layer, attributi FROM wg_progetti_layers WHERE id_madre = '0'");
+
+												if($db->Found($g))
+												{
+
+												
+											?>
 											<ul id="treeview">
+												<?php
+													while($fg = $db->getObject($g))
+													{
+
+														
+												?>
 												<li> 
 													<i class="fa fa-angle-right txt-dark"></i>
-													<label style="color: #234151; width: 97%"><input id="xnode-0" data-id="custom-0" type="checkbox" /> Catasto <a href="#" title="Elimina Layer" style="float: right;"><i class="fa fa-close txt-danger"></i></a></label>
-													<ul>
-														<li> 
-															<i class="fa fa-angle-right txt-dark"></i>
-															<label style="color: #234151; width: 97%"><input id="xnode-0-1" data-id="custom-0-1" type="checkbox" /> Comune <a href="#" title="Elimina Layer" style="float: right;"><i class="fa fa-close txt-danger"></i></a></label>
-															<ul>
-																<li>
-																	<label style="color: #234151; width: 100%"><input class="hummingbirdNoParent" id="xnode-0-1-1" data-id="custom-0-1-1" type="checkbox" /> Foglio 20 <a href="#" title="Elimina Layer" style="float: right;"><i class="fa fa-close txt-danger"></i></a></label>
-																</li>
-																<li>
-																	<label style="color: #234151; width: 100%"><input class="hummingbirdNoParent" id="xnode-0-1-2" data-id="custom-0-1-2" type="checkbox" /> Particcella 1 <a href="#" title="Elimina Layer" style="float: right;"><i class="fa fa-close txt-danger"></i></a></label>
-																</li>
-															</ul>
-														</li>
-														<li> 
-															<i class="fa fa-angle-right txt-dark"></i>
-															<label style="color: #234151; width: 97%"><input id="xnode-0-2" data-id="custom-0-2" type="checkbox" />Irriguo <a href="#" title="Elimina Layer" style="float: right;"><i class="fa fa-close txt-danger"></i></a></label>
-															<ul>
-																<li>
-																	<label style="color: #234151; width: 100%"><input class="hummingbirdNoParent" id="xnode-0-2-1" data-id="custom-0-2-1" type="checkbox" /> Rete di Colo <a href="#" title="Elimina Layer" style="float: right;"><i class="fa fa-close txt-danger"></i></a></label>
-																</li>
-																<li>
-																	<label style="color: #234151; width: 100%"><input class="hummingbirdNoParent" id="xnode-0-2-2" data-id="custom-0-2-2" type="checkbox" /> Bocchette <a href="#" title="Elimina Layer" style="float: right;"><i class="fa fa-close txt-danger"></i></a></label>
-																</li>
-															</ul>
-														</li>
-													</ul>
+													<label style="color: #234151; width: 97%"><input id="xnode-0" data-id="custom-0" type="checkbox" /> <?=dequotes($fg->nome_layer)?> <a href="#" title="Elimina Layer" style="float: right;"><i class="fa fa-close txt-danger"></i></a><?php if(!empty($fg->attributi)): ?> <a href="addProgetto.php?act=modLayer&prj=<?=$prj?>&lyr=<?=$fg->id?>" title="Modifica template Layer" style="float: right;margin-right: 10px"><i class="fa fa-cog txt-primary"></i></a><?php endif; ?></label>
+													<?php
+														treeviewLayers($fg->id, $prj);
+													?>
 												</li>
+												<?php
+													}
+												?>
 											</ul>
+											<?php
+												}
+											?>
 										</div>
 									</div>
 								</div>
@@ -437,23 +664,51 @@
 									<div class="panel panel-default card-view">
 										<div class="panel-wrapper collapse in">
 											<div class="panel-body">
-												<form action="" id="" method="post" enctype="multipart/form-data">
+												<form action="" id="formLayers" method="post" enctype="multipart/form-data">
 													<div class="row">
 														<div class="col-md-8">
 															<div class="form-group">
-																<label class="control-label mb-10 text-left font-500" for="nome">Nome Layer <sup>*</sup></label>
-																<input type="text" class="form-control" name="nome" id="nome" value="">
+																<label class="control-label mb-10 text-left font-500" for="nome_layer">Nome Layer <sup>*</sup></label>
+																<input type="text" class="form-control" name="nome_layer" id="nome_layer" value="">
 															</div>
 														</div>
 														<div class="col-md-4">
 															<div class="form-group">
-																<label class="control-label mb-10 text-left font-500" for="layer">Layer <sup>*</sup></label>
-																<select class="form-control" name="layer" id="layer">
-																	<option value="0"></option>
-																	<option value="1">Root</option>
-																	<option value="2">Catasto</option>
-																	<option value="3">Irriguo</option>
+																<label class="control-label mb-10 text-left font-500" for="id_madre">Inserisci dentro a <sup>*</sup></label>
+																<select class="form-control" name="id_madre" id="id_madre">
+																	<option value="0">- root -</option>
+																<?php
+																	$g = $db->Query("SELECT id, nome_layer FROM wg_progetti_layers WHERE id_madre = '0'");
+
+																	while($fg = $db->getObject($g))
+																	{
+																?>
+																	<option value="<?=$fg->id?>"><?=dequotes($fg->nome_layer)?></option>
+																<?php
+																		selectLayers($fg->id);
+																	}
+																?>
 																</select>
+															</div>
+														</div>
+													</div>
+													<br />
+													<div class="row">
+														<div class="col-md-8">
+															<div class="form-group">
+																<label class="control-label mb-10 text-left font-500" for="visibilita">Visibilit&agrave; Layer <sup>*</sup></label>
+																<select class="form-control" name="visibilita" id="visibilita">
+																	<option value="0">Pubblico</option>
+																	<option value="1">Solo Admin</option>
+																	<option value="2">Tecnici e Admin</option>
+																	<option value="3">Consorziati, Tecnici e Admin</option>
+																</select>
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label class="control-label mb-10 text-left font-500" for="ordine">Ordine <sup>*</sup></label>
+																<input type="number" class="form-control" name="ordine" id="ordine" value="1">
 															</div>
 														</div>
 													</div>
@@ -462,7 +717,7 @@
 														<div class="col-md-12">
 															<div class="form-group">
 																<label style="font-weight: 500;" class="control-label mb-10 text-left">Carica file .kml</label>
-																<input type="file" id="qgis" name="qgis" class="form-control dropify" data-max-file-size="2M" />
+																<input type="file" id="qgis" name="qgis" class="form-control dropify" data-max-file-size="20M" />
 															</div>
 														</div>
 													</div>
@@ -473,7 +728,9 @@
 																<a href="progetti.php" class="btn btn-sm btn-danger">Indietro</a>
 															</div>
 															<div class="pull-right">
-																<a href="#" class="btn btn-sm btn-success">Salva</a>
+																<input type="hidden" name="id_progetto" id="id_progetto" value="<?=$prj?>" />
+																<input type="hidden" name="sendLayer" id="sendLayer" value="1" />
+																<a href="javascript:;" onclick="caricaLayer()" class="btn btn-sm btn-success">Salva</a>
 															</div>
 														</div>
 													</div>
@@ -486,7 +743,18 @@
 							</div>
 						
 						</div>
-						
+						<script type="text/javascript">
+							function caricaLayer()
+							{
+								var nome_layer = $('input#nome_layer').val();
+								var ordine = $('input#ordine').val();
+
+								if(nome_layer != '' && ordine != '')
+								{
+									$('form#formLayers').submit();
+								}
+							}
+						</script>
 						<!-- Footer -->
 						<footer class="footer container-fluid pl-30 pr-30">
 							<div class="row">
@@ -500,6 +768,11 @@
 					</div>
 					<!-- /Main Content -->
 			<?php
+				}
+				elseif($_GET['act'] == 'modLayer')
+				{
+					$prj = (int)$_GET['prj'];
+					$lyr = (int)$_GET['lyr'];
 				}
 			?>
 			
