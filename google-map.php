@@ -1,5 +1,4 @@
 <?php
-
 	include 'include/functions.php';
 ?>
 <!DOCTYPE html>
@@ -34,38 +33,7 @@
 		<!--/Preloader-->
 		<div class="wrapper theme-4-active pimary-color-red">
 			<!-- Top Menu Items -->
-			<nav class="navbar navbar-inverse navbar-fixed-top">
-				<div class="mobile-only-brand pull-left">
-					<div class="nav-header pull-left">
-						<div class="logo-wrap">
-							<a href="index.html">
-								<span class="brand-text">Arkigis</span>
-							</a>
-						</div>
-					</div>	
-					<a id="toggle_nav_btn" class="toggle-left-nav-btn inline-block ml-20 pull-left" href="javascript:void(0);"><i class="zmdi zmdi-menu"></i></a>
-					<a id="toggle_mobile_search" data-toggle="collapse" data-target="#search_form" class="mobile-only-view" href="javascript:void(0);"><i class="zmdi zmdi-search"></i></a>
-					<a id="toggle_mobile_nav" class="mobile-only-view" href="javascript:void(0);"><i class="zmdi zmdi-more"></i></a>
-					<form id="search_form" role="search" class="top-nav-search collapse pull-left">
-						<div class="input-group">
-							<input type="text" name="example-input1-group2" class="form-control" placeholder="Search">
-							<span class="input-group-btn">
-							<button type="button" class="btn  btn-default"  data-target="#search_form" data-toggle="collapse" aria-label="Close" aria-expanded="true"><i class="zmdi zmdi-search"></i></button>
-							</span>
-						</div>
-					</form>
-				</div>
-				<div id="mobile_only_nav" class="mobile-only-nav pull-right">
-					<ul class="nav navbar-right top-nav pull-right">
-						<li>
-							<a id="open_right_sidebar" href="#">Cambia Mappa</a>
-						</li>
-						<li class="dropdown app-drp">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="zmdi zmdi-settings top-nav-icon"></i></a>							
-						</li>
-					</ul>
-				</div>	
-			</nav>
+			<?php include 'include/header.php'; ?>    
 			<!-- /Top Menu Items -->
 			
 			<!-- Left Sidebar Menu -->
@@ -428,26 +396,14 @@
 							<div class="panel panel-default card-view">
 								<div class="panel-heading">
 									<div class="pull-left">
-										<button title="Imposta a pieno schermo" class="btn left-label btn-info btn-lable-wrap all-btn">
-											<span class="btn-label"><i style="color: #FFF; position: relative; top: 2px;" class="fa fa-arrows-alt"> </i></span>
-										</button>
-										<button title="Ingrandisci" class="btn left-label btn-info btn-lable-wrap all-btn" onclick="zoomIn()">
+										<button title="Ingrandisci Riquadro" class="btn left-label btn-info btn-lable-wrap all-btn" onclick="zoomIn()">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 2px;" class="fa fa-search-plus"> </i></span>
 										</button>
-										<button title="Diminuisci" class="btn left-label btn-info btn-lable-wrap all-btn" onclick="zoomOut()">
+										<button title="Diminuisci Riquadro" class="btn left-label btn-info btn-lable-wrap all-btn" onclick="zoomOut()">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 2px;" class="fa fa-search-minus"> </i></span>
 										</button>
-										<button title="Ingrandisci Riquadro" class="btn left-label btn-info btn-lable-wrap all-btn">
-											<span class="btn-label"><i style="color: #FFF; position: relative; top: 3px;" class="fa fa-plus-square-o"> </i></span>
-										</button>
-										<button title="Informazioni" class="btn left-label btn-info btn-lable-wrap all-btn">
+										<button title="Dati Progetto" class="btn left-label btn-info btn-lable-wrap all-btn">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 3px;" class="fa fa-info-circle"> </i></span>
-										</button>
-										<button title="Street View" class="btn left-label btn-info btn-lable-wrap all-btn">
-											<span class="btn-label"><i style="color: #FFF; position: relative; top: 3px;" class="fa fa-street-view"> </i></span>
-										</button>
-										<button title="Aggiungi Livello" class="btn left-label btn-info btn-lable-wrap all-btn">
-											<span class="btn-label"><i style="color: #FFF; position: relative; top: 3px; font-size: 15px;" class="fa fa-object-ungroup"> </i></span>
 										</button>
 										<button title="Misura Area" id="toggleArea" class="btn left-label btn-info btn-lable-wrap all-btn" onclick="mostraArea()">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 2px;" class="ti-ruler-alt-2"> </i></span>
@@ -455,7 +411,7 @@
 										<button title="Misura Distanza" id="toggleRighello" class="btn left-label btn-info btn-lable-wrap all-btn" onclick="righello()">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 2px;" class="fa fa-sort-numeric-asc"> </i></span>
 										</button>
-										<button title="Screenshot" id="screenshot" class="btn left-label btn-info btn-lable-wrap all-btn" onclick="screenShot()">
+										<button data-toggle="modal" data-target="#screen" title="Screenshot" id="screenshot" class="btn left-label btn-info btn-lable-wrap all-btn" onclick="screenShot()">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 2px; font-size: 15px;" class="fa fa-camera"> </i></span>
 										</button>
 										<button data-toggle="modal" data-target="#guasti" title="Segnalazione guasti e Disservizi" class="btn left-label btn-info btn-lable-wrap all-btn">
@@ -470,7 +426,6 @@
 								<div class="panel-wrapper collapse in">
 									<div class="panel-body">
 										<div id="map" style="height:750px; width: 100%"></div>
-										<div id="imgMap"></div>
 									</div>
 								</div>
 
@@ -535,13 +490,13 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="cx" class="control-label mb-5">Coordinata X</label>
+										<label style="color: #fff;" for="cx" class="control-label mb-5">Coordinata X</label>
 										<input type="text" class="form-control" name="cx" id="cx" value="" />
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="cy" class="control-label mb-5">Coordinata Y</label>
+										<label style="color: #fff;" for="cy" class="control-label mb-5">Coordinata Y</label>
 										<input type="text" class="form-control" name="cy" id="cy" value="" />
 									</div>
 								</div>
@@ -550,13 +505,13 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="cognome" class="control-label mb-5">Cognome</label>
+										<label style="color: #fff;" for="cognome" class="control-label mb-5">Cognome</label>
 										<input type="text" class="form-control" name="cognome" id="cognome" value="" />	
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="nome" class="control-label mb-5">Nome</label>
+										<label style="color: #fff;" for="nome" class="control-label mb-5">Nome</label>
 										<input type="text" class="form-control" name="nome" id="cognome" value="" />
 									</div>
 								</div>
@@ -564,13 +519,13 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="data" class="control-label mb-5">Data</label>
+										<label style="color: #fff;" for="data" class="control-label mb-5">Data</label>
 										<input type="date" class="form-control" name="data" id="data" value="" />
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label for="tipologia" class="control-label mb-5">Tipologia Disservizio</label>
+										<label style="color: #fff;" for="tipologia" class="control-label mb-5">Tipologia Disservizio</label>
 										<select class="form-control" name="tipologia" id="tipologia">
 											<option value="0">Canale</option>
 											<option value="1">Fosso</option>
@@ -582,7 +537,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
-										<label for="oggetto" class="control-label mb-5">Oggetto</label>
+										<label style="color: #fff;" for="oggetto" class="control-label mb-5">Oggetto</label>
 										<input type="text" class="form-control" name="oggetto" id="oggetto" value="" />
 									</div>
 								</div>
@@ -590,7 +545,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
-										<label for="messaggio" class="control-label mb-5">Messaggio</label>
+										<label style="color: #fff;" for="messaggio" class="control-label mb-5">Messaggio</label>
 										<textarea rows="3" class="form-control" name="messaggio" id="messaggio"></textarea>
 									</div>
 								</div>
@@ -599,7 +554,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
-										<label for="foto1" class="control-label mb-5">Allega Foto</label>
+										<label style="color: #fff;" for="foto1" class="control-label mb-5">Allega Foto</label>
 										<input type="file" class="form-control" name="foto1" id="foto1" value="" />
 									</div>
 								</div>
@@ -623,6 +578,26 @@
 					<div class="modal-footer">
 						<button type="button" class="btn btn-danger btn-xs pull-left" data-dismiss="modal">Chiudi</button>
 						<button type="button" class="btn btn-success btn-xs">Invia Segnalazione</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Screenshot -->
+		<div class="modal fade" id="screen" tabindex="-1" role="dialog" aria-labelledby="screen">
+			<div style="width: 1000px;" class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color: #fff;" aria-hidden="true">&times;</span></button>
+						<h5 class="modal-title" id="screen">Screenshot Mappa</h5>
+						<small style="padding-left: 0px;">Compila il form per segnalare un guasto.</small>
+					</div>
+					<div class="modal-body">
+						<div style="width: 100%;" id="imgMap"></div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger btn-xs pull-left" data-dismiss="modal">Chiudi</button>
+						<button type="button" class="btn btn-success btn-xs">Scarica Screenshot</button>
 					</div>
 				</div>
 			</div>
