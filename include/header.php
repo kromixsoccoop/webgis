@@ -22,7 +22,12 @@
 	<div id="mobile_only_nav" class="mobile-only-nav pull-right">
 		<ul class="nav navbar-right top-nav pull-right">
 			<li>
-				<a id="open_right_sidebar" href="#">Benvenuto <strong><?=$_SESSION['fullname']?></strong></a>
+				<a id="open_right_sidebar" href="#">Benvenuto <strong><?php
+				if(isset($_SESSION['fullname']))
+				{
+					echo $_SESSION['fullname'];
+				}
+				?></strong></a>
 			</li>
 		</ul>
 	</div>	

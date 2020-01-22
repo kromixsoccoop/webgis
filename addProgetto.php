@@ -180,7 +180,7 @@
 
 								
 
-								$infoparticella['attributi'][addslashes($q[1])] = addslashes((string)$qat[1]);
+								$infoparticella['attributi'][sanitize_attributes(addslashes($q[1]))] = sanitize_attributes(addslashes((string)$qat[1]));
 							}
 						}
 					}
@@ -204,7 +204,7 @@
 							{
 								$co2 = explode(",", $coo);
 								
-								$valco[] = array(trim((float)$co2[1]), trim((float)$co2[0]));
+								$valco[] = array(addslashes(trim((float)$co2[1])), addslashes(trim((float)$co2[0])));
 							}
 							
 							$infoparticella['bordi'][] = $valco;
@@ -222,7 +222,7 @@
 							{
 								$co2 = explode(",", $coo); 
 								
-								$valco[] = array(trim((float)$co2[1]), trim((float)$co2[0]));
+								$valco[] = array(addslashes(trim((float)$co2[1])), addslashes(trim((float)$co2[0])));
 							}
 							
 							$infoparticella['interno'][] = $valco;
@@ -250,14 +250,17 @@
 							{
 								$co2 = explode(",", $coo);
 								
-								$valco[] = array(trim((float)$co2[1]), trim((float)$co2[0]));
+								$valco[] = array((trim((float)$co2[1])), (trim((float)$co2[0])));
 							}
 							
 							$infoparticella['coo'][] = $valco;
 
 							
 						}
-						
+					}
+
+					if($lineePoligono->LineString)
+					{	
 						foreach($lineePoligono->LineString as $bordo)
 						{
 							$scoordinate = $bordo->coordinates;
@@ -271,7 +274,7 @@
 							{
 								$co2 = explode(",", $coo);
 								
-								$valco[] = array(trim((float)$co2[1]), trim((float)$co2[0]));
+								$valco[] = array((trim((float)$co2[1])), (trim((float)$co2[0])));
 							}
 							
 							$infoparticella['coo'][] = $valco;
@@ -296,7 +299,7 @@
 							{
 								$co2 = explode(",", $coo);
 								
-								$valco[] = array(trim((float)$co2[1]), trim((float)$co2[0]));
+								$valco[] = array(addslashes(trim((float)$co2[1])), addslashes(trim((float)$co2[0])));
 							}
 							
 							$infoparticella['punti'][] = $valco;
@@ -309,6 +312,9 @@
 					$elementiGIS[] = $infoparticella;
 				}
 			}
+
+			//print_r($elementiGIS);
+			//die();
 
 			$qgis = serialize($elementiGIS);
 			$attri = serialize($attributi);

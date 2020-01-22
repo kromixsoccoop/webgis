@@ -1,1 +1,2 @@
 include/db.php
+error_log

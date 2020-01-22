@@ -1,6 +1,12 @@
 <?php
+	define('ERR_TOO_BIG', 'Il File è troppo Grande!');
+	define('ERR_WRONG_EXT', 'Estensione non Consentita!');
+	define('ERR_UPLOAD', 'Errore nell\'Upload del File');
+
 	class Uploader {
 		
+		
+
 		private $ext_ok = array();
 		private $ext_no = array();
 		private $ctrl_ext = false;

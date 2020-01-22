@@ -1,5 +1,6 @@
-<?php
-	include 'include/functions.php';
+<?php session_start();
+	include("include/db.php");
+	include("include/functions.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,76 +46,79 @@
 					</li>
 					<li>
 						<a class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#maps_dr"><div class="pull-left"><i class="fa fa-users mr-20" aria-hidden="true"></i><span class="right-nav-text">Servizi al Cittadino</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+						<?php
+						
+						
+							$s1 = $db->Query("SELECT id, nome_progetto FROM wg_progetti ORDER BY data_progetto ASC");
+
+							if($db->Found($s1))
+							{
+						?>
 						<ul id="maps_dr" class="collapse collapse-level-1">
+						<?php
+							while($f1 = $db->getObject($s1))
+							{
+						?>
 							<li>
-								<a href="#" data-toggle="collapse" data-target="#pages_dr"> <i class="fa fa-street-view" aria-hidden="true"></i> &nbsp;<span>Ricerca Particella</span></a>
+								<a href="google-map.php?prj=<?=$f1->id?>" data-toggle="collapse"> <i class="fa fa-street-view" aria-hidden="true"></i> &nbsp;<span><?=dequotes($f1->nome_progetto)?></span></a>
 							</li>
-							<li>
-								<a href="#" id="mostra-second-lay" data-toggle="collapse" data-target="#pages_dr2"><i class="fa fa-map-pin" aria-hidden="true"></i> &nbsp;Piani di Classifica</a>
-							</li>
-							<li>
-								<a href="#" data-toggle="collapse" data-target="#pages_dr3"><i class="fa fa-cogs" aria-hidden="true"></i> &nbsp;Lavori in Corso</a>
-							</li>
+						<?php
+							}
+						?>
+							
 						</ul>
+						<?php
+							}
+						?>
 					</li>
 					
+					<?php
+					if(!empty($_GET['prj']))
+					{
+						$prj = (int)$_GET['prj'];
+					?>
 					<li>
-						<a href="javascript:void(0);" id="primo-lay" data-toggle="collapse" data-target="#pages_dr"><div class="pull-left"><i class="fa fa-map mr-20" aria-hidden="true"></i><span class="right-nav-text">Mappe</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
-						<ul id="pages_dr" class="collapse collapse-level-1 two-col-list">
+						<a href="javascript:void(0);" id="primo-lay" data-toggle="collapsed active" data-target="#pages_dr"><div class="pull-left"><i class="fa fa-map mr-20" aria-hidden="true"></i><span class="right-nav-text">Mappe</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+						<ul id="pages_dr" class="collapse collapse-level-1 two-col-list active">
 								
 							<div class="row">
 								<div class="col-md-12">
 									<div class="tab">
-										<button class="tablinks" onclick="tabs(event, 'strati')">Strati</button>
+										<button class="tablinks active" onclick="tabs(event, 'strati')">Strati</button>
 										<button class="tablinks" onclick="tabs(event, 'basi')">Basi</button>
 										<button class="tablinks" onclick="tabs(event, 'legenda')">Legenda</button>
 									</div>
 											
-									<div id="strati" class="tabcontent">
-										<blockquote>Tasto destro sui singoli layer per accedere alle funzionalità aggiuntive</blockquote>											  	
+									<div id="strati" class="tabcontent active">
+										<?php
+											$g = $db->Query("SELECT id, nome_layer, attributi FROM wg_progetti_layers WHERE id_madre = '0'");
+
+											if($db->Found($g))
+											{
+										?>
 										<ul id="treeview">
-											<li> <i class="fa fa-angle-right"></i>
+											<?php
+												while($fg = $db->getObject($g))
+												{
+											?>
+											<li> <?=(layerHasChild($fg->id)) ? '<i class="fa fa-angle-right"></i>' : ''; ?>
 												<label>
-												<input id="xnode-0" data-id="custom-0" type="checkbox" />
-												Catasto </label>
-												<ul>
-												<li> <i class="fa fa-angle-right"></i>
-													<label>
-													<input  id="xnode-0-1" data-id="custom-0-1" type="checkbox" />
-													Comune </label>
-													<ul>
-													<li>
-														<label>
-														<input class="hummingbirdNoParent" id="xnode-0-1-1" data-id="custom-0-1-1" type="checkbox" />
-														Foglio 20 </label>
-													</li>
-													<li>
-														<label>
-														<input class="hummingbirdNoParent" id="xnode-0-1-2" data-id="custom-0-1-2" type="checkbox" />
-														Particcella 1 </label>
-													</li>
-													</ul>
-												</li>
-												<li> <i class="fa fa-angle-right"></i>
-													<label>
-													<input  id="xnode-0-2" data-id="custom-0-2" type="checkbox" />
-													Irriguo </label>
-													<ul>
-													<li>
-														<label>
-														<input class="hummingbirdNoParent" id="xnode-0-2-1" data-id="custom-0-2-1" type="checkbox" />
-														Rete di Colo </label>
-													</li>
-													<li>
-														<label>
-														<input class="hummingbirdNoParent" id="xnode-0-2-2" data-id="custom-0-2-2" type="checkbox" />
-														Bocchette </label>
-													</li>
-													</ul>
-												</li>
-												</ul>
+													<?php if(!layerHasChild($fg->id)): ?>
+													<input onclick="setLayer(<?=$fg->id?>)" id="xnode-<?=$fg->id?>" data-id="custom-<?=$fg->id?>" type="checkbox" />
+													<?php endif; ?>
+													<?=dequotes($fg->nome_layer)?>
+												</label>
+												<?php
+													treeviewMapLayers($fg->id, $prj);
+												?>
 											</li>
-										</ul>	  
+											<?php
+												}
+											?>
+										</ul>	 
+										<?php
+											}
+										?>
 									</div>
 										
 									<div id="basi" class="tabcontent">
@@ -139,7 +143,9 @@
 							
 						</ul>
 					</li>
-
+					<?php
+					}
+					?>
 					<li><hr class="light-grey-hr mb-10"/></li>
 
 					<li>
@@ -424,7 +430,7 @@
 									<div class="clearfix"></div>
 								</div>
 								<div class="panel-wrapper collapse in">
-									<div class="panel-body">
+									<div class="panel-body mapContainer">
 										<div id="map" style="height:750px; width: 100%"></div>
 									</div>
 								</div>
@@ -585,7 +591,7 @@
 		
 		<!-- Screenshot -->
 		<div class="modal fade" id="screen" tabindex="-1" role="dialog" aria-labelledby="screen">
-			<div style="width: 1000px;" class="modal-dialog" role="document">
+			<div style="width: 1000px;" class="modal-dialog modal-xl" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color: #fff;" aria-hidden="true">&times;</span></button>
@@ -593,11 +599,11 @@
 						<small style="padding-left: 0px;">Compila il form per segnalare un guasto.</small>
 					</div>
 					<div class="modal-body">
-						<div style="width: 100%;" id="imgMap"></div>
+						<div style="width: 100%; max-width: 100%;" id="imgMap"></div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-danger btn-xs pull-left" data-dismiss="modal">Chiudi</button>
-						<button type="button" class="btn btn-success btn-xs">Scarica Screenshot</button>
+						<button type="button" id="downloadScreenshot" onclick="downloadScreenshot()" class="btn btn-success btn-xs">Scarica Screenshot</button>
 					</div>
 				</div>
 			</div>
@@ -695,6 +701,25 @@
 				, 1000);
 				
 			});
+
+			function setLayer(id)
+			{
+				var idLayers = '';
+
+				$('ul#treeview input:checked').each(function(indice, elemento)
+				{
+					idLayers += (elemento.id).replace("xnode-", "") + ',';
+				});
+
+				$.post("ajax/mapLayer.php", "idLayers=" + idLayers, function(dati)
+				{
+					//eval(dati);
+					$(".mapContainer").html(dati);
+					$(".mapContainer").find("script").each(function(){
+						eval($(this).text());
+					});
+				});
+			}
 		</script>
 		
 	</body>

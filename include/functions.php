@@ -182,5 +182,47 @@
             selectLayers($fg->id, $livello);
         }
     }
+
+    function treeviewMapLayers($madre = 0, $prj = 0)
+    {
+        global $db;
+
+        $g = $db->Query("SELECT id, nome_layer, attributi FROM wg_progetti_layers WHERE id_madre = '$madre'");
+
+        while($fg = $db->getObject($g))
+        {
+    ?>
+    
+        <ul>
+            <li> <?=(layerHasChild($fg->id)) ? '<i class="fa fa-angle-right"></i>' : ''; ?>
+            <label>
+				<input onclick="setLayer(<?=$fg->id?>)" id="xnode-<?=$fg->id?>" data-id="custom-<?=$fg->id?>" type="checkbox" />
+                <?=dequotes($fg->nome_layer)?>
+            </label>
+                <?php
+                    treeviewMapLayers($fg->id, $prj);
+                ?>
+            </li>
+        </ul>
+    <?php
+        }
+
+    }
+
+    function layerHasChild($layerID)
+    {
+        global $db;
+
+        $g = $db->Query("SELECT id FROM wg_progetti_layers WHERE id_madre = '$layerID'");
+
+        return $db->Found($g);
+    }
+
+    function sanitize_attributes($name)
+    {
+        $name = preg_replace("#[^A-Za-z0-9\. \-]+#", "", $name);
+
+        return $name;
+    }
     
 ?>
