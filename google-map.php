@@ -135,8 +135,13 @@
 									</div>
 										
 									<div id="legenda" class="tabcontent">
-										<h3>Legenda</h3>
-										<p></p>
+										<div style="border-left: 1px solid #f1f1f1">
+											<p class="ml-10 mt-10">
+												<span style="background: red; position: relative; top: 3px;" class="badge mb-10">&nbsp;&nbsp;&nbsp;&nbsp;</span> <span style="margin-left: 10px;">Particella</span><br>
+												<span style="background: blue; position: relative; top: 3px;" class="badge mb-10">&nbsp;&nbsp;&nbsp;&nbsp;</span> <span style="margin-left: 10px;">Irriguo</span><br>
+												<span style="background: green; position: relative; top: 3px;" class="badge mb-10">&nbsp;&nbsp;&nbsp;&nbsp;</span> <span style="margin-left: 10px;">Irriguo</span><br>
+											</p>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -272,82 +277,93 @@
 					<li class="layout-switcher-wrap">
 						<ul>
 							<li>
-								<span class="layout-title">Risultati</span>
-
 								<div class="row">
 									<div class="col-md-12">
-										<div style="margin: 10px 20px 0px 0px;" class="panel panel-info card-view">
-											<div class="refresh-container">
-												<div class="la-anim-1"></div>
-											</div>
-											<div class="panel-heading ">
-												<div class="pull-left">
-													<h6 class="panel-title txt-dark">Pratiche</h6>
-												</div>
-												<div class="pull-right">
-													<a class="pull-left inline-block mr-15" data-toggle="collapse" href="#collapse_1" aria-expanded="true">
-														<i style="color: #fff;" class="zmdi zmdi-chevron-down"></i>
-														<i style="color: #fff;" class="zmdi zmdi-chevron-up"></i>
-													</a>
-													<div class="pull-left inline-block dropdown mr-15">
-														<a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i style="color: #fff;" class="zmdi zmdi-more-vert"></i></a>
-														<ul class="dropdown-menu bullet dropdown-menu-right" role="menu">
-															<li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon wb-reply" aria-hidden="true"></i>option 1</a></li>
-															<li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon wb-share" aria-hidden="true"></i>option 2</a></li>
-															<li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon wb-trash" aria-hidden="true"></i>option 3</a></li>
-														</ul>
-													</div>
-												</div>
-												<div class="clearfix"></div>
-											</div>
-											<div id="collapse_1" class="panel-wrapper collapse in" aria-expanded="true">
-												<div class="panel-body">
-													<div class="panel-group accordion-struct accordion-style-1" id="accordion_2" role="tablist" aria-multiselectable="true">
-														<div class="panel panel-default">
-															<div class="panel-heading" role="tab" id="heading_10">
-																<a role="button" data-toggle="collapse" data-parent="#accordion_2" href="#collapse_10" aria-expanded="false" class="collapsed"><div class="icon-ac-wrap pr-20"><span class="plus-ac"><i style="color: #fff;" class="ti-plus"></i></span><span class="minus-ac"><i style="color: #fff;" class="ti-minus"></i></span></div>Pratica n. 001/2016</a> 
-															</div>
-															<div id="collapse_10" class="panel-collapse collapse" role="tabpanel" aria-expanded="false" style="height: 0px;">
-																<div style="background: #4E6877;" class="panel-body pa-15">
-																	<div class="tab-struct custom-tab-1 mt-40">
-																		<ul role="tablist" class="nav nav-tabs" id="myTabs_7">
-																			<li style="width: 50%;" class="active" role="presentation"><a aria-expanded="true" data-toggle="tab" role="tab" id="home_tab_7" href="#home_7">Istanza</a></li>
-																			<li style="width: 50%;" role="presentation"><a data-toggle="tab" id="profile_tab_7" role="tab" href="#profile_7" aria-expanded="false">Anagrafica</a></li>
-																		</ul>
-																		<div class="tab-content" id="myTabContent_7">
-																			<div id="home_7" class="tab-pane fade active in" role="tabpanel">
-																				<div class="row">
-																					<div class="col-md-6">
-																						<p><strong>Numero Pratica</strong></p>
-																						<p><strong>Anno</strong></p>
-																						<p><strong>Faldone</strong></p>
-																						<p><strong>Operatore</strong></p>
-																						<p><strong>Responsabile del Procedimento</strong></p>
-																						<p><strong>Stato della pratica</strong></p>	
-																					</div>
-																					<div class="col-md-6">
-																						<p>2016/037</p>
-																						<p>2016</p>
-																						<p>20/2017</p>
-																						<p>Antonio Caprino</p>
-																						<p>Fabio Cappellieri</p>
-																						<p>Conclusa</p>
-																					</div>
+										<div id="collapse_1" class="panel-wrapper collapse in" aria-expanded="true">
+											<div style="padding-left: 0px;" class="panel-body">
+												<div class="panel-group accordion-struct accordion-style-1" id="accordion_2" role="tablist" aria-multiselectable="true">
+													<div class="panel panel-default">
+														<div class="panel-heading" role="tab" id="heading_10">
+															<a role="button" data-toggle="collapse" data-parent="#accordion_2" href="#collapse_10" aria-expanded="false" class="collapsed"><div class="icon-ac-wrap pr-20"><span class="plus-ac"><i style="color: #fff;" class="ti-plus"></i></span><span class="minus-ac"><i style="color: #fff;" class="ti-minus"></i></span></div>Prova (nome progetto)</a> 
+														</div>
+														<div id="collapse_10" class="panel-collapse collapse" role="tabpanel" aria-expanded="false" style="height: 0px;">
+															<div style="background: #4E6877;" class="panel-body pa-15">
+																<div class="tab-struct custom-tab-1 mt-40">
+																	<ul role="tablist" class="nav nav-tabs" id="myTabs_7">
+																		<li style="width: 50%;" class="active" role="presentation"><a aria-expanded="true" data-toggle="tab" role="tab" id="home_tab_7" href="#home_7">Informazioni</a></li>
+																		<li style="width: 50%;" role="presentation"><a data-toggle="tab" id="profile_tab_7" role="tab" href="#profile_7" aria-expanded="false">Foto</a></li>
+																	</ul>
+																	<div class="tab-content" id="myTabContent_7">
+																		<div id="home_7" class="tab-pane fade active in" role="tabpanel">
+																			<div class="row">
+																				<div class="col-md-6">
+																					<p><strong>Nome Progetto</strong></p>
+																					<p><strong>Data Progetto</strong></p>
+																					<p><strong>Descrizione</strong></p>	
+																				</div>
+																				<div class="col-md-6">
+																					<p>Prova</p>
+																					<p>23/01/202</p>
+																					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 																				</div>
 																			</div>
-																			<div id="profile_7" class="tab-pane fade" role="tabpanel">
-																				<div class="row">
-																					<div class="col-md-6">
-																						<p><strong>Cognome</strong></p>
-																						<p><strong>Nome</strong></p>
-																						<p><strong>Nascita</strong></p>
-																						<p><strong>Residenza</strong></p>
-																					</div>
-																					<div class="col-md-6">
-																						<p>Caprino</p>
-																						<p>Antonio</p>
-																						<p>11/02/1993</p>
-																						<p>Crotone</p>
+																		</div>
+																		<div id="profile_7" class="tab-pane fade" role="tabpanel">
+																			<div class="row">
+																				<div class="col-md-12">
+																					<div class="gallery-wrap">
+											
+																						<div class="portfolio-wrap project-gallery">
+																							<ul id="portfolio" class="portf auto-construct  project-gallery" data-col="3">
+																								<li  class="item tall branding"   data-src="dist/img/gallery/mock1.jpg" data-sub-html="<h6>Bagwati</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>" >
+																									<a href="">
+																									<img class="img-responsive" src="dist/img/gallery/mock1.jpg"  alt="Image description" />
+																									<span class="hover-cap">Bagwati</span>
+																									</a>
+																								</li>
+																								<li class="item small photography" data-src="http://www.youtube.com/watch?v=Pq9yPrLWMyU" data-poster="dist/img/gallery/mock2.jpg"  data-sub-html="<h6>Not a Keyboard</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+																									<a href="">
+																									<img class="img-responsive" src="dist/img/gallery/mock2.jpg"  alt="Image description" />
+																									<span class="hover-cap">Not a Keyboard</span>
+																									</a>
+																								</li>
+																								<li class="item tall design" data-src="dist/img/gallery/mock4.jpg" data-sub-html="<h6>Into the Woods</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+																									<a href="">
+																									<img class="img-responsive" src="dist/img/gallery/mock4.jpg"  alt="Image description" />
+																									<span class="hover-cap">Into the Woods</span>
+																									</a>
+																								</li>
+																								<li class="item small web" data-src="http://vimeo.com/1084537" data-poster="dist/img/gallery/mock3.jpg" data-sub-html="<h6>Ultra Saffire</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+																									<a href="">
+																									<img class="img-responsive" src="dist/img/gallery/mock3.jpg"  alt="Image description" />
+																									<span class="hover-cap"> Ultra Saffire</span>
+																									</a>
+																								</li>
+																								
+																								<li class="item design" data-src="dist/img/gallery/mock5.jpg" data-sub-html="<h6>Happy Puppy</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+																									<a href="">
+																									<img class="img-responsive" src="dist/img/gallery/mock5.jpg"  alt="Image description" />	
+																									<span class="hover-cap">Happy Puppy</span>
+																									</a>
+																								</li>
+																								<li class="item branding" data-html="#video1" data-poster="dist/img/gallery/mock6.jpg" data-sub-html="<h6>Wooden Closet</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+																									<a href="">
+																									<img class="img-responsive" src="dist/img/gallery/mock6.jpg"  alt="Image description" />
+																									<span class="hover-cap">Wooden Closet</span>
+																									</a>
+																								</li>
+																								
+																							</ul>
+																							<!-- Hidden video div -->
+																							<div style="display:none;" id="video1">
+																								<video class="lg-video-object lg-html5 video-js vjs-default-skin" controls preload="none">
+																									<source src="dist/videos/video1.mp4" type="video/webm">
+																									<source src="dist/videos/video1.webm" type="video/webm">
+																									 Your browser does not support HTML5 video.
+																								</video>
+																							</div>
+																						</div>
+																					
 																					</div>
 																				</div>
 																			</div>
@@ -356,29 +372,21 @@
 																</div>
 															</div>
 														</div>
-														<div class="panel panel-default">
-															<div class="panel-heading" role="tab" id="heading_11">
-																<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_2" href="#collapse_11" aria-expanded="false"><div class="icon-ac-wrap pr-20"><span class="plus-ac"><i style="color: #fff;" class="ti-plus"></i></span><span class="minus-ac"><i style="color: #fff;" class="ti-minus"></i></span></div>Pratica n. 001/2016</a>
-															</div>
-															<div id="collapse_11" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
-																<div style="background: #4E6877;" class="panel-body pa-15"> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, </div>
-															</div>
-														</div>
-														<div class="panel panel-default">
-															<div class="panel-heading" role="tab" id="heading_12">
-																<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_2" href="#collapse_12" aria-expanded="false"><div class="icon-ac-wrap pr-20"><span class="plus-ac"><i style="color: #fff;" class="ti-plus"></i></span><span class="minus-ac"><i style="color: #fff;" class="ti-minus"></i></span></div>Pratica n. 001/2016</a>
-															</div>
-															<div id="collapse_12" class="panel-collapse collapse" role="tabpanel" aria-expanded="false">
-																<div style="background: #4E6877;" class="panel-body pa-15"> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, inable VHS. </div>
-															</div>
-														</div>
 													</div>
 												</div>
 											</div>
 										</div>
+										
 									</div>
 								</div>
-
+							</li>
+							<li>
+								<div class="row">
+									<div class="col-md-12 text-center">
+										<!-- va inserito setting_panel_btn nel button se lo metto però appare giu -->
+										<button type="button" class="btn btn-sm btn-danger setting-panel-btn shadow-2dp">Chiudi</button>
+									</div>
+								</div>
 							</li>
 						</ul>
 					</li>
@@ -637,8 +645,15 @@
 	
 		<!-- Init JavaScript -->
 		<script src="dist/js/init.js"></script>
-
-		<!-- Google Map JavaScript -->
+		
+		<!-- Gallery JavaScript -->
+		<script src="dist/js/isotope.js"></script>
+		<script src="dist/js/lightgallery-all.js"></script>
+		<script src="dist/js/froogaloop2.min.js"></script>
+		<script src="dist/js/gallery-data.js"></script>
+		
+		<!-- Owl JavaScript -->
+		<script src="vendors/bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
 		
 
 		<!-- Tabs -->

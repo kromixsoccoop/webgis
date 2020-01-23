@@ -356,6 +356,9 @@
 		<link rel="shortcut icon" href="favicon.ico">
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
 		
+		<!-- Summernote css -->
+		<link rel="stylesheet" href="vendors/bower_components/summernote/dist/summernote.css" />
+		
 		<!-- vector map CSS -->
 		<link href="vendors/bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css" rel="stylesheet" type="text/css"/>
 		<!-- Bootstrap Dropify CSS -->
@@ -779,6 +782,131 @@
 				{
 					$prj = (int)$_GET['prj'];
 					$lyr = (int)$_GET['lyr'];
+			?>
+			
+					<!-- Main Content -->
+					<div class="page-wrapper">
+						<div class="container-fluid">
+							
+							<!-- Title -->
+							<div class="row heading-bg">
+								<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+									<h5 class="txt-dark">Modifica Layer</h5>
+								</div>
+							
+								<!-- Breadcrumb -->
+								<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+									<ol class="breadcrumb">
+										<li><a href="index.html">Dashboard</a></li>
+										<li><a href="#"><span>Progetti</span></a></li>
+										<li class="active"><span>Modifica Layer</span></li>
+									</ol>
+								</div>
+								<!-- /Breadcrumb -->
+							
+							</div>
+							<!-- /Title -->
+							
+							<div class="row">
+								<div class="col-md-4">
+									<div style="padding-bottom: 15px;" class="panel panel-default card-view">
+										<div class="panel-wrapper collapse in">
+										
+											<h5 class="txt-dark">Layer Caricati</h5>
+											<hr />
+											<?php
+												$g = $db->Query("SELECT id, nome_layer, attributi FROM wg_progetti_layers WHERE id_madre = '0'");
+
+												if($db->Found($g))
+												{
+
+												
+											?>
+											<ul id="treeview">
+												<?php
+													while($fg = $db->getObject($g))
+													{
+
+														
+												?>
+												<li> 
+													<i class="fa fa-angle-right txt-dark"></i>
+													<label style="color: #234151; width: 97%"><input id="xnode-0" data-id="custom-0" type="checkbox" /> <?=dequotes($fg->nome_layer)?> <a href="#" title="Elimina Layer" style="float: right;"><i class="fa fa-close txt-danger"></i></a><?php if(!empty($fg->attributi)): ?> <a href="addProgetto.php?act=modLayer&prj=<?=$prj?>&lyr=<?=$fg->id?>" title="Modifica template Layer" style="float: right;margin-right: 10px"><i class="fa fa-cog txt-primary"></i></a><?php endif; ?></label>
+													<?php
+														treeviewLayers($fg->id, $prj);
+													?>
+												</li>
+												<?php
+													}
+												?>
+											</ul>
+											<?php
+												}
+											?>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-8">
+									<div class="panel panel-default card-view">
+										<div class="panel-wrapper collapse in">
+											<div class="panel-body">
+												<form action="" id="formLayers" method="post" enctype="multipart/form-data">
+													<div class="row">
+														<div class="col-md-12">
+															<div class="form-group">
+																<div class="summernote"></div>
+															</div>
+														</div>
+														
+													</div>												
+													<hr />
+													<div class="row">
+														<div class="col-md-12">
+															<div class="pull-left">
+																<a href="progetti.php" class="btn btn-sm btn-danger">Indietro</a>
+															</div>
+															<div class="pull-right">
+																<input type="hidden" name="id_progetto" id="id_progetto" value="<?=$prj?>" />
+																<input type="hidden" name="sendLayer" id="sendLayer" value="1" />
+																<a href="javascript:;" onclick="caricaLayer()" class="btn btn-sm btn-success">Salva</a>
+															</div>
+														</div>
+													</div>
+													
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						
+						</div>
+						<script type="text/javascript">
+							function caricaLayer()
+							{
+								var nome_layer = $('input#nome_layer').val();
+								var ordine = $('input#ordine').val();
+
+								if(nome_layer != '' && ordine != '')
+								{
+									$('form#formLayers').submit();
+								}
+							}
+						</script>
+						<!-- Footer -->
+						<footer class="footer container-fluid pl-30 pr-30">
+							<div class="row">
+								<div class="col-sm-12">
+									<p>2020 &copy; Consorzio di Bonifica Ionio Crotonese</p>
+								</div>
+							</div>
+						</footer>
+						<!-- /Footer -->
+					
+					</div>
+					<!-- /Main Content -->
+			
+			<?php
 				}
 			?>
 			
@@ -798,6 +926,12 @@
 		
 		<!-- Form Flie Upload Data JavaScript -->
 		<script src="dist/js/form-file-upload-data.js"></script>
+		
+		<!-- Summernote Plugin JavaScript -->
+		<script src="vendors/bower_components/summernote/dist/summernote.min.js"></script>
+			
+		<!-- Summernote Wysuhtml5 Init JavaScript -->
+		<script src="dist/js/summernote-data.js"></script>
 		
 		<!-- Treeview JavaScript -->
 		<script src="vendors/bower_components/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>

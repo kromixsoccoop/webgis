@@ -22,12 +22,25 @@
 	<div id="mobile_only_nav" class="mobile-only-nav pull-right">
 		<ul class="nav navbar-right top-nav pull-right">
 			<li>
+				<?php
+				if(!is_logged())
+				{
+				?>
+					<a href="login.php"><i class="zmdi zmdi-square-right"></i> &nbsp;Login</a>
+				<?php
+				}
+				else
+				{
+				?>
 				<a id="open_right_sidebar" href="#">Benvenuto <strong><?php
 				if(isset($_SESSION['fullname']))
 				{
 					echo $_SESSION['fullname'];
 				}
 				?></strong></a>
+				<?php
+				}
+				?>
 			</li>
 		</ul>
 	</div>	

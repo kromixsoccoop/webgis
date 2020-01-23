@@ -16,3 +16,4 @@
 22/01/2020 10:49:16 - Si è verificato un errore:  - Query: SELECT id, nome_progetto FROM wg_progetti ORDER BY data_progetto ASC
 22/01/2020 10:50:19 - Si è verificato un errore:  - Query: SELECT id, nome_progetto FROM wg_progetti ORDER BY data_progetto ASC
 22/01/2020 10:53:06 - Si è verificato un errore:  - Query: SELECT id, nome_progetto FROM wg_progetti ORDER BY data_progetto ASC
+23/01/2020 08:21:30 - Si è verificato un errore:  - Query: SELECT id, nome_progetto FROM wg_progetti ORDER BY data_progetto ASC
