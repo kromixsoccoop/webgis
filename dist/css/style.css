@@ -2428,7 +2428,7 @@ a#toggle_mobile_nav {
   .setting-panel h6, .setting-panel .panel-title {
     color: #212121; }
   .setting-panel .right-sidebar {
-    background: #fff;
+    background: #F1F1F1;
     border-left: 1px solid rgba(33, 33, 33, 0.1); }
   .setting-panel .setting-panel-title {
     font-size: 16px;
@@ -2441,6 +2441,7 @@ a#toggle_mobile_nav {
     text-transform: capitalize; }
   .setting-panel .layout-switcher-wrap > ul {
     padding-left: 20px;
+    padding-right: 20px;
     padding-top: 35px; }
     .setting-panel .layout-switcher-wrap > ul .layout-title {
       color: #444;
@@ -3006,7 +3007,7 @@ a#toggle_mobile_nav {
   margin-left: 44px; }
 
 .card-view {
-  background: #f1f1f1;
+  background: #fff;
   margin-bottom: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 2px;
@@ -4017,7 +4018,7 @@ ul.wysihtml5-toolbar a.btn.wysihtml5-command-active, ul.wysihtml5-toolbar .wizar
   .nav-tabs > li {
     margin-right: 5px; }
     .nav-tabs > li > a {
-      background: rgba(255, 255, 255, 0.1);
+      background: #4E6877;
       border: none;
       padding: 10px 20px;
       color: #878787;

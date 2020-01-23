@@ -24,7 +24,7 @@
 		<!-- Treeview -->
 		<link href="dist/css/hummingbird-treeview.css" rel="stylesheet">
 		
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 	</head>
 	<body>
 		<!--Preloader-->
@@ -60,7 +60,7 @@
 							{
 						?>
 							<li>
-								<a href="google-map.php?prj=<?=$f1->id?>" data-toggle="collapse"> <i class="fa fa-street-view" aria-hidden="true"></i> &nbsp;<span><?=dequotes($f1->nome_progetto)?></span></a>
+								<a href="google-map.php?prj=<?=$f1->id?>"> <i class="fa fa-street-view" aria-hidden="true"></i> &nbsp;<span><?=dequotes($f1->nome_progetto)?></span></a>
 							</li>
 						<?php
 							}
@@ -279,94 +279,49 @@
 							<li>
 								<div class="row">
 									<div class="col-md-12">
-										<div id="collapse_1" class="panel-wrapper collapse in" aria-expanded="true">
-											<div style="padding-left: 0px;" class="panel-body">
-												<div class="panel-group accordion-struct accordion-style-1" id="accordion_2" role="tablist" aria-multiselectable="true">
-													<div class="panel panel-default">
-														<div class="panel-heading" role="tab" id="heading_10">
-															<a role="button" data-toggle="collapse" data-parent="#accordion_2" href="#collapse_10" aria-expanded="false" class="collapsed"><div class="icon-ac-wrap pr-20"><span class="plus-ac"><i style="color: #fff;" class="ti-plus"></i></span><span class="minus-ac"><i style="color: #fff;" class="ti-minus"></i></span></div>Prova (nome progetto)</a> 
-														</div>
-														<div id="collapse_10" class="panel-collapse collapse" role="tabpanel" aria-expanded="false" style="height: 0px;">
-															<div style="background: #4E6877;" class="panel-body pa-15">
-																<div class="tab-struct custom-tab-1 mt-40">
-																	<ul role="tablist" class="nav nav-tabs" id="myTabs_7">
-																		<li style="width: 50%;" class="active" role="presentation"><a aria-expanded="true" data-toggle="tab" role="tab" id="home_tab_7" href="#home_7">Informazioni</a></li>
-																		<li style="width: 50%;" role="presentation"><a data-toggle="tab" id="profile_tab_7" role="tab" href="#profile_7" aria-expanded="false">Foto</a></li>
-																	</ul>
-																	<div class="tab-content" id="myTabContent_7">
-																		<div id="home_7" class="tab-pane fade active in" role="tabpanel">
-																			<div class="row">
-																				<div class="col-md-6">
-																					<p><strong>Nome Progetto</strong></p>
-																					<p><strong>Data Progetto</strong></p>
-																					<p><strong>Descrizione</strong></p>	
-																				</div>
-																				<div class="col-md-6">
-																					<p>Prova</p>
-																					<p>23/01/202</p>
-																					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-																				</div>
-																			</div>
+										<div class="panel panel-info card-view">
+											<div class="panel-heading">
+												<div class="pull-left">
+													<h6 class="panel-title txt-light">panel info</h6>
+												</div>
+												<div class="clearfix"></div>
+											</div>
+											<div class="panel-wrapper collapse in">
+												<div class="panel-body">
+													<div class="panel-body pa-15">
+														<div class="tab-struct custom-tab-1 mt-40">
+															<ul role="tablist" class="nav nav-tabs" id="myTabs_7">
+																<li style="width: 50%;" class="active" role="presentation"><a aria-expanded="true" data-toggle="tab" role="tab" id="home_tab_7" href="#home_7">Informazioni</a></li>
+																<li style="width: 50%;" role="presentation"><a data-toggle="tab" id="profile_tab_7" role="tab" href="#profile_7" aria-expanded="false">Foto</a></li>
+															</ul>
+															<div class="tab-content" id="myTabContent_7">
+																<div id="home_7" class="tab-pane fade active in" role="tabpanel">
+																	<div class="row">
+																		<div class="col-md-6">
+																			<p style="color: #2b2b2b"><span style="font-weight: 500;">Nome Progetto</span></p>
+																			<p style="color: #2b2b2b"><span style="font-weight: 500;">Data Progetto</span></p>
+																			<p style="color: #2b2b2b"><span style="font-weight: 500;">Descrizione</span></p>	
 																		</div>
-																		<div id="profile_7" class="tab-pane fade" role="tabpanel">
-																			<div class="row">
-																				<div class="col-md-12">
-																					<div class="gallery-wrap">
-											
-																						<div class="portfolio-wrap project-gallery">
-																							<ul id="portfolio" class="portf auto-construct  project-gallery" data-col="3">
-																								<li  class="item tall branding"   data-src="dist/img/gallery/mock1.jpg" data-sub-html="<h6>Bagwati</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>" >
-																									<a href="">
-																									<img class="img-responsive" src="dist/img/gallery/mock1.jpg"  alt="Image description" />
-																									<span class="hover-cap">Bagwati</span>
-																									</a>
-																								</li>
-																								<li class="item small photography" data-src="http://www.youtube.com/watch?v=Pq9yPrLWMyU" data-poster="dist/img/gallery/mock2.jpg"  data-sub-html="<h6>Not a Keyboard</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
-																									<a href="">
-																									<img class="img-responsive" src="dist/img/gallery/mock2.jpg"  alt="Image description" />
-																									<span class="hover-cap">Not a Keyboard</span>
-																									</a>
-																								</li>
-																								<li class="item tall design" data-src="dist/img/gallery/mock4.jpg" data-sub-html="<h6>Into the Woods</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
-																									<a href="">
-																									<img class="img-responsive" src="dist/img/gallery/mock4.jpg"  alt="Image description" />
-																									<span class="hover-cap">Into the Woods</span>
-																									</a>
-																								</li>
-																								<li class="item small web" data-src="http://vimeo.com/1084537" data-poster="dist/img/gallery/mock3.jpg" data-sub-html="<h6>Ultra Saffire</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
-																									<a href="">
-																									<img class="img-responsive" src="dist/img/gallery/mock3.jpg"  alt="Image description" />
-																									<span class="hover-cap"> Ultra Saffire</span>
-																									</a>
-																								</li>
-																								
-																								<li class="item design" data-src="dist/img/gallery/mock5.jpg" data-sub-html="<h6>Happy Puppy</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
-																									<a href="">
-																									<img class="img-responsive" src="dist/img/gallery/mock5.jpg"  alt="Image description" />	
-																									<span class="hover-cap">Happy Puppy</span>
-																									</a>
-																								</li>
-																								<li class="item branding" data-html="#video1" data-poster="dist/img/gallery/mock6.jpg" data-sub-html="<h6>Wooden Closet</h6><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
-																									<a href="">
-																									<img class="img-responsive" src="dist/img/gallery/mock6.jpg"  alt="Image description" />
-																									<span class="hover-cap">Wooden Closet</span>
-																									</a>
-																								</li>
-																								
-																							</ul>
-																							<!-- Hidden video div -->
-																							<div style="display:none;" id="video1">
-																								<video class="lg-video-object lg-html5 video-js vjs-default-skin" controls preload="none">
-																									<source src="dist/videos/video1.mp4" type="video/webm">
-																									<source src="dist/videos/video1.webm" type="video/webm">
-																									 Your browser does not support HTML5 video.
-																								</video>
-																							</div>
-																						</div>
-																					
-																					</div>
-																				</div>
-																			</div>
+																		<div class="col-md-6">
+																			<p style="color: #2b2b2b">Prova</p>
+																			<p style="color: #2b2b2b">23/01/202</p>
+																			<p style="color: #2b2b2b">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+																		</div>
+																	</div>
+																</div>
+																<div id="profile_7" class="tab-pane fade" role="tabpanel">
+																	<div class="row">
+																		<div class="col-md-3">
+																			<a data-fancybox="gallery" href="dist/img/gallery/mock1.jpg"><img style="width: 100%;" src="dist/img/gallery/mock1.jpg"></a>
+																		</div>
+																		<div class="col-md-3">
+																			<a data-fancybox="gallery" href="dist/img/gallery/mock1.jpg"><img style="width: 100%;" src="dist/img/gallery/mock1.jpg"></a>
+																		</div>
+																		<div class="col-md-3">
+																			<a data-fancybox="gallery" href="dist/img/gallery/mock1.jpg"><img style="width: 100%;" src="dist/img/gallery/mock1.jpg"></a>
+																		</div>
+																		<div class="col-md-3">
+																			<a data-fancybox="gallery" href="dist/img/gallery/mock1.jpg"><img style="width: 100%;" src="dist/img/gallery/mock1.jpg"></a>
 																		</div>
 																	</div>
 																</div>
@@ -376,7 +331,6 @@
 												</div>
 											</div>
 										</div>
-										
 									</div>
 								</div>
 							</li>
@@ -384,7 +338,7 @@
 								<div class="row">
 									<div class="col-md-12 text-center">
 										<!-- va inserito setting_panel_btn nel button se lo metto però appare giu -->
-										<button type="button" class="btn btn-sm btn-danger setting-panel-btn shadow-2dp">Chiudi</button>
+										<button type="button" class="btn btn-sm btn-info setting-panel-btn shadow-2dp">Chiudi</button>
 									</div>
 								</div>
 							</li>
@@ -644,17 +598,7 @@
 		<script src="vendors/bower_components/switchery/dist/switchery.min.js"></script>	
 	
 		<!-- Init JavaScript -->
-		<script src="dist/js/init.js"></script>
-		
-		<!-- Gallery JavaScript -->
-		<script src="dist/js/isotope.js"></script>
-		<script src="dist/js/lightgallery-all.js"></script>
-		<script src="dist/js/froogaloop2.min.js"></script>
-		<script src="dist/js/gallery-data.js"></script>
-		
-		<!-- Owl JavaScript -->
-		<script src="vendors/bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
-		
+		<script src="dist/js/init.js"></script>		
 
 		<!-- Tabs -->
 		<script src="dist/js/custom.js"></script>
@@ -666,6 +610,9 @@
 		
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7jca5iL-nLyladEfsgi82vLv1Sb3VJlU&libraries=geometry"></script>
 		<script type="text/javascript" src="dist/js/maps-api.js"></script>
+		
+		<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
 		
 		
 		<script type="text/javascript">
