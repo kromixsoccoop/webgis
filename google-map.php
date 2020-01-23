@@ -137,9 +137,18 @@
 									<div id="legenda" class="tabcontent">
 										<div style="border-left: 1px solid #f1f1f1">
 											<p class="ml-10 mt-10">
-												<span style="background: red; position: relative; top: 3px;" class="badge mb-10">&nbsp;&nbsp;&nbsp;&nbsp;</span> <span style="margin-left: 10px;">Particella</span><br>
-												<span style="background: blue; position: relative; top: 3px;" class="badge mb-10">&nbsp;&nbsp;&nbsp;&nbsp;</span> <span style="margin-left: 10px;">Irriguo</span><br>
-												<span style="background: green; position: relative; top: 3px;" class="badge mb-10">&nbsp;&nbsp;&nbsp;&nbsp;</span> <span style="margin-left: 10px;">Irriguo</span><br>
+											<?php
+												// colori livelli
+												$liv = $db->Query("SELECT colore, nome_layer FROM wg_progetti_layers WHERE id_progetto = '$prj' ORDER BY ordine ASC");
+
+												while($fliv = $db->getObject($liv))
+												{
+											?>
+												<span style="background: <?=$fliv->colore?>; position: relative; top: 3px;" class="badge mb-10">&nbsp;&nbsp;&nbsp;&nbsp;</span> <span style="margin-left: 10px;"><?=$fliv->nome_layer?></span><br>
+											<?php
+												}
+											?>
+												
 											</p>
 										</div>
 									</div>
@@ -207,7 +216,11 @@
 					<li>
 						<a href="#" data-toggle="modal" data-target="#guasti"><div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Segnalazione Guasti e Disservizi</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
 					</li>
-					
+				<?php if(is_logged()): ?>
+					<li>
+						<a href="index.php?act=out"><div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Logout</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
+					</li>
+				<?php endif; ?>
 				</ul>
 			</div>
 			<!-- /Left Sidebar Menu -->
@@ -338,7 +351,7 @@
 								<div class="row">
 									<div class="col-md-12 text-center">
 										<!-- va inserito setting_panel_btn nel button se lo metto però appare giu -->
-										<button type="button" class="btn btn-sm btn-info setting-panel-btn shadow-2dp">Chiudi</button>
+										<button type="button" class="btn btn-sm btn-info setting-panel-btn shadow-2dp" onclick="toggleRight();">Chiudi</button>
 									</div>
 								</div>
 							</li>
@@ -347,7 +360,7 @@
 				</ul>
 				
 			</div>
-			<button id="setting_panel_btn" class="btn btn-info btn-circle setting-panel-btn shadow-2dp"><i class="zmdi zmdi-settings"></i></button>
+			
 			<!-- /Right Setting Menu -->
 			
 			<!-- Right Sidebar Backdrop -->
@@ -370,7 +383,7 @@
 										<button title="Diminuisci Riquadro" class="btn left-label btn-info btn-lable-wrap all-btn" onclick="zoomOut()">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 2px;" class="fa fa-search-minus"> </i></span>
 										</button>
-										<button title="Dati Progetto" class="btn left-label btn-info btn-lable-wrap all-btn">
+										<button title="Dati Progetto"  class="btn left-label btn-info btn-lable-wrap all-btn" onclick="toggleRight()">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 3px;" class="fa fa-info-circle"> </i></span>
 										</button>
 										<button title="Misura Area" id="toggleArea" class="btn left-label btn-info btn-lable-wrap all-btn" onclick="mostraArea()">
@@ -550,6 +563,7 @@
 				</div>
 			</div>
 		</div>
+		<div class="wait-background"><span>ATTENDERE PREGO ...</span></div>
 		
 		<!-- Screenshot -->
 		<div class="modal fade" id="screen" tabindex="-1" role="dialog" aria-labelledby="screen">
@@ -666,6 +680,7 @@
 
 			function setLayer(id)
 			{
+				wait();
 				var idLayers = '';
 
 				$('ul#treeview input:checked').each(function(indice, elemento)
@@ -680,7 +695,14 @@
 					$(".mapContainer").find("script").each(function(){
 						eval($(this).text());
 					});
+					unwait();
 				});
+			}
+
+			function toggleRight()
+			{
+				
+				$(".wrapper").toggleClass('open-setting-panel').removeClass('open-right-sidebar');
 			}
 		</script>
 		

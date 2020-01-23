@@ -315,6 +315,8 @@ function mostraArea()
 	});
 	labelArea.bindTo('position', puntoLabel, 'position');
 	labelArea.set('text',"");
+
+	
 	
 	var contaPunti = 0;
 	
@@ -333,6 +335,8 @@ function mostraArea()
 		
 		listaMarkerArea.push(punto);
 		listaPosizioniMarkerArea.push(punto.position);
+
+
 		
 		
 		google.maps.event.addListener(punto, 'drag', function() {
@@ -345,6 +349,7 @@ function mostraArea()
 			distanza = google.maps.geometry.spherical.computeArea( listaPosizioniMarkerArea );
 			
 			labelArea.set('text',formatDistance(distanza));
+			$('span#infoMappa').html("AREA TOTALE MISURATA: " + formatDistance(distanza));
 		});
 
 		
@@ -492,6 +497,7 @@ var mycanvas;
 
 function screenShot()
 {
+	wait();
 	$('#imgMap').html("");
 	disegno = null;
 
@@ -507,10 +513,10 @@ function screenShot()
 
 		localStorage.setItem("immagine", canvas.toDataURL("image/png"));
 		/*var image = canvas.toDataURL("image/png");
-
+		
     	return image.replace(/^data:image\/(png|jpg);base64,/, "");*/
 		
-
+		unwait();
 	});
 
 }

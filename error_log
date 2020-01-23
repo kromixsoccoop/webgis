@@ -44,3 +44,22 @@
 [22-Jan-2020 17:01:44 Europe/Rome] PHP   1. {main}() D:\Server Locale\Progetti\webgis\addProgetto.php:0
 [22-Jan-2020 17:01:44 Europe/Rome] PHP   2. Uploader->upload() D:\Server Locale\Progetti\webgis\addProgetto.php:142
 [22-Jan-2020 17:01:44 Europe/Rome] PHP   3. rand() D:\Server Locale\Progetti\webgis\include\upload.inc.php:118
+[23-Jan-2020 09:43:10 Europe/Rome] PHP Notice:  Undefined index: remember in D:\Server Locale\Progetti\webgis\login.php on line 14
+[23-Jan-2020 09:43:10 Europe/Rome] PHP Stack trace:
+[23-Jan-2020 09:43:10 Europe/Rome] PHP   1. {main}() D:\Server Locale\Progetti\webgis\login.php:0
+[23-Jan-2020 15:45:22 Europe/Rome] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) in D:\Server Locale\Progetti\webgis\include\SQLManager.class.php on line 106
+[23-Jan-2020 15:45:22 Europe/Rome] PHP Stack trace:
+[23-Jan-2020 15:45:22 Europe/Rome] PHP   1. {main}() D:\Server Locale\Progetti\webgis\google-map.php:0
+[23-Jan-2020 15:45:22 Europe/Rome] PHP   2. include() D:\Server Locale\Progetti\webgis\google-map.php:2
+[23-Jan-2020 15:45:22 Europe/Rome] PHP   3. SQLManager->Open() D:\Server Locale\Progetti\webgis\include\db.php:6
+[23-Jan-2020 15:45:22 Europe/Rome] PHP   4. mysqli->__construct() D:\Server Locale\Progetti\webgis\include\SQLManager.class.php:106
+[23-Jan-2020 15:45:22 Europe/Rome] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in D:\Server Locale\Progetti\webgis\include\SQLManager.class.php on line 246
+[23-Jan-2020 15:45:22 Europe/Rome] PHP Stack trace:
+[23-Jan-2020 15:45:22 Europe/Rome] PHP   1. {main}() D:\Server Locale\Progetti\webgis\google-map.php:0
+[23-Jan-2020 15:45:22 Europe/Rome] PHP   2. SQLManager->Query() D:\Server Locale\Progetti\webgis\google-map.php:52
+[23-Jan-2020 15:45:22 Europe/Rome] PHP   3. mysqli->query() D:\Server Locale\Progetti\webgis\include\SQLManager.class.php:246
+[23-Jan-2020 15:45:22 Europe/Rome] PHP Warning:  SQLManager::getErr(): Couldn't fetch mysqli in D:\Server Locale\Progetti\webgis\include\SQLManager.class.php on line 192
+[23-Jan-2020 15:45:22 Europe/Rome] PHP Stack trace:
+[23-Jan-2020 15:45:22 Europe/Rome] PHP   1. {main}() D:\Server Locale\Progetti\webgis\google-map.php:0
+[23-Jan-2020 15:45:22 Europe/Rome] PHP   2. SQLManager->Query() D:\Server Locale\Progetti\webgis\google-map.php:52
+[23-Jan-2020 15:45:22 Europe/Rome] PHP   3. SQLManager->getErr() D:\Server Locale\Progetti\webgis\include\SQLManager.class.php:246

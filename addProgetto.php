@@ -723,6 +723,21 @@
 													</div>
 													<br />
 													<div class="row">
+														<div class="col-md-4">
+															<div class="form-group">
+																<label class="control-label mb-10 text-left font-500" for="colore">Colore linea</label>
+																<input type="text" class="form-control" name="colore" id="colore" value="#FFFFFF">
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label class="control-label mb-10 text-left font-500" for="coloreinterno">Colore riempimento</label>
+																<input type="text" class="form-control" name="coloreinterno" id="coloreinterno" value="#FFFFFF">
+															</div>
+														</div>
+													</div>
+													<br />
+													<div class="row">
 														<div class="col-md-12">
 															<div class="form-group">
 																<label style="font-weight: 500;" class="control-label mb-10 text-left">Carica file .kml</label>

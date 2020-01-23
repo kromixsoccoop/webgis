@@ -470,3 +470,14 @@ function error(messaggio)
   // provvisorio
   alert(messaggio);
 }
+
+function wait()
+{
+  $('.wait-background').show();
+}
+
+function unwait()
+{
+  $('.wait-background').hide();
+}
+

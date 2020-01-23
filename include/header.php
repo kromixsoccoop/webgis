@@ -32,7 +32,7 @@
 				else
 				{
 				?>
-				<a id="open_right_sidebar" href="#">Benvenuto <strong><?php
+				<a href="index.php">Benvenuto <strong><?php
 				if(isset($_SESSION['fullname']))
 				{
 					echo $_SESSION['fullname'];
