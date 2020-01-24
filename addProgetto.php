@@ -128,9 +128,29 @@
 		$visibilita = (int)$_POST['visibilita'];
 		$ordine = (int)$_POST['ordine'];
 
+		$colore = aquotes($_POST['colore']);
+		$coloreinterno = aquotes($_POST['coloreinterno']);
+		$forzatura = (int)$_POST['forzatura'];
+
 		$qgis = $_FILES['qgis']['name'];
 
 		$nomegis = '';
+
+		if($forzatura == 0)
+		{
+			$forzalinea = 0;
+			$forzapoligono = 0;
+		}
+		elseif($forzatura == 1)
+		{
+			$forzalinea = 0;
+			$forzapoligono = 1;
+		}
+		elseif($forzatura == 2)
+		{
+			$forzalinea = 1;
+			$forzapoligono = 0;
+		}
 
 		if(!empty($qgis))
 		{
@@ -326,11 +346,11 @@
 				$template .= "<p><strong>".stripslashes($proprieta).":</strong> {{".stripslashes($proprieta)."}}</p>";
 			}
 
-			$add = $db->Query("INSERT INTO wg_progetti_layers (id_progetto, id_madre, nome_layer, ordine, visibilita, attributi, template, boundaries) VALUES ('$id_progetto', '$id_madre', '$nome_layer', '$ordine', '$visibilita', '$attri', '$template', '$qgis')");
+			$add = $db->Query("INSERT INTO wg_progetti_layers (id_progetto, id_madre, nome_layer, ordine, visibilita, colore, coloreinterno, forzalinea, forzapoligono, attributi, template, boundaries) VALUES ('$id_progetto', '$id_madre', '$nome_layer', '$ordine', '$visibilita', '$colore', '$coloreinterno', '$forzalinea', '$forzapoligono', '$attri', '$template', '$qgis')");
 		}
 		else
 		{
-			$add = $db->Query("INSERT INTO wg_progetti_layers (id_progetto, id_madre, nome_layer, ordine, visibilita, attributi, template, boundaries) VALUES ('$id_progetto', '$id_madre', '$nome_layer', '$ordine', '$visibilita', '', '', '')");
+			$add = $db->Query("INSERT INTO wg_progetti_layers (id_progetto, id_madre, nome_layer, ordine, visibilita, colore, coloreinterno, forzalinea, forzapoligono, attributi, template, boundaries) VALUES ('$id_progetto', '$id_madre', '$nome_layer', '$ordine', '$visibilita', '$colore', '$coloreinterno' '$forzalinea', '$forzapoligono', '', '', '')");
 
 		}
 
@@ -339,6 +359,21 @@
 			phpRedir("addProgetto.php?act=addLayer&prj=".$id_progetto);
 		}
 
+
+	}
+
+
+	if(isset($_POST['sendTemplate']))
+	{
+		$summernote = aquotes($_POST['summernote']);
+
+		$lyr = (int)$_POST['lyr'];
+		$prj = (int)$_POST['prj'];
+
+		$mod = $db->Query("UPDATE wg_progetti_layers SET template  = '$summernote' WHERE id_progetto = '$prj' AND id = '$lyr'");
+
+		$_SESSION['success'] = "Template modificato correttamente per il layer";
+		phpRedir("addProgetto.php?act=addLayer&prj=".$id_progetto);
 	}
 ?>
 
@@ -735,6 +770,16 @@
 																<input type="text" class="form-control" name="coloreinterno" id="coloreinterno" value="#FFFFFF">
 															</div>
 														</div>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label class="control-label mb-10 text-left font-500" for="forzatura">Forzatura poligono</label>
+																<select class="form-control" name="forzatura" id="forzatura">
+																	<option value="0">Nessuna</option>
+																	<option value="1" title="Le linee saranno automaticamente chiuse se non fatto da GIS, e verra applicato un riempimento">Forza Poligono</option>
+																	<option value="2" title="I poligoni non verranno riempiti, e solo le linee saranno visibili">Forza Linee</option>
+																</select>
+															</div>
+														</div>
 													</div>
 													<br />
 													<div class="row">
@@ -797,6 +842,10 @@
 				{
 					$prj = (int)$_GET['prj'];
 					$lyr = (int)$_GET['lyr'];
+
+					// ottengo il template salvato
+					$dasa = $db->Query("SELECT template FROM wg_progetti_layers WHERE id_progetto = '$prj' AND id = '$lyr'");
+					$fasa = $db->getObject($dasa);
 			?>
 			
 					<!-- Main Content -->
@@ -865,11 +914,11 @@
 									<div class="panel panel-default card-view">
 										<div class="panel-wrapper collapse in">
 											<div class="panel-body">
-												<form action="" id="formLayers" method="post" enctype="multipart/form-data">
+												<form action="" id="formTemplate" method="post">
 													<div class="row">
 														<div class="col-md-12">
 															<div class="form-group">
-																<div class="summernote"></div>
+																<textarea class="summernote" name="summernote"><?=dequotes($fasa->template)?></textarea>
 															</div>
 														</div>
 														
@@ -882,8 +931,9 @@
 															</div>
 															<div class="pull-right">
 																<input type="hidden" name="id_progetto" id="id_progetto" value="<?=$prj?>" />
-																<input type="hidden" name="sendLayer" id="sendLayer" value="1" />
-																<a href="javascript:;" onclick="caricaLayer()" class="btn btn-sm btn-success">Salva</a>
+																<input type="hidden" name="id_layer" id="id_layer" value="<?=$lyr?>" />
+																<input type="hidden" name="sendTemplate" id="sendTemplate" value="1" />
+																<a href="javascript:;" onclick="$('form#formTemplate').submit()" class="btn btn-sm btn-success">Salva</a>
 															</div>
 														</div>
 													</div>

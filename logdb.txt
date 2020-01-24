@@ -20,3 +20,5 @@
 23/01/2020 15:45:22 - Si è verificato un errore:  - Query: SELECT id, nome_progetto FROM wg_progetti ORDER BY data_progetto ASC
 23/01/2020 16:47:04 - Si è verificato un errore: Table 'webgis.wg_progetti_layer' doesn't exist - Query: SELECT colore, nome_layer FROM wg_progetti_layer WHERE id_progetto = '1' ORDER BY ordine ASC
 23/01/2020 16:47:29 - Si è verificato un errore: Table 'webgis.wg_progetti_layer' doesn't exist - Query: SELECT colore, nome_layer FROM wg_progetti_layer WHERE id_progetto = '1' ORDER BY ordine ASC
+24/01/2020 15:49:42 - Si è verificato un errore: Unknown column 'id_progetti' in 'where clause' - Query: SELECT * FROM wg_progetti_foto WHERE id_progetti = '1' ORDER BY ordine ASC
+24/01/2020 15:49:44 - Si è verificato un errore: Unknown column 'id_progetti' in 'where clause' - Query: SELECT * FROM wg_progetti_foto WHERE id_progetti = '1' ORDER BY ordine ASC

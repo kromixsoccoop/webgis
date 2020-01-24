@@ -1,4 +1,7 @@
 <?php session_start();
+
+	//header("Access-Control-Allow-Origin: *");
+
 	include("include/db.php");
 	include("include/functions.php");
 ?>
@@ -283,9 +286,17 @@
 				</ul>
 			</div>
 			<!-- /Right Sidebar Menu -->
-			
+		<?php
+			if(isset($prj))
+			{
+		?>
 			<!-- Right Setting Menu -->
 			<div class="setting-panel">
+				<?php
+					$pinfo = $db->Query("SELECT * FROM wg_progetti WHERE id = '$prj'");
+
+					$finfo = $db->getObject($pinfo);
+				?>
 				<ul class="right-sidebar nicescroll-bar pa-0">
 					<li class="layout-switcher-wrap">
 						<ul>
@@ -295,7 +306,7 @@
 										<div class="panel panel-info card-view">
 											<div class="panel-heading">
 												<div class="pull-left">
-													<h6 class="panel-title txt-light">panel info</h6>
+													<h6 class="panel-title txt-light">PROGETTO</h6>
 												</div>
 												<div class="clearfix"></div>
 											</div>
@@ -316,27 +327,27 @@
 																			<p style="color: #2b2b2b"><span style="font-weight: 500;">Descrizione</span></p>	
 																		</div>
 																		<div class="col-md-6">
-																			<p style="color: #2b2b2b">Prova</p>
-																			<p style="color: #2b2b2b">23/01/202</p>
-																			<p style="color: #2b2b2b">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+																			<p style="color: #2b2b2b"><?=dequotes($finfo->nome_progetto)?></p>
+																			<p style="color: #2b2b2b"><?=date("d/m/Y", strtotime($finfo->data_progetto));?></p>
+																			<p style="color: #2b2b2b"><?=dequotes($finfo->descrizione)?></p>
 																		</div>
 																	</div>
 																</div>
 																<div id="profile_7" class="tab-pane fade" role="tabpanel">
-																	<div class="row">
-																		<div class="col-md-3">
-																			<a data-fancybox="gallery" href="dist/img/gallery/mock1.jpg"><img style="width: 100%;" src="dist/img/gallery/mock1.jpg"></a>
-																		</div>
-																		<div class="col-md-3">
-																			<a data-fancybox="gallery" href="dist/img/gallery/mock1.jpg"><img style="width: 100%;" src="dist/img/gallery/mock1.jpg"></a>
-																		</div>
-																		<div class="col-md-3">
-																			<a data-fancybox="gallery" href="dist/img/gallery/mock1.jpg"><img style="width: 100%;" src="dist/img/gallery/mock1.jpg"></a>
-																		</div>
-																		<div class="col-md-3">
-																			<a data-fancybox="gallery" href="dist/img/gallery/mock1.jpg"><img style="width: 100%;" src="dist/img/gallery/mock1.jpg"></a>
-																		</div>
+																	<?php
+																		// foto
+																		$ffot = $db->Query("SELECT * FROM wg_progetti_foto WHERE id_progetto = '$prj' ORDER BY ordine ASC");
+
+																		while($fot = $db->getObject($ffot))
+																		{
+																	?>
+																	<div class="col-md-3">
+																		<a data-fancybox="gallery" href="dati/foto-progetti/<?=$fot->foto?>" data-fancybox data-caption="<?=dequotes($fot->nome_foto)?>"><img style="width: 100%;" src="dati/foto-progetti/<?=$fot->foto?>"></a>
 																	</div>
+																	<?php
+																		}
+																	?>
+																	
 																</div>
 															</div>
 														</div>
@@ -360,9 +371,11 @@
 				</ul>
 				
 			</div>
-			
+		
 			<!-- /Right Setting Menu -->
-			
+		<?php
+			}
+		?>
 			<!-- Right Sidebar Backdrop -->
 			<div class="right-sidebar-backdrop"></div>
 			<!-- /Right Sidebar Backdrop -->
@@ -383,9 +396,11 @@
 										<button title="Diminuisci Riquadro" class="btn left-label btn-info btn-lable-wrap all-btn" onclick="zoomOut()">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 2px;" class="fa fa-search-minus"> </i></span>
 										</button>
+									<?php if(isset($prj)): ?>
 										<button title="Dati Progetto"  class="btn left-label btn-info btn-lable-wrap all-btn" onclick="toggleRight()">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 3px;" class="fa fa-info-circle"> </i></span>
 										</button>
+									<?php endif; ?>
 										<button title="Misura Area" id="toggleArea" class="btn left-label btn-info btn-lable-wrap all-btn" onclick="mostraArea()">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 2px;" class="ti-ruler-alt-2"> </i></span>
 										</button>
@@ -614,6 +629,10 @@
 		<!-- Init JavaScript -->
 		<script src="dist/js/init.js"></script>		
 
+			
+
+			
+
 		<!-- Tabs -->
 		<script src="dist/js/custom.js"></script>
 
@@ -702,7 +721,17 @@
 			function toggleRight()
 			{
 				
-				$(".wrapper").toggleClass('open-setting-panel').removeClass('open-right-sidebar');
+				//$(".wrapper").toggleClass('open-setting-panel').removeClass('open-right-sidebar');
+				if($('.setting-panel').hasClass("aperto"))
+				{
+					$(".setting-panel").css("margin-right", "-660px").removeClass("aperto");
+				}
+				else
+				{
+					$(".setting-panel").css("margin-right", "0px").addClass("aperto");
+				}
+				
+				
 			}
 		</script>
 		

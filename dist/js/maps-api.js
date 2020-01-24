@@ -493,7 +493,7 @@ function zoomOut()
 	}
 }
 
-var mycanvas;
+var getCanvas;
 
 function screenShot()
 {
@@ -508,23 +508,28 @@ function screenShot()
 		height: 750,
 		logging: false
 	}).then(function(canvas) {
+		getCanvas = canvas;
 		$('#imgMap').html(canvas);
-		$('#imgMap canvas').attr("id", "screenshot").css("width", "100%");
-
-		localStorage.setItem("immagine", canvas.toDataURL("image/png"));
+		$('#imgMap canvas').attr("id", "canvas").attr("crossorigin", "anonymous").css("width", "100%");
+		
+		unwait();
+		
+		
 		/*var image = canvas.toDataURL("image/png");
 		
     	return image.replace(/^data:image\/(png|jpg);base64,/, "");*/
 		
-		unwait();
+		
 	});
 
 }
 
+
 function downloadScreenshot()
 {
-	alert(localStorage.getItem("immagine"));
+	
 }
+
 
 
 
