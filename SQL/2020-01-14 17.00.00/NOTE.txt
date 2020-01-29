@@ -1,5 +1,0 @@
-Crea un DB chiamato webgis (o come vuoi tu)
-
-PRIMA DI IMPORTARE IL FILE SQL, ricordati poi di andare in "Operazioni" e cambiare la codifica caratteri in utf8_bin.
-
-Se crei tabelle falle sempre con il prefisso wg_
