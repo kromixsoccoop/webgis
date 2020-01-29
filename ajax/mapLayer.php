@@ -204,7 +204,34 @@
                 
 
                 google.maps.event.addListener(polygon<?=$contatore?>, 'click', function(h) {
-                    alert("contatore: <?=$contatore?>");
+                    //alert("contatore: <?=$contatore?>");
+                    <?php
+                        $jsonLayer['attributi'] = $attributi;
+                        $jsonLayer['idLayer'] = $layer;
+                    ?>
+                    var infoPost = '<?=json_encode($jsonLayer)?>';
+
+                    $.ajax({
+                        type: 'POST',
+                        url: 'ajax/infoLayer.php',
+                        data: {'info': infoPost},
+                        success: function(dati) {
+                            $('#infoLayer').removeClass("hidden");
+                            $('#infoProgetto').removeClass("hidden").addClass("hidden");
+                            $('.contenutoLayer').html(dati);
+
+                            if($('.setting-panel').hasClass("aperto"))
+                            {
+                                
+                            }
+                            else
+                            {
+                                $('#infoProgetto').removeClass("hidden").addClass("hidden");
+                                $(".setting-panel").css("margin-right", "0px").addClass("aperto");
+                            }
+                        }
+                    });
+
                 });
                 <?php
 
@@ -238,7 +265,35 @@
                     });
 
                     marker<?=$contatore?>.addListener('click', function() {
-                        infowindow<?=$contatore?>.open(map, marker<?=$contatore?>);
+                        //infowindow<?=$contatore?>.open(map, marker<?=$contatore?>);
+
+                        <?php
+                        $jsonLayer['attributi'] = $attributi;
+                        $jsonLayer['idLayer'] = $layer;
+                        ?>
+                        var infoPost = '<?=json_encode($jsonLayer)?>';
+
+                        $.ajax({
+                            type: 'POST',
+                            url: 'ajax/infoLayer.php',
+                            data: {'info': infoPost},
+                            success: function(dati) {
+                                $('#infoLayer').removeClass("hidden");
+                                $('#infoProgetto').removeClass("hidden").addClass("hidden");
+                                $('.contenutoLayer').html(dati);
+
+                                if($('.setting-panel').hasClass("aperto"))
+                                {
+                                    
+                                }
+                                else
+                                {
+                                    $('#infoProgetto').removeClass("hidden").addClass("hidden");
+                                    $(".setting-panel").css("margin-right", "0px").addClass("aperto");
+                                }
+                            }
+                        });
+
                     });
 
                     <?php

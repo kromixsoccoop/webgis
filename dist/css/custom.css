@@ -102,3 +102,11 @@
             user-select: none; /* Non-prefixed version, currently */
 
 }
+
+.contenutoLayer {
+  color: #000000;
+}
+
+.contenutoLayer h3 {
+  color: #AA0000;
+}

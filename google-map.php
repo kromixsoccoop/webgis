@@ -300,7 +300,7 @@
 				<ul class="right-sidebar nicescroll-bar pa-0">
 					<li class="layout-switcher-wrap">
 						<ul>
-							<li>
+							<li id="infoProgetto">
 								<div class="row">
 									<div class="col-md-12">
 										<div class="panel panel-info card-view">
@@ -351,6 +351,27 @@
 																</div>
 															</div>
 														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li id="infoLayer" class="hidden">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="panel panel-info card-view">
+											<div class="panel-heading">
+												<div class="pull-left">
+													<h6 class="panel-title txt-light">Informazioni</h6>
+												</div>
+												<div class="clearfix"></div>
+											</div>
+											<div class="panel-wrapper collapse in">
+												<div class="panel-body">
+													<div class="panel-body pa-15 contenutoLayer">
+														
 													</div>
 												</div>
 											</div>
@@ -724,10 +745,14 @@
 				//$(".wrapper").toggleClass('open-setting-panel').removeClass('open-right-sidebar');
 				if($('.setting-panel').hasClass("aperto"))
 				{
+					$('#infoLayer').removeClass("hidden").addClass("hidden");
+					$('#infoProgetto').removeClass("hidden").addClass("hidden");
 					$(".setting-panel").css("margin-right", "-660px").removeClass("aperto");
 				}
 				else
 				{
+					$('#infoLayer').removeClass("hidden").addClass("hidden");
+					$('#infoProgetto').removeClass("hidden");
 					$(".setting-panel").css("margin-right", "0px").addClass("aperto");
 				}
 				
