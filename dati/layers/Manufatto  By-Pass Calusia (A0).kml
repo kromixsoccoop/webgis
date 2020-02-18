@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document id="root_doc">
+    <Schema id="Manufatto__By_Pass_Calusia__A0_" name="Manufatto__By_Pass_Calusia__A0_">
+      <SimpleField name="descriptio" type="string"/>
+      <SimpleField name="timestamp" type="string"/>
+      <SimpleField name="begin" type="string"/>
+      <SimpleField name="end" type="string"/>
+      <SimpleField name="altitudeMo" type="string"/>
+      <SimpleField name="tessellate" type="float"/>
+      <SimpleField name="extrude" type="float"/>
+      <SimpleField name="visibility" type="float"/>
+      <SimpleField name="drawOrder" type="float"/>
+      <SimpleField name="icon" type="string"/>
+    </Schema>
+    <Schema id="Manufatto__By-Pass_Calusia__A0_.schema">
+      <SimpleField name="descriptio" type="string"/>
+      <SimpleField name="altitudeMo" type="string"/>
+    </Schema>
+    <Folder>
+      <name>Manufatto__By_Pass_Calusia__A0_</name>
+      <Placemark>
+        <name>Manufatto By-Pass Calusia (A0)</name>
+        <ExtendedData>
+          <SchemaData schemaUrl="#Manufatto__By_Pass_Calusia__A0_">
+            <SimpleData name="tessellate">-1</SimpleData>
+            <SimpleData name="extrude">0</SimpleData>
+            <SimpleData name="visibility">-1</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.8426023147522,39.183014564789,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Document id="Manufatto__By-Pass_Calusia__A0_">
+      <name>Manufatto  By-Pass Calusia (A0)</name>
+      <Placemark id="Manufatto__By-Pass_Calusia__A0_.1">
+        <name>Manufatto By-Pass Calusia (A0)</name>
+        <ExtendedData>
+          <SchemaData schemaUrl="#Manufatto__By-Pass_Calusia__A0_.schema">
+            <SimpleData name="tessellate">-1</SimpleData>
+            <SimpleData name="extrude">0</SimpleData>
+            <SimpleData name="visibility">-1</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.8426023147522,39.183014564789,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Document>
+  </Document>
+</kml>

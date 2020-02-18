@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="Centrale_Idroelettrica_Calusia" id="Centrale_Idroelettrica_Calusia">
+	<SimpleField name="Nome" type="string"></SimpleField>
+	<SimpleField name="Socitìet�" type="string"></SimpleField>
+	<SimpleField name="P (MW)" type="string"></SimpleField>
+	<SimpleField name="Comune" type="string"></SimpleField>
+</Schema>
+<Folder><name>Centrale_Idroelettrica_Calusia</name>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#Centrale_Idroelettrica_Calusia">
+		<SimpleData name="Nome">Centrale idroelettrica Calusia</SimpleData>
+		<SimpleData name="Socitìet�">A2A</SimpleData>
+		<SimpleData name="P (MW)">49.1</SimpleData>
+		<SimpleData name="Comune">Caccuri (KR)</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>16.8357817615966,39.1828775809491 16.8346501359294,39.182312988321 16.8330900424333,39.1841717450958 16.8341827692338,39.1845283364132 16.8357817615966,39.1828775809491</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+</Folder>
+</Document></kml>

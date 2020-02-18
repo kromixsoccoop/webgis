@@ -21,8 +21,12 @@
 
     foreach($info->attributi as $chiave => $valore)
     {
+        
         $template = str_replace('{{'.$chiave.'}}', $valore, $template);
     }
+
+    // cancello il placeholder
+    $template = preg_replace("#{{[A-Za-z0-9\. \-]+}}#i", "", $template);
 
     echo $template;
 ?>

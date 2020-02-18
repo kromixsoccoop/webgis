@@ -6,7 +6,14 @@
     require_once("../include/functions.php");
 
 
-    
+    $center = rawurldecode($_POST['center']);
+    $zoom = rawurldecode($_POST['z']);
+    $type = rawurldecode($_POST['type']);
+
+    preg_match("/\(([0-9\.]+),[\s]*([0-9\.]+)\)/", $center, $req);
+
+    $lat = trim($req[1]);
+    $lng = trim($req[2]);
 ?>
 
 <div id="map" style="height:750px; width: 100%"></div>
@@ -15,15 +22,15 @@
     
         
         map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 39.081563, lng: 17.135190},
-            zoom: 16,
+            center: {lat: <?=$lat?>, lng: <?=$lng?>},
+            zoom: <?=$zoom?>,
             disableDefaultUI: true,
             zoomControl: false,
             panControl: false,
             fullscreenControl: true,
             scaleControl: false,
             streetViewControl: true,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
+            mapTypeId: google.maps.MapTypeId.<?=strtoupper($type)?>
         });
 
 <?php
@@ -46,24 +53,31 @@
 
             foreach($poligoni as $poligono)
             {
-                $attributi = $poligono['attributi'];
+                $attributi = @$poligono['attributi'];
 
                 if(isset($poligono['bordi']))
                 {
                     $bordi = $poligono['bordi'];
                 }
-                elseif(isset($poligono['coo']))
+                
+                if(isset($poligono['coo']))
                 {
                     $coordinate = $poligono['coo'];
+
+                    
                 }
-                elseif(isset($poligono['interni']))
+                
+                if(isset($poligono['interni']))
                 {
                     $interni = $poligono['interni'];
                 }
+
+                
+
                 //$coo = $poligono['coo'];
                 //$interni = $poligono['interni'];
 
-                //print_r($poligoni);
+                //print_r($bordi);
                 //exit("");
                 
                 $t1 = '';
@@ -109,24 +123,31 @@
                     $t2 .= "];";
                 }
 
+                
+                
+
                 if(isset($poligono['coo']))
                 {
                     
-                    $t3 = "var path".$contatore." = [";
 
-                    foreach($coordinate[0] as $coo)
+                    if(count($coordinate) > 0)
                     {
-                        /*if(empty($lati) && empty($longi))
+                        $t3 = "var path".$contatore." = [";
+
+                        foreach($coordinate[0] as $coo)
                         {
-                            $lati = trim((float)$coo[0]);
-                            $longi = trim((float)$coo[1]);
-                        }*/
-                        $val[] = "{lat:".trim((float)$coo[0]).", lng:".trim((float)$coo[1])."}";
+                            /*if(empty($lati) && empty($longi))
+                            {
+                                $lati = trim((float)$coo[0]);
+                                $longi = trim((float)$coo[1]);
+                            }*/
+                            $val[] = "{lat:".trim((float)$coo[0]).", lng:".trim((float)$coo[1])."}";
+                        }
+
+                        $t3 .= implode(",", $val);
+
+                        $t3 .= "];";
                     }
-
-                    $t3 .= implode(",", $val);
-
-                    $t3 .= "];";
                 }
 
                 

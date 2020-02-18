@@ -132,6 +132,9 @@
 		$coloreinterno = aquotes($_POST['coloreinterno']);
 		$forzatura = (int)$_POST['forzatura'];
 
+		if(substr($colore, 0, 1) != '#') $colore = '#' . $colore;
+		if(substr($coloreinterno, 0, 1) != '#') $coloreinterno = '#' . $coloreinterno;
+
 		$qgis = $_FILES['qgis']['name'];
 
 		$nomegis = '';
@@ -167,6 +170,8 @@
 			{
 				$nomegis = $gis->getName();
 
+				$tiposhape = 0;
+
 				// interpreto i dati GIS
 				$kml = simplexml_load_file("dati/layers/".$nomegis);
 
@@ -191,8 +196,8 @@
 
 							if(preg_match("#name=\"([^\"]+)\"#", $testuale, $q))
 							{
-								if(!in_array($q[1], $attributi))
-									$attributi[] = addslashes((string)$q[1]);
+								if(!in_array(sanitize_attributes(addslashes((string)$q[1])), $attributi))
+									$attributi[] = sanitize_attributes(addslashes((string)$q[1]));
 
 									
 
@@ -208,23 +213,43 @@
 					
 					$poligono = $particella->Polygon;
 
-					if($poligono->outerBoundaryIs)
+					
+
+					if(!$poligono) $poligono = $particella->MultiGeometry->Polygon;
+
+					
+
+					if($poligono && $poligono->outerBoundaryIs)
 					{
+
+						if($tiposhape == 0)
+						{
+							$tiposhape = 2;
+						}
+						else
+						{
+							$tiposhape = 0;
+						}
 
 						foreach($poligono->outerBoundaryIs as $bordo)
 						{
 							$scoordinate = $bordo->LinearRing->coordinates;
 							
-							$coordinate = explode(" ", $scoordinate);
+							//$coordinate = explode(" ", $scoordinate);
+							$coordinate = preg_split("#[\s]+#", trim($scoordinate));
+							
 							
 							
 							$valco = array();
 							
 							foreach($coordinate as $coo)
 							{
-								$co2 = explode(",", $coo);
+								if(!empty($coo))
+								{
+									$co2 = explode(",", $coo);
 								
-								$valco[] = array(addslashes(trim((float)$co2[1])), addslashes(trim((float)$co2[0])));
+									$valco[] = array(addslashes(trim((float)$co2[1])), addslashes(trim((float)$co2[0])));
+								}
 							}
 							
 							$infoparticella['bordi'][] = $valco;
@@ -233,16 +258,20 @@
 						foreach($poligono->innerBoundaryIs as $bordo)
 						{
 							$scoordinate = $bordo->LinearRing->coordinates;
-							$coordinate = explode(" ", $scoordinate);
+							//$coordinate = explode(" ", $scoordinate);
+							$coordinate = preg_split("#[\s]+#", trim($scoordinate));
 							
 							
 							$valco = array();
 							
 							foreach($coordinate as $coo)
 							{
-								$co2 = explode(",", $coo); 
+								if(!empty($coo))
+								{
+									$co2 = explode(",", $coo); 
 								
-								$valco[] = array(addslashes(trim((float)$co2[1])), addslashes(trim((float)$co2[0])));
+									$valco[] = array(addslashes(trim((float)$co2[1])), addslashes(trim((float)$co2[0])));
+								}
 							}
 							
 							$infoparticella['interno'][] = $valco;
@@ -257,20 +286,33 @@
 					if($lineePoligono->MultiGeometry)
 					{
 
+						if($tiposhape == 0)
+						{
+							$tiposhape = 3;
+						}
+						else
+						{
+							$tiposhape = 0;
+						}
+
 						foreach($lineePoligono->MultiGeometry as $bordo)
 						{
 							$scoordinate = $bordo->LineString->coordinates;
 							
-							$coordinate = explode(" ", $scoordinate);
+							//$coordinate = explode(" ", $scoordinate);
+							$coordinate = preg_split("#[\s]+#", trim($scoordinate));
 							
 							
 							$valco = array();
 							
 							foreach($coordinate as $coo)
 							{
-								$co2 = explode(",", $coo);
+								if(!empty($coo))
+								{
+									$co2 = explode(",", $coo);
 								
-								$valco[] = array((trim((float)$co2[1])), (trim((float)$co2[0])));
+									$valco[] = array((trim((float)$co2[1])), (trim((float)$co2[0])));
+								}
 							}
 							
 							$infoparticella['coo'][] = $valco;
@@ -281,20 +323,35 @@
 
 					if($lineePoligono->LineString)
 					{	
+						if($tiposhape == 0)
+						{
+							$tiposhape = 3;
+						}
+						else
+						{
+							$tiposhape = 0;
+						}
+
 						foreach($lineePoligono->LineString as $bordo)
 						{
 							$scoordinate = $bordo->coordinates;
 							
-							$coordinate = explode(" ", $scoordinate);
+							//$coordinate = explode(" ", $scoordinate);
+							$coordinate = preg_split("#[\s]+#", trim($scoordinate));
 							
 							
+
+
 							$valco = array();
 							
 							foreach($coordinate as $coo)
 							{
-								$co2 = explode(",", $coo);
+								if(!empty($coo))
+								{
+									$co2 = explode(",", $coo);
 								
-								$valco[] = array((trim((float)$co2[1])), (trim((float)$co2[0])));
+									$valco[] = array((trim((float)$co2[1])), (trim((float)$co2[0])));
+								}
 							}
 							
 							$infoparticella['coo'][] = $valco;
@@ -304,22 +361,34 @@
 
 					if($lineePoligono->Point)
 					{
+						if($tiposhape == 0)
+						{
+							$tiposhape = 1;
+						}
+						else
+						{
+							$tiposhape = 0;
+						}
 
 						// punti
 						foreach($lineePoligono->Point as $bordo)
 						{
 							$scoordinate = $bordo->coordinates;
 							
-							$coordinate = explode(" ", $scoordinate);
+							//$coordinate = explode(" ", $scoordinate);
+							$coordinate = preg_split("#[\s]+#", trim($scoordinate));
 							
 							
 							$valco = array();
 							
 							foreach($coordinate as $coo)
 							{
-								$co2 = explode(",", $coo);
+								if(!empty($coo))
+								{
+									$co2 = explode(",", $coo);
 								
-								$valco[] = array(addslashes(trim((float)$co2[1])), addslashes(trim((float)$co2[0])));
+									$valco[] = array(addslashes(trim((float)$co2[1])), addslashes(trim((float)$co2[0])));
+								}
 							}
 							
 							$infoparticella['punti'][] = $valco;
@@ -333,11 +402,13 @@
 				}
 			}
 
-			//print_r($elementiGIS);
-			//die();
+			
 
 			$qgis = serialize($elementiGIS);
 			$attri = serialize($attributi);
+
+			//print_r($attri);
+			//die();
 
 			$template = "<h3>Propriet&agrave;</h3>";
 
@@ -346,7 +417,7 @@
 				$template .= "<p><strong>".stripslashes($proprieta).":</strong> {{".stripslashes($proprieta)."}}</p>";
 			}
 
-			$add = $db->Query("INSERT INTO wg_progetti_layers (id_progetto, id_madre, nome_layer, ordine, visibilita, colore, coloreinterno, forzalinea, forzapoligono, attributi, template, boundaries) VALUES ('$id_progetto', '$id_madre', '$nome_layer', '$ordine', '$visibilita', '$colore', '$coloreinterno', '$forzalinea', '$forzapoligono', '$attri', '$template', '$qgis')");
+			$add = $db->Query("INSERT INTO wg_progetti_layers (id_progetto, id_madre, nome_layer, ordine, visibilita, colore, coloreinterno, forzalinea, forzapoligono, attributi, template, boundaries, tiposhape) VALUES ('$id_progetto', '$id_madre', '$nome_layer', '$ordine', '$visibilita', '$colore', '$coloreinterno', '$forzalinea', '$forzapoligono', '$attri', '$template', '$qgis', '$tiposhape')");
 		}
 		else
 		{
@@ -689,7 +760,7 @@
 												?>
 												<li> 
 													<i class="fa fa-angle-right txt-dark"></i>
-													<label style="color: #234151; width: 97%"><input id="xnode-0" data-id="custom-0" type="checkbox" /> <?=dequotes($fg->nome_layer)?> <a href="#" title="Elimina Layer" style="float: right;"><i class="fa fa-close txt-danger"></i></a><?php if(!empty($fg->attributi)): ?> <a href="addProgetto.php?act=modLayer&prj=<?=$prj?>&lyr=<?=$fg->id?>" title="Modifica template Layer" style="float: right;margin-right: 10px"><i class="fa fa-cog txt-primary"></i></a><?php endif; ?></label>
+													<label style="color: #234151; width: 97%"><input id="xnode-0" data-id="custom-0" type="checkbox" /> <?=dequotes($fg->nome_layer)?> <a href="javascript:;" onclick="delLayer(<?=$fg->id?>, <?=$prj?>)" title="Elimina Layer" style="float: right;"><i class="fa fa-close txt-danger"></i></a><?php if(!empty($fg->attributi)): ?> <a href="addProgetto.php?act=modLayer&prj=<?=$prj?>&lyr=<?=$fg->id?>" title="Modifica template Layer" style="float: right;margin-right: 10px"><i class="fa fa-cog txt-primary"></i></a><?php endif; ?></label>
 													<?php
 														treeviewLayers($fg->id, $prj);
 													?>
@@ -761,13 +832,13 @@
 														<div class="col-md-4">
 															<div class="form-group">
 																<label class="control-label mb-10 text-left font-500" for="colore">Colore linea</label>
-																<input type="text" class="form-control" name="colore" id="colore" value="#FFFFFF">
+																<input type="text" class="form-control jscolor" name="colore" id="colore" value="#FFFFFF">
 															</div>
 														</div>
 														<div class="col-md-4">
 															<div class="form-group">
 																<label class="control-label mb-10 text-left font-500" for="coloreinterno">Colore riempimento</label>
-																<input type="text" class="form-control" name="coloreinterno" id="coloreinterno" value="#FFFFFF">
+																<input type="text" class="form-control jscolor" name="coloreinterno" id="coloreinterno" value="#FFFFFF">
 															</div>
 														</div>
 														<div class="col-md-4">
@@ -895,7 +966,7 @@
 												?>
 												<li> 
 													<i class="fa fa-angle-right txt-dark"></i>
-													<label style="color: #234151; width: 97%"><input id="xnode-0" data-id="custom-0" type="checkbox" /> <?=dequotes($fg->nome_layer)?> <a href="#" title="Elimina Layer" style="float: right;"><i class="fa fa-close txt-danger"></i></a><?php if(!empty($fg->attributi)): ?> <a href="addProgetto.php?act=modLayer&prj=<?=$prj?>&lyr=<?=$fg->id?>" title="Modifica template Layer" style="float: right;margin-right: 10px"><i class="fa fa-cog txt-primary"></i></a><?php endif; ?></label>
+													<label style="color: #234151; width: 97%"><input id="xnode-0" data-id="custom-0" type="checkbox" /> <?=dequotes($fg->nome_layer)?> <a href="javascript:;" onclick="delLayer(<?=$fg->id?>, <?=$prj?>)" title="Elimina Layer" style="float: right;"><i class="fa fa-close txt-danger"></i></a><?php if(!empty($fg->attributi)): ?> <a href="addProgetto.php?act=modLayer&prj=<?=$prj?>&lyr=<?=$fg->id?>" title="Modifica template Layer" style="float: right;margin-right: 10px"><i class="fa fa-cog txt-primary"></i></a><?php endif; ?></label>
 													<?php
 														treeviewLayers($fg->id, $prj);
 													?>
@@ -1020,6 +1091,7 @@
 		<script src="dist/js/init.js"></script>
 		
 		<!-- Tabs -->
+		<script src="dist/js/jscolor.js"></script>
 		<script src="dist/js/custom.js"></script>
 		
 		<!-- Treeview -->
@@ -1056,6 +1128,24 @@
 				else
 				{
 					alert("Compilare tutti i campi obbligatori ...");
+				}
+			}
+
+			function delLayer(id, $prj)
+			{
+				if(confirm("Sei sicuro di voler eliminare definitivamente questo layer dalla mappa del progetto?"))
+				{
+					$.post("ajax/_delLayer.php", "id=" + id, function(dati)
+					{
+						if(dati == '1')
+						{
+							location.href="addProgetto.php?act=addLayer&prj=" + $prj;
+						}
+						else
+						{
+							error("Impossibile eliminare questo layer ...")
+						}
+					});
 				}
 			}
 		</script>

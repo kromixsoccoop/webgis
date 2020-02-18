@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="Partitore_Timpa_del_Salto" id="Partitore_Timpa_del_Salto">
+	<SimpleField name="Nome" type="string"></SimpleField>
+	<SimpleField name="V (m^3)" type="string"></SimpleField>
+	<SimpleField name="HFondo (m)" type="string"></SimpleField>
+	<SimpleField name="HSfior (m)" type="string"></SimpleField>
+</Schema>
+<Folder><name>Partitore_Timpa_del_Salto</name>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#Partitore_Timpa_del_Salto">
+		<SimpleData name="Nome">Partitore Timpa del Salto</SimpleData>
+		<SimpleData name="V (m^3)">1700</SimpleData>
+		<SimpleData name="HFondo (m)">91</SimpleData>
+		<SimpleData name="HSfior (m)">98</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>16.9012636743614,39.1867680920022,0 16.9013756897446,39.1868093608045,0 16.901528229818,39.1865952397173,0 16.9014119500095,39.186551537587,0 16.9012636743614,39.1867680920022,0</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+</Folder>
+</Document></kml>

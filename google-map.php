@@ -142,13 +142,32 @@
 											<p class="ml-10 mt-10">
 											<?php
 												// colori livelli
-												$liv = $db->Query("SELECT colore, nome_layer FROM wg_progetti_layers WHERE id_progetto = '$prj' ORDER BY ordine ASC");
+												$liv = $db->Query("SELECT colore, coloreinterno, nome_layer, tiposhape FROM wg_progetti_layers WHERE id_progetto = '$prj' ORDER BY ordine ASC");
 
 												while($fliv = $db->getObject($liv))
 												{
+													if($fliv->tiposhape != 1)
+													{
+														if($fliv->tiposhape == 0 || $fliv->tiposhape == 2)
+														{
+															$colBordo = $fliv->colore;
+															$colDentro = $fliv->coloreinterno;
+														}
+														elseif($fliv->tiposhape == 3)
+														{
+															$colBordo = $fliv->colore;
+															$colDentro = $fliv->colore;
+														}
 											?>
-												<span style="background: <?=$fliv->colore?>; position: relative; top: 3px;" class="badge mb-10">&nbsp;&nbsp;&nbsp;&nbsp;</span> <span style="margin-left: 10px;"><?=$fliv->nome_layer?></span><br>
+												<span style="background: <?=$colDentro?>; position: relative; top: 3px; border: 3px solid <?=$colBordo?>; padding: 10px;" class="badge mb-10">&nbsp;&nbsp;&nbsp;&nbsp;</span> <span style="margin-left: 10px;"><?=$fliv->nome_layer?></span><br>
 											<?php
+													}
+													else
+													{
+											?>
+														<img src="img/maps-icon.png" style="width: 37px; height: 37px; vertical-align: middle" class="mb-10"> <span style="margin-left: 10px;"><?=$fliv->nome_layer?></span><br>
+													<?php			
+													}
 												}
 											?>
 												
@@ -723,16 +742,22 @@
 				wait();
 				var idLayers = '';
 
+				var centro = map.getCenter();
+				var zoom = map.getZoom();
+				var type = map.getMapTypeId();
+
 				$('ul#treeview input:checked').each(function(indice, elemento)
 				{
 					idLayers += (elemento.id).replace("xnode-", "") + ',';
 				});
 
-				$.post("ajax/mapLayer.php", "idLayers=" + idLayers, function(dati)
+				$.post("ajax/mapLayer.php", "idLayers=" + idLayers + "&center=" + encodeURIComponent(centro) + "&z=" + zoom + "&type=" + type, function(dati)
 				{
 					//eval(dati);
-					$(".mapContainer").html(dati);
-					$(".mapContainer").find("script").each(function(){
+					
+					$("div.mapContainer").html(dati);
+					$("div.mapContainer").find("script").each(function(){
+						
 						eval($(this).text());
 					});
 					unwait();

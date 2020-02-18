@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document id="root_doc">
+    <Schema id="Pozzetto_di_scarico_V19" name="Pozzetto_di_scarico_V19">
+      <SimpleField name="descriptio" type="string"/>
+      <SimpleField name="timestamp" type="string"/>
+      <SimpleField name="begin" type="string"/>
+      <SimpleField name="end" type="string"/>
+      <SimpleField name="altitudeMo" type="string"/>
+      <SimpleField name="tessellate" type="float"/>
+      <SimpleField name="extrude" type="float"/>
+      <SimpleField name="visibility" type="float"/>
+      <SimpleField name="drawOrder" type="float"/>
+      <SimpleField name="icon" type="string"/>
+    </Schema>
+    <Schema id="Pozzetto_di_scarico_V19.schema">
+      <SimpleField name="descriptio" type="string"/>
+      <SimpleField name="altitudeMo" type="string"/>
+    </Schema>
+    <Folder>
+      <name>Pozzetto_di_scarico_V19</name>
+      <Placemark>
+        <name>Pozzetto di scarico V19</name>
+        <ExtendedData>
+          <SchemaData schemaUrl="#Pozzetto_di_scarico_V19">
+            <SimpleData name="tessellate">-1</SimpleData>
+            <SimpleData name="extrude">0</SimpleData>
+            <SimpleData name="visibility">-1</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.8910095969032,39.1878072103163,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Document id="Pozzetto_di_scarico_V19">
+      <name>Pozzetto di scarico V19</name>
+      <Placemark id="Pozzetto_di_scarico_V19.1">
+        <name>Pozzetto di scarico V19</name>
+        <ExtendedData>
+          <SchemaData schemaUrl="#Pozzetto_di_scarico_V19.schema">
+            <SimpleData name="tessellate">-1</SimpleData>
+            <SimpleData name="extrude">0</SimpleData>
+            <SimpleData name="visibility">-1</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.8910095969032,39.1878072103163,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Document>
+  </Document>
+</kml>

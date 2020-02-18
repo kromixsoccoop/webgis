@@ -1,0 +1,2 @@
+18/02/2020 09:49:28 - Si è verificato un errore: Table 'webgis.wg_progetti_layer' doesn't exist - Query: DELETE FROM wg_progetti_layer WHERE id = '19'
+18/02/2020 09:49:39 - Si è verificato un errore: Table 'webgis.wg_progetti_layer' doesn't exist - Query: DELETE FROM wg_progetti_layer WHERE id = '18'

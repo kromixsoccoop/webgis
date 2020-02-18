@@ -155,7 +155,7 @@
         <ul>
             <li> 
                 <i class="fa fa-angle-right txt-dark"></i>
-                <label style="color: #234151; width: 97%"><input id="xnode-0-1" data-id="custom-0-1" type="checkbox" /> <?=dequotes($fg->nome_layer)?> <a href="#" title="Elimina Layer" style="float: right;"><i class="fa fa-close txt-danger"></i></a><?php if(!empty($fg->attributi)): ?> <a href="addProgetto.php?act=modLayer&prj=<?=$prj?>&lyr=<?=$fg->id?>" title="Modifica template Layer" style="float: right;margin-right: 10px"><i class="fa fa-cog txt-primary"></i></a><?php endif; ?></label>
+                <label style="color: #234151; width: 97%"><input id="xnode-0-1" data-id="custom-0-1" type="checkbox" /> <?=dequotes($fg->nome_layer)?> <a href="javascript:;" onclick="delLayer(<?=$fg->id?>, <?=$prj?>)" title="Elimina Layer" style="float: right;"><i class="fa fa-close txt-danger"></i></a><?php if(!empty($fg->attributi)): ?> <a href="addProgetto.php?act=modLayer&prj=<?=$prj?>&lyr=<?=$fg->id?>" title="Modifica template Layer" style="float: right;margin-right: 10px"><i class="fa fa-cog txt-primary"></i></a><?php endif; ?></label>
                 <?php
                     treeviewLayers($fg->id, $prj);
                 ?>

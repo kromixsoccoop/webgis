@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document id="root_doc">
+    <Schema id="Condotta_DN_2000" name="Condotta_DN_2000">
+      <SimpleField name="DN (mm)" type="string"/>
+      <SimpleField name="Lungh. (m)" type="float"/>
+      <SimpleField name="Comuni" type="string"/>
+      <SimpleField name="Materiale" type="string"/>
+      <SimpleField name="Q (l/s)" type="string"/>
+    </Schema>
+    <Schema id="Condotta_DN_2000.schema">
+      <SimpleField name="DN (mm)" type="string"/>
+      <SimpleField name="Lungh. (m)" type="float"/>
+      <SimpleField name="Comuni" type="string"/>
+      <SimpleField name="Materiale" type="string"/>
+      <SimpleField name="Q (l/s)" type="string"/>
+    </Schema>
+    <Folder>
+      <name>Condotta_DN_2000</name>
+      <Placemark>
+        <name>Adduttrice - I stralcio</name>
+        <Style>
+          <LineStyle>
+            <color>ff0000ff</color>
+          </LineStyle>
+          <PolyStyle>
+            <fill>0</fill>
+          </PolyStyle>
+        </Style>
+        <ExtendedData>
+          <SchemaData schemaUrl="#Condotta_DN_2000">
+            <SimpleData name="DN (mm)">DN 2000</SimpleData>
+            <SimpleData name="Lungh. (m)">5721.36</SimpleData>
+            <SimpleData name="Comuni">S. Severina - Bevedere Spinello</SimpleData>
+            <SimpleData name="Materiale">Acciaio</SimpleData>
+            <SimpleData name="Q (l/s)">6000</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <LineString>
+          <coordinates>
+            16.8422218273912,39.182995112194,0
+            16.848308611766,39.1883277959987,0
+            16.8501212324324,39.1884246532086,0
+            16.8524298405835,39.1880001970184,0
+            16.8534926720624,39.188329365894,0
+            16.8539746891804,39.1882678800665,0
+            16.8549592178039,39.1881862754387,0
+            16.8564794604743,39.188098954955,0
+            16.8604232860226,39.1882146505645,0
+            16.8619281499921,39.1887043417089,0
+            16.8677965302357,39.1903083722034,0
+            16.8698684123141,39.1901360842181,0
+            16.8715736388881,39.1898042941629,0
+            16.8744777811185,39.1892735785252,0
+            16.8759463323776,39.1890819766915,0
+            16.877180164921,39.1895909555141,0
+            16.8775158237553,39.1893491257328,0
+            16.8793300064545,39.1906855353004,0
+            16.8798571601911,39.1909220095769,0
+            16.8807537388188,39.1909570219814,0
+            16.8869784395521,39.1886803817748,0
+            16.8877526822903,39.1891654122207,0
+            16.8905825651949,39.1878369490631,0
+            16.8960572050692,39.1878475456178,0
+            16.8995260893895,39.186057832134,0
+            16.9012702426357,39.1867162487146,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+    </Folder>
+    <Document id="Condotta_DN_2000">
+      <name>Condotta DN 2000</name>
+      <Placemark id="Condotta_DN_2000.1">
+        <name>Adduttrice - I stralcio</name>
+        <ExtendedData>
+          <SchemaData schemaUrl="#Condotta_DN_2000.schema">
+            <SimpleData name="DN (mm)">DN 2000</SimpleData>
+            <SimpleData name="Lungh. (m)">5721.36</SimpleData>
+            <SimpleData name="Comuni">S. Severina - Bevedere Spinello</SimpleData>
+            <SimpleData name="Materiale">Acciaio</SimpleData>
+            <SimpleData name="Q (l/s)">6000</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <LineString>
+          <coordinates>
+            16.8422218273912,39.182995112194,0
+            16.848308611766,39.1883277959987,0
+            16.8501212324324,39.1884246532086,0
+            16.8524298405835,39.1880001970184,0
+            16.8534926720624,39.188329365894,0
+            16.8539746891804,39.1882678800665,0
+            16.8549592178039,39.1881862754387,0
+            16.8564794604743,39.188098954955,0
+            16.8604232860226,39.1882146505645,0
+            16.8619281499921,39.1887043417089,0
+            16.8677965302357,39.1903083722034,0
+            16.8698684123141,39.1901360842181,0
+            16.8715736388881,39.1898042941629,0
+            16.8744777811185,39.1892735785252,0
+            16.8759463323776,39.1890819766915,0
+            16.877180164921,39.1895909555141,0
+            16.8775158237553,39.1893491257328,0
+            16.8793300064545,39.1906855353004,0
+            16.8798571601911,39.1909220095769,0
+            16.8807537388188,39.1909570219814,0
+            16.8869784395521,39.1886803817748,0
+            16.8877526822903,39.1891654122207,0
+            16.8905825651949,39.1878369490631,0
+            16.8960572050692,39.1878475456178,0
+            16.8995260893895,39.186057832134,0
+            16.9012702426357,39.1867162487146,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+    </Document>
+  </Document>
+</kml>

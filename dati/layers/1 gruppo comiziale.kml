@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document id="root_doc">
+    <Schema id="1_gruppo_comiziale" name="1_gruppo_comiziale">
+      <SimpleField name="nome" type="string"/>
+    </Schema>
+    <Schema id="__gruppo_comiziale.schema">
+      <SimpleField name="nome" type="string"/>
+    </Schema>
+    <Folder>
+      <name>1_gruppo_comiziale</name>
+      <Placemark>
+        <Style>
+          <LineStyle>
+            <color>ff0000ff</color>
+          </LineStyle>
+          <PolyStyle>
+            <fill>0</fill>
+          </PolyStyle>
+        </Style>
+        <ExtendedData>
+          <SchemaData schemaUrl="#1_gruppo_comiziale">
+            <SimpleData name="nome">Gruppo comiziale N.1</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                16.8525444751685,39.1879119528299,0
+                16.852687099817,39.1879328261014,0
+                16.8527223171805,39.1878000273597,0
+                16.8525814547038,39.1877743508198,0
+                16.8525444751685,39.1879119528299,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+    </Folder>
+    <Document id="__gruppo_comiziale">
+      <name>1 gruppo comiziale</name>
+      <Placemark id="__gruppo_comiziale.1">
+        <ExtendedData>
+          <SchemaData schemaUrl="#__gruppo_comiziale.schema">
+            <SimpleData name="nome">Gruppo comiziale N.1</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                16.8525444751685,39.1879119528299,0
+                16.852687099817,39.1879328261014,0
+                16.8527223171805,39.1878000273597,0
+                16.8525814547038,39.1877743508198,0
+                16.8525444751685,39.1879119528299,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+    </Document>
+  </Document>
+</kml>

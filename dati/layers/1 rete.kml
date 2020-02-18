@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document id="root_doc">
+    <Schema id="1_rete" name="1_rete">
+      <SimpleField name="DN mm" type="string"/>
+      <SimpleField name="Lung. (m)" type="float"/>
+    </Schema>
+    <Schema id="__rete.schema">
+      <SimpleField name="DN mm" type="string"/>
+      <SimpleField name="Lung. (m)" type="float"/>
+    </Schema>
+    <Folder>
+      <name>1_rete</name>
+      <Placemark>
+        <Style>
+          <LineStyle>
+            <color>ff0000ff</color>
+          </LineStyle>
+          <PolyStyle>
+            <fill>0</fill>
+          </PolyStyle>
+        </Style>
+        <ExtendedData>
+          <SchemaData schemaUrl="#1_rete">
+            <SimpleData name="DN mm">PVC De 280</SimpleData>
+            <SimpleData name="Lung. (m)">29.977</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <LineString>
+          <coordinates>
+            16.8527859494564,39.1877339358526,0
+            16.8531290211838,39.1876935933044,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <Style>
+          <LineStyle>
+            <color>ff0000ff</color>
+          </LineStyle>
+          <PolyStyle>
+            <fill>0</fill>
+          </PolyStyle>
+        </Style>
+        <ExtendedData>
+          <SchemaData schemaUrl="#1_rete">
+            <SimpleData name="DN mm">PVC De 140</SimpleData>
+            <SimpleData name="Lung. (m)">35.151</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <LineString>
+          <coordinates>
+            16.8527855958634,39.1877343957872,0
+            16.8523992707259,39.1876350938006,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <Style>
+          <LineStyle>
+            <color>ff0000ff</color>
+          </LineStyle>
+          <PolyStyle>
+            <fill>0</fill>
+          </PolyStyle>
+        </Style>
+        <ExtendedData>
+          <SchemaData schemaUrl="#1_rete">
+            <SimpleData name="DN mm">Acc. DN 250</SimpleData>
+            <SimpleData name="Lung. (m)">42.691</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <LineString>
+          <coordinates>
+            16.8524337144089,39.1880022958329,0
+            16.8527872784861,39.187733664496,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <Style>
+          <LineStyle>
+            <color>ff0000ff</color>
+          </LineStyle>
+          <PolyStyle>
+            <fill>0</fill>
+          </PolyStyle>
+        </Style>
+        <ExtendedData>
+          <SchemaData schemaUrl="#1_rete">
+            <SimpleData name="DN mm">PVC De 225</SimpleData>
+            <SimpleData name="Lung. (m)">167.371</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <LineString>
+          <coordinates>
+            16.8531290211838,39.1876935933044,0
+            16.8550445065363,39.1874683472288,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <Style>
+          <LineStyle>
+            <color>ff0000ff</color>
+          </LineStyle>
+          <PolyStyle>
+            <fill>0</fill>
+          </PolyStyle>
+        </Style>
+        <ExtendedData>
+          <SchemaData schemaUrl="#1_rete">
+            <SimpleData name="DN mm">PVC De 250</SimpleData>
+            <SimpleData name="Lung. (m)">90.735</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <LineString>
+          <coordinates>
+            16.8550444399387,39.1874683644614,0
+            16.8560822907263,39.1873433683962,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <Style>
+          <LineStyle>
+            <color>ff0000ff</color>
+          </LineStyle>
+          <PolyStyle>
+            <fill>0</fill>
+          </PolyStyle>
+        </Style>
+        <ExtendedData>
+          <SchemaData schemaUrl="#1_rete">
+            <SimpleData name="DN mm">PVC De 160</SimpleData>
+            <SimpleData name="Lung. (m)">146.978</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <LineString>
+          <coordinates>
+            16.8560822832032,39.1873433627765,0
+            16.8577788518735,39.1874408173045,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+    </Folder>
+    <Document id="__rete">
+      <name>1 rete</name>
+      <Placemark id="__rete.1">
+        <ExtendedData>
+          <SchemaData schemaUrl="#__rete.schema">
+            <SimpleData name="DN mm">PVC De 280</SimpleData>
+            <SimpleData name="Lung. (m)">29.977</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <LineString>
+          <coordinates>
+            16.8527859494564,39.1877339358526,0
+            16.8531290211838,39.1876935933044,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark id="__rete.2">
+        <ExtendedData>
+          <SchemaData schemaUrl="#__rete.schema">
+            <SimpleData name="DN mm">PVC De 140</SimpleData>
+            <SimpleData name="Lung. (m)">35.151</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <LineString>
+          <coordinates>
+            16.8527855958634,39.1877343957872,0
+            16.8523992707259,39.1876350938006,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark id="__rete.3">
+        <ExtendedData>
+          <SchemaData schemaUrl="#__rete.schema">
+            <SimpleData name="DN mm">Acc. DN 250</SimpleData>
+            <SimpleData name="Lung. (m)">42.691</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <LineString>
+          <coordinates>
+            16.8524337144089,39.1880022958329,0
+            16.8527872784861,39.187733664496,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark id="__rete.4">
+        <ExtendedData>
+          <SchemaData schemaUrl="#__rete.schema">
+            <SimpleData name="DN mm">PVC De 225</SimpleData>
+            <SimpleData name="Lung. (m)">167.371</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <LineString>
+          <coordinates>
+            16.8531290211838,39.1876935933044,0
+            16.8550445065363,39.1874683472288,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark id="__rete.5">
+        <ExtendedData>
+          <SchemaData schemaUrl="#__rete.schema">
+            <SimpleData name="DN mm">PVC De 250</SimpleData>
+            <SimpleData name="Lung. (m)">90.735</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <LineString>
+          <coordinates>
+            16.8550444399387,39.1874683644614,0
+            16.8560822907263,39.1873433683962,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark id="__rete.6">
+        <ExtendedData>
+          <SchemaData schemaUrl="#__rete.schema">
+            <SimpleData name="DN mm">PVC De 160</SimpleData>
+            <SimpleData name="Lung. (m)">146.978</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <LineString>
+          <coordinates>
+            16.8560822832032,39.1873433627765,0
+            16.8577788518735,39.1874408173045,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+    </Document>
+  </Document>
+</kml>
