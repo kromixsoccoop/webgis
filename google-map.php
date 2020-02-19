@@ -11,9 +11,9 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<title>Arkigis</title>
-		<meta name="description" content="Hound is a Dashboard & Admin Site Responsive Template by hencework." />
-		<meta name="keywords" content="admin, admin dashboard, admin template, cms, crm, Hound Admin, Houndadmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application" />
-		<meta name="author" content="hencework"/>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="author" content="Kromix"/>
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="favicon.ico">
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -44,11 +44,11 @@
 			<div class="fixed-sidebar-left">
 				<ul class="nav navbar-nav side-nav nicescroll-bar">
 					<li class="navigation-header">
-						<span>Metadati</span> 
+						<span><a href="index.php"><img style="margin-left: -15px" src="img/logo.png"></a></span> 
 						<i class="zmdi zmdi-more"></i>
 					</li>
 					<li>
-						<a class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#maps_dr"><div class="pull-left"><i class="fa fa-users mr-20" aria-hidden="true"></i><span class="right-nav-text">Servizi al Cittadino</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+						<a class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#maps_dr"><div class="pull-left"><i class="fa fa-users mr-20" aria-hidden="true"></i><span class="right-nav-text">Progetti</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
 						<?php
 						
 						
@@ -88,7 +88,7 @@
 									<div class="tab">
 										<button class="tablinks active" onclick="tabs(event, 'strati')">Strati</button>
 										<button class="tablinks" onclick="tabs(event, 'basi')">Basi</button>
-										<button class="tablinks" onclick="tabs(event, 'legenda')">Legenda</button>
+										<!--<button class="tablinks" onclick="tabs(event, 'legenda')">Legenda</button>-->
 									</div>
 											
 									<div id="strati" class="tabcontent active">
@@ -104,11 +104,24 @@
 												{
 											?>
 											<li> <?=(layerHasChild($fg->id)) ? '<i class="fa fa-angle-right"></i>' : ''; ?>
-												<label>
-													<?php if(!layerHasChild($fg->id)): ?>
-													<input onclick="setLayer(<?=$fg->id?>)" id="xnode-<?=$fg->id?>" data-id="custom-<?=$fg->id?>" type="checkbox" />
-													<?php endif; ?>
-													<?=dequotes($fg->nome_layer)?>
+												<label style="width: 95%;">
+													<div class="row">
+														<div class="col-md-9">
+															<?php if(!layerHasChild($fg->id)): ?>
+															<input onclick="setLayer(<?=$fg->id?>)" id="xnode-<?=$fg->id?>" data-id="custom-<?=$fg->id?>" type="checkbox" />
+															<?php endif; ?>
+															<?=dequotes($fg->nome_layer)?>
+														</div>
+														<div class="col-md-3">
+															<span style="background: <?=$colDentro?>; position: relative; top: 2; border: 2px solid <?=$colBordo?>; padding: 3px; float: right; margin-right: 10px;" class="badge mb-10">&nbsp;&nbsp;&nbsp;&nbsp;</span> <span style="margin-left: 10px;"><?=$fliv->nome_layer?></span>
+															<img src="img/maps-icon.png" style="width: 20px; height: 20px; vertical-align: middle; float: right; margin-right: 10px;" class="mb-10"> <span style="margin-left: 10px;"><?=$fliv->nome_layer?></span>
+														
+															
+														</div>
+													</div>
+													
+													
+													
 												</label>
 												<?php
 													treeviewMapLayers($fg->id, $prj);
@@ -136,7 +149,7 @@
 										</div>
 									</div>
 										
-									<div id="legenda" class="tabcontent">
+									<!--<div id="legenda" class="tabcontent">
 										<div style="border-left: 1px solid #f1f1f1">
 											<p class="ml-10 mt-10">
 											<?php
@@ -172,7 +185,7 @@
 												
 											</p>
 										</div>
-									</div>
+									</div>-->
 								</div>
 							</div>
 							
@@ -324,7 +337,7 @@
 										<div class="panel panel-info card-view">
 											<div class="panel-heading">
 												<div class="pull-left">
-													<h6 class="panel-title txt-light">PROGETTO</h6>
+													<h6 class="panel-title txt-light">INFORMAZIONI PROGETTO</h6>
 												</div>
 												<div class="clearfix"></div>
 											</div>
@@ -360,7 +373,7 @@
 																		{
 																	?>
 																	<div class="col-md-3">
-																		<a data-fancybox="gallery" href="dati/foto-progetti/<?=$fot->foto?>" data-fancybox data-caption="<?=dequotes($fot->nome_foto)?>"><img style="width: 100%;" src="dati/foto-progetti/<?=$fot->foto?>"></a>
+																		<a data-fancybox="gallery" href="dati/foto-progetti/<?=$fot->foto?>" data-fancybox data-caption="<?=dequotes($fot->nome_foto)?>"><img style="width: 100%; height: 70px;" src="dati/foto-progetti/<?=$fot->foto?>"></a>
 																	</div>
 																	<?php
 																		}
