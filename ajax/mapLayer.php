@@ -42,7 +42,7 @@
     {
         if((int)$layer != 0)
         {
-            $s1 = $db->Query("SELECT * FROM wg_progetti_layers WHERE id = $layer");
+            $s1 = $db->Query("SELECT * FROM wg_progetti_layers WHERE id = $layer ORDER BY ordine ASC");
 
             $f1 = $db->getObject($s1);
 
@@ -161,101 +161,113 @@
                 echo $t2."\r\n\r\n";
                 echo $t3."\r\n\r\n";
 
+                if(!empty($t1) || !empty($t2) || !empty($t3))
+                {
+                    $cepath = true;
+                }
+                else
+                {
+                    $cepath = false;
+                }
+
             if(!isset($poligono['punti']))
             {
-                if(isset($poligono['bordi']) || isset($poligono['interni']))
+                if($cepath)
                 {
-                    $tipolinea = "Polygon";
-                }
-                else
-                {
+                    if(isset($poligono['bordi']) || isset($poligono['interni']))
+                    {
+                        $tipolinea = "Polygon";
+                    }
+                    else
+                    {
 
-                    $tipolinea = "Polyline";
-                    
-                }
+                        $tipolinea = "Polyline";
+                        
+                    }
 
-                if($f1->forzapoligono == 1)
-                {
-                    $tipolinea = "Polygon";
-                }
+                    if($f1->forzapoligono == 1)
+                    {
+                        $tipolinea = "Polygon";
+                    }
 
-                if($f1->forzalinea == 1)
-                {
-                    $tipolinea = "Polyline";
-                }
+                    if($f1->forzalinea == 1)
+                    {
+                        $tipolinea = "Polyline";
+                    }
 
-                ?>
-                polygon<?=$contatore?> = new google.maps.<?=$tipolinea?>({
-
-                <?php 
-                if(isset($poligono['bordi']) && isset($poligono['interni']))
-                {
-                ?>
-                paths: [pathe<?=$contatore?>, pathi<?=$contatore?>],
-                <?php
-                }
-                elseif(isset($poligono['bordi']) && !isset($poligono['interni']))
-                {
-                ?>
-                path: pathe<?=$contatore?>,
-                <?php
-                }
-                elseif(!isset($poligono['bordi']) && isset($poligono['interni']))
-                {
-                ?>
-                path: pathi<?=$contatore?>,
-                <?php
-                }
-                else
-                {
-                ?>
-                path: path<?=$contatore?>,
-                <?php
-                }
-                ?>
-                
-                strokeColor: '<?=$f1->colore?>',
-                strokeOpacity: .8,
-                strokeWeight: 5,
-                fillColor: '<?=$f1->coloreinterno?>',
-                fillOpacity: 0.35,
-                map: map
-                
-                });
-                
-
-                google.maps.event.addListener(polygon<?=$contatore?>, 'click', function(h) {
-                    //alert("contatore: <?=$contatore?>");
-                    <?php
-                        $jsonLayer['attributi'] = $attributi;
-                        $jsonLayer['idLayer'] = $layer;
                     ?>
-                    var infoPost = '<?=json_encode($jsonLayer)?>';
+                    polygon<?=$contatore?> = new google.maps.<?=$tipolinea?>({
 
-                    $.ajax({
-                        type: 'POST',
-                        url: 'ajax/infoLayer.php',
-                        data: {'info': infoPost},
-                        success: function(dati) {
-                            $('#infoLayer').removeClass("hidden");
-                            $('#infoProgetto').removeClass("hidden").addClass("hidden");
-                            $('.contenutoLayer').html(dati);
-
-                            if($('.setting-panel').hasClass("aperto"))
-                            {
-                                
-                            }
-                            else
-                            {
-                                $('#infoProgetto').removeClass("hidden").addClass("hidden");
-                                $(".setting-panel").css("margin-right", "0px").addClass("aperto");
-                            }
-                        }
+                    <?php 
+                    if(isset($poligono['bordi']) && isset($poligono['interni']))
+                    {
+                    ?>
+                    paths: [pathe<?=$contatore?>, pathi<?=$contatore?>],
+                    <?php
+                    }
+                    elseif(isset($poligono['bordi']) && !isset($poligono['interni']))
+                    {
+                    ?>
+                    path: pathe<?=$contatore?>,
+                    <?php
+                    }
+                    elseif(!isset($poligono['bordi']) && isset($poligono['interni']))
+                    {
+                    ?>
+                    path: pathi<?=$contatore?>,
+                    <?php
+                    }
+                    else
+                    {
+                    ?>
+                    path: path<?=$contatore?>,
+                    <?php
+                    }
+                    ?>
+                    
+                    strokeColor: '<?=$f1->colore?>',
+                    strokeOpacity: .8,
+                    strokeWeight: 5,
+                    fillColor: '<?=$f1->coloreinterno?>',
+                    fillOpacity: 0.35,
+                    zIndex: <?=$f1->ordine?>,
+                    map: map
+                    
                     });
+                    
 
-                });
-                <?php
+                    google.maps.event.addListener(polygon<?=$contatore?>, 'click', function(h) {
+                        //alert("contatore: <?=$contatore?>");
+                        <?php
+                            $jsonLayer['attributi'] = $attributi;
+                            $jsonLayer['idLayer'] = $layer;
+                        ?>
+                        var infoPost = '<?=json_encode($jsonLayer)?>';
 
+                        $.ajax({
+                            type: 'POST',
+                            url: 'ajax/infoLayer.php',
+                            data: {'info': infoPost},
+                            success: function(dati) {
+                                $('#infoLayer').removeClass("hidden");
+                                $('#infoProgetto').removeClass("hidden").addClass("hidden");
+                                $('.contenutoLayer').html(dati);
+
+                                if($('.setting-panel').hasClass("aperto"))
+                                {
+                                    
+                                }
+                                else
+                                {
+                                    $('#infoProgetto').removeClass("hidden").addClass("hidden");
+                                    $(".setting-panel").css("margin-right", "0px").addClass("aperto");
+                                }
+                            }
+                        });
+
+                    });
+                    <?php
+                }
             }
             else
             {

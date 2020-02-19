@@ -1,20 +1,348 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
 <Document id="root_doc">
-<Schema name="Vasca_Calusia" id="Vasca_Calusia">
-	<SimpleField name="Nome" type="string"></SimpleField>
-	<SimpleField name="V (m^3)" type="string"></SimpleField>
-	<SimpleField name="H (m slm)" type="string"></SimpleField>
+<Schema name="Vasche" id="Vasche">
+	<SimpleField name="id" type="string"></SimpleField>
+	<SimpleField name="id_origine" type="string"></SimpleField>
+	<SimpleField name="nome" type="string"></SimpleField>
+	<SimpleField name="superficie" type="string"></SimpleField>
+	<SimpleField name="tipo_nodo" type="string"></SimpleField>
+	<SimpleField name="potenza" type="string"></SimpleField>
+	<SimpleField name="capacit�" type="string"></SimpleField>
+	<SimpleField name="telecontro" type="string"></SimpleField>
 </Schema>
-<Folder><name>Vasca_Calusia</name>
+<Folder><name>Vasche</name>
   <Placemark>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#Vasca_Calusia">
-		<SimpleData name="Nome">Vasca di Calusia</SimpleData>
-		<SimpleData name="V (m^3)">900000</SimpleData>
-		<SimpleData name="H (m slm)">105.40</SimpleData>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">2</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">10</SimpleData>
+		<SimpleData name="capacit�">20000</SimpleData>
+		<SimpleData name="telecontro">S</SimpleData>
 	</SchemaData></ExtendedData>
-      <Polygon><outerBoundaryIs><LinearRing><coordinates>16.837564817942,39.1834419656044 16.8376820420475,39.1834578175799 16.8380201969741,39.1834858160399 16.8384067691822,39.1835067595237 16.8388415220429,39.1835284126298 16.8392590546801,39.1835646174832 16.839672919062,39.1835988781208 16.8400954922643,39.1836445107093 16.8405020200791,39.1836748829956 16.8409379184452,39.183702768025 16.8413311246108,39.1837508815358 16.8415265864914,39.1837686975004 16.8417955298358,39.1837172063095 16.8420452297639,39.1836329834192 16.8421944905689,39.1834888236679 16.8423934371649,39.1831996384548 16.8425221627268,39.1829251279332 16.8427101143652,39.1826120886713 16.8427956252842,39.182427417516 16.8427659419264,39.1822651715484 16.8427248102684,39.182076575724 16.8426225620075,39.1819886290496 16.8425093144698,39.1818858415959 16.8423501472542,39.1818218642894 16.8421577537635,39.1817121165612 16.8420068548591,39.1816389897226 16.841740843911,39.181498155504 16.8414961556736,39.1813742448742 16.8412019196387,39.1812421352674 16.8408934895205,39.1810777112037 16.8406398601511,39.1809501900705 16.8404891930168,39.1808783089803 16.8403431329278,39.1807863230726 16.8401919935424,39.1807299716933 16.840055538688,39.1806723773865 16.8399262020236,39.1806084069273 16.8397911338335,39.1805402743165 16.8396473582579,39.1804607679356 16.8395116140802,39.1803798776307 16.8393178266952,39.1802986885853 16.8390820750661,39.1801964068245 16.8389233387882,39.1801709727856 16.8387531226382,39.1801552407219 16.8385259544402,39.1801995286268 16.8383114074978,39.1802403542261 16.8381479803026,39.1803251551724 16.837978111035,39.1804290891132 16.8378532068392,39.1805342878584 16.8378290882218,39.18056547813 16.8376944613541,39.1807624686748 16.8376530711455,39.1808622910832 16.837512854423,39.1811464991237 16.8373815804916,39.181434315791 16.8372774345764,39.1816621012073 16.8371795103743,39.1818604921697 16.8370351204716,39.1821853270446 16.836903183101,39.1824423598355 16.8368595544073,39.1827202262736 16.8368905328597,39.1829530555699 16.8369141011113,39.183018514187 16.8370843777578,39.1832157601272 16.837216664701,39.1833139849721 16.8373921191792,39.1833764506534 16.837564817942,39.1834419656044</coordinates></LinearRing></outerBoundaryIs></Polygon>
+      <MultiGeometry><Point><coordinates>16.586159521996844,40.133299534152542</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">6</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">3</SimpleData>
+		<SimpleData name="telecontro">S</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.591415784639889,40.091357176177084</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">8</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">3</SimpleData>
+		<SimpleData name="telecontro">S</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.594599472874862,40.081392816500689</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">9</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">3</SimpleData>
+		<SimpleData name="capacit�">330</SimpleData>
+		<SimpleData name="telecontro">S</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.586817067404336,40.051409783018606</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">10</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">3</SimpleData>
+		<SimpleData name="telecontro">S</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.587407761658838,40.043188361119242</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">11</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">3</SimpleData>
+		<SimpleData name="telecontro">S</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.597183774593471,40.019308893966219</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">12</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">3</SimpleData>
+		<SimpleData name="telecontro">S</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.605727792890875,39.986727099775685</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">13</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">3</SimpleData>
+		<SimpleData name="telecontro">S</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.609070303368597,39.973195217594387</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">14</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">3</SimpleData>
+		<SimpleData name="telecontro">S</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.602859618261018,39.958162131820117</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">15</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">3</SimpleData>
+		<SimpleData name="telecontro">S</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.589752122531177,39.944457448983563</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">16</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">3</SimpleData>
+		<SimpleData name="telecontro">S</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.579574616491339,39.926487359292764</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">17</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">3</SimpleData>
+		<SimpleData name="telecontro">S</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.553922266314604,39.901260917613783</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">18</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">3</SimpleData>
+		<SimpleData name="telecontro">S</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.522624278126521,39.876003706403559</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">19</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">3</SimpleData>
+		<SimpleData name="telecontro">S</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.523480858324035,39.874645422720548</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">20</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">10</SimpleData>
+		<SimpleData name="telecontro">N</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.496860201408364,39.862597104226175</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">21</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">10</SimpleData>
+		<SimpleData name="telecontro">N</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.464675212060833,39.83481105067586</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">22</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">3</SimpleData>
+		<SimpleData name="telecontro">N</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.408811839621318,39.836547942753697</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">23</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">10</SimpleData>
+		<SimpleData name="telecontro">N</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.401873636423058,39.784383558038492</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">24</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">10</SimpleData>
+		<SimpleData name="telecontro">N</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.358365319535348,39.761581480854595</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">25</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">3</SimpleData>
+		<SimpleData name="telecontro">N</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.354282238043105,39.641652306072018</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">26</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">5</SimpleData>
+		<SimpleData name="telecontro">N</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.437308036622589,39.668672094748501</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">28</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">5</SimpleData>
+		<SimpleData name="telecontro">N</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.526812445568286,39.609371506408984</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">29</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">5</SimpleData>
+		<SimpleData name="telecontro">N</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.530864095422412,39.606659050278196</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">30</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">5</SimpleData>
+		<SimpleData name="telecontro">N</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.546792523081525,39.598276026028017</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">31</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">5</SimpleData>
+		<SimpleData name="telecontro">N</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.560779889617802,39.593985123650242</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">32</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">5</SimpleData>
+		<SimpleData name="telecontro">N</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.576525243326802,39.60623329198733</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">33</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">5</SimpleData>
+		<SimpleData name="telecontro">N</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.593331727988215,39.595027156858229</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">34</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">5</SimpleData>
+		<SimpleData name="telecontro">N</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.600787203323346,39.60055740610472</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">35</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">5</SimpleData>
+		<SimpleData name="telecontro">N</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.610019435711795,39.59394968034465</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">36</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">10</SimpleData>
+		<SimpleData name="telecontro">N</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.743101874058958,39.572578195208536</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">37</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">10</SimpleData>
+		<SimpleData name="telecontro">N</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.656557017888566,39.585435121738655</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">38</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">5</SimpleData>
+		<SimpleData name="telecontro">N</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.404054951459305,39.695462079780306</coordinates></Point></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#Vasche">
+		<SimpleData name="id">39</SimpleData>
+		<SimpleData name="id_origine">Dati consortili</SimpleData>
+		<SimpleData name="nome">Vasca</SimpleData>
+		<SimpleData name="tipo_nodo">3</SimpleData>
+		<SimpleData name="telecontro">N</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Point><coordinates>16.324895793122909,39.709507936383567</coordinates></Point></MultiGeometry>
   </Placemark>
 </Folder>
 </Document></kml>

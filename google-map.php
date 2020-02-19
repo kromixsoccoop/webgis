@@ -50,9 +50,10 @@
 					<li>
 						<a class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#maps_dr"><div class="pull-left"><i class="fa fa-users mr-20" aria-hidden="true"></i><span class="right-nav-text">Progetti</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
 						<?php
+							// ottengo il livello dell'utente
+							$livUser = getLevel(true);
 						
-						
-							$s1 = $db->Query("SELECT id, nome_progetto FROM wg_progetti ORDER BY data_progetto ASC");
+							$s1 = $db->Query("SELECT id, nome_progetto FROM wg_progetti WHERE visibilita = '0' OR visibilita >= '$livUser' ORDER BY data_progetto ASC");
 
 							if($db->Found($s1))
 							{
@@ -93,19 +94,35 @@
 											
 									<div id="strati" class="tabcontent active">
 										<?php
-											$g = $db->Query("SELECT id, nome_layer, attributi FROM wg_progetti_layers WHERE id_madre = '0'");
+											$livUser = getLevel(true);
+
+											$g = $db->Query("SELECT id, nome_layer, attributi, colore, coloreinterno, tiposhape FROM wg_progetti_layers WHERE id_madre = '0' AND (visibilita = '0' OR visibilita >= '$livUser')");
 
 											if($db->Found($g))
 											{
 										?>
 										<ul id="treeview">
 											<?php
+												$contashape = 1;
+
+												$totlayers = $db->Count($g);
+
 												while($fg = $db->getObject($g))
 												{
+													if($fg->tiposhape == 0 || $fg->tiposhape == 2)
+													{
+														$colBordo = $fg->colore;
+														$colDentro = $fg->coloreinterno;
+													}
+													elseif($fg->tiposhape == 3)
+													{
+														$colBordo = $fg->colore;
+														$colDentro = $fg->colore;
+													}
 											?>
 											<li> <?=(layerHasChild($fg->id)) ? '<i class="fa fa-angle-right"></i>' : ''; ?>
 												<label style="width: 95%;">
-													<div class="row">
+													<div class="row" style="<?=($contashape != $totlayers) ? 'border-bottom: 1px solid #799fb2' : ''; ?>">
 														<div class="col-md-9">
 															<?php if(!layerHasChild($fg->id)): ?>
 															<input onclick="setLayer(<?=$fg->id?>)" id="xnode-<?=$fg->id?>" data-id="custom-<?=$fg->id?>" type="checkbox" />
@@ -113,9 +130,21 @@
 															<?=dequotes($fg->nome_layer)?>
 														</div>
 														<div class="col-md-3">
-															<span style="background: <?=$colDentro?>; position: relative; top: 2; border: 2px solid <?=$colBordo?>; padding: 3px; float: right; margin-right: 10px;" class="badge mb-10">&nbsp;&nbsp;&nbsp;&nbsp;</span> <span style="margin-left: 10px;"><?=$fliv->nome_layer?></span>
-															<img src="img/maps-icon.png" style="width: 20px; height: 20px; vertical-align: middle; float: right; margin-right: 10px;" class="mb-10"> <span style="margin-left: 10px;"><?=$fliv->nome_layer?></span>
-														
+														<?php
+															if($fg->tiposhape != 1)
+															{
+														?>
+<span style="background: <?=$colDentro?>; position: relative; top: 2; border: 2px solid <?=$colBordo?>; padding: 3px; float: right; margin-right: 10px;" class="badge mb-10">&nbsp;&nbsp;&nbsp;&nbsp;</span> <span style="margin-left: 10px;"></span>
+														<?php
+															}
+															else
+															{
+														?>
+															
+															<img src="img/maps-icon.png" style="width: 20px; height: 20px; vertical-align: middle; float: right; margin-right: 10px;" class="mb-10"> <span style="margin-left: 10px;"></span>
+														<?php
+															}
+														?>
 															
 														</div>
 													</div>
@@ -128,6 +157,7 @@
 												?>
 											</li>
 											<?php
+													$contashape++;
 												}
 											?>
 										</ul>	 
@@ -644,9 +674,9 @@
 					<div class="modal-body">
 						<div style="width: 100%; max-width: 100%;" id="imgMap"></div>
 					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-danger btn-xs pull-left" data-dismiss="modal">Chiudi</button>
-						<button type="button" id="downloadScreenshot" onclick="downloadScreenshot()" class="btn btn-success btn-xs">Scarica Screenshot</button>
+					<div class="modal-footer text-center">
+						<button type="button" class="btn btn-danger btn-xs" data-dismiss="modal">Chiudi</button>
+						
 					</div>
 				</div>
 			</div>

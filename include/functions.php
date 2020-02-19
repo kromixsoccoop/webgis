@@ -73,6 +73,62 @@
         }
     }
 
+    function getLevel($number = false)
+    {
+        global $db;
+
+        $io = (int)$_SESSION['usid'];
+
+        if($io != 0)
+        {
+            $us = $db->Query("SELECT livello FROM wg_utenti WHERE id = '$io'");
+
+            $fus = $db->getObject($us);
+
+            if($number)
+            {
+                return numberLevel($fus->livello);
+            }
+            else
+            {
+                return $fus->livello;
+            }
+        }
+        else
+        {
+            if($number)
+            {
+                return 0;
+            }
+            else
+            {
+                return "";
+            }
+        }
+
+        
+    }
+
+    function numberLevel($livello)
+    {
+        if($livello == "")
+        {
+            return 0;
+        }
+        elseif($livello == 'admin')
+        {
+            return 1;
+        }
+        elseif($livello == 'tecnico')
+        {
+            return 2;
+        }
+        elseif($livello == 'consorziato')
+        {
+            return 3;
+        }
+    }
+
     function scrivi_reg($operazione, $cat = '')
     {
         global $db;
@@ -220,6 +276,14 @@
 
     function sanitize_attributes($name)
     {
+        $name = str_replace("à", "a", $name);
+        $name = str_replace("è", "e", $name);
+        $name = str_replace("é", "e", $name);
+        $name = str_replace("ì", "i", $name);
+        $name = str_replace("ò", "o", $name);
+        $name = str_replace("ù", "u", $name);
+
+
         $name = preg_replace("#[^A-Za-z0-9\. \-]+#", "", $name);
 
         return $name;

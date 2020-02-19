@@ -286,38 +286,80 @@
 					if($lineePoligono->MultiGeometry)
 					{
 
-						if($tiposhape == 0)
+						if($lineePoligono->MultiGeometry->Point)
 						{
-							$tiposhape = 3;
+							
+							if($tiposhape == 0)
+							{
+								$tiposhape = 1;
+							}
+							else
+							{
+								$tiposhape = 0;
+							}
+
+							// punti
+							foreach($lineePoligono->MultiGeometry->Point as $bordo)
+							{
+								$scoordinate = $bordo->coordinates;
+								
+								//$coordinate = explode(" ", $scoordinate);
+								$coordinate = preg_split("#[\s]+#", trim($scoordinate));
+								
+								
+								$valco = array();
+								
+								foreach($coordinate as $coo)
+								{
+									if(!empty($coo))
+									{
+										$co2 = explode(",", $coo);
+									
+										$valco[] = array(addslashes(trim((float)$co2[1])), addslashes(trim((float)$co2[0])));
+									}
+								}
+								
+								$infoparticella['punti'][] = $valco;
+
+								
+							}
+							
 						}
 						else
 						{
-							$tiposhape = 0;
-						}
-
-						foreach($lineePoligono->MultiGeometry as $bordo)
-						{
-							$scoordinate = $bordo->LineString->coordinates;
-							
-							//$coordinate = explode(" ", $scoordinate);
-							$coordinate = preg_split("#[\s]+#", trim($scoordinate));
-							
-							
-							$valco = array();
-							
-							foreach($coordinate as $coo)
+							if($tiposhape == 0)
 							{
-								if(!empty($coo))
-								{
-									$co2 = explode(",", $coo);
-								
-									$valco[] = array((trim((float)$co2[1])), (trim((float)$co2[0])));
-								}
+								$tiposhape = 3;
 							}
-							
-							$infoparticella['coo'][] = $valco;
+							else
+							{
+								$tiposhape = 0;
+							}
 
-							
+							foreach($lineePoligono->MultiGeometry as $bordo)
+							{
+								$scoordinate = $bordo->LineString->coordinates;
+								
+								//$coordinate = explode(" ", $scoordinate);
+								$coordinate = preg_split("#[\s]+#", trim($scoordinate));
+								
+								
+								$valco = array();
+								
+								foreach($coordinate as $coo)
+								{
+									if(!empty($coo))
+									{
+										$co2 = explode(",", $coo);
+									
+										$valco[] = array((trim((float)$co2[1])), (trim((float)$co2[0])));
+									}
+								}
+								
+								$infoparticella['coo'][] = $valco;
+
+								
+							}
 						}
 					}
 
