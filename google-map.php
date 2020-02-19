@@ -81,8 +81,7 @@
 						$prj = (int)$_GET['prj'];
 					?>
 					<li>
-						<a href="javascript:void(0);" id="primo-lay" data-toggle="collapsed active" data-target="#pages_dr"><div class="pull-left"><i class="fa fa-map mr-20" aria-hidden="true"></i><span class="right-nav-text">Mappe</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
-						<ul id="pages_dr" class="collapse collapse-level-1 two-col-list active">
+						
 								
 							<div class="row">
 								<div class="col-md-12">
@@ -177,7 +176,7 @@
 								</div>
 							</div>
 							
-						</ul>
+						
 					</li>
 					<?php
 					}
