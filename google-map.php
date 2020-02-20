@@ -732,7 +732,7 @@
 
 		<script type="text/javascript" src="vendors/html2canvas/html2canvas.min.js"></script>
 		
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7jca5iL-nLyladEfsgi82vLv1Sb3VJlU&libraries=geometry"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJzfvXIama_r5cJ0wb4hH1mzRvwD9N7-A&libraries=geometry"></script>
 		<script type="text/javascript" src="dist/js/maps-api.js"></script>
 		
 		<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
