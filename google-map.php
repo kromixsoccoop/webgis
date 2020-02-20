@@ -48,7 +48,7 @@
 						<i class="zmdi zmdi-more"></i>
 					</li>
 					<li>
-						<a class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#maps_dr"><div class="pull-left"><i class="fa fa-users mr-20" aria-hidden="true"></i><span class="right-nav-text">Progetti</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+						<a class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#maps_dr"><div class="pull-left"><i class="fa fa-folder mr-20" aria-hidden="true"></i><span style="font-size: 16px;" class="right-nav-text">Progetti</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
 						<?php
 							// ottengo il livello dell'utente
 							$livUser = getLevel(true);
@@ -124,10 +124,12 @@
 												<label style="width: 95%;">
 													<div class="row" style="<?=($contashape != $totlayers) ? 'border-bottom: 1px solid #799fb2' : ''; ?>">
 														<div class="col-md-9">
-															<?php if(!layerHasChild($fg->id)): ?>
-															<input onclick="setLayer(<?=$fg->id?>)" id="xnode-<?=$fg->id?>" data-id="custom-<?=$fg->id?>" type="checkbox" />
-															<?php endif; ?>
-															<?=dequotes($fg->nome_layer)?>
+															<div class="checkbox checkbox-info">
+																<?php if(!layerHasChild($fg->id)): ?>
+																<input onclick="setLayer(<?=$fg->id?>)" id="xnode-<?=$fg->id?>" data-id="custom-<?=$fg->id?>" type="checkbox">
+																<?php endif; ?>
+																<label><?=dequotes($fg->nome_layer)?></label>
+															</div>
 														</div>
 														<div class="col-md-3">
 														<?php
@@ -235,14 +237,14 @@
 									<div style="padding: 13px;" class="form-wrap">
 										<form action="" id="" method="post">
 											<div class="form-group">
-												<label class="control-label text-left">Formato</label>
-												<select class="form-control" name="formato" id="formato">
+												<label style="color: #fff;" class="control-label text-left">Formato</label>
+												<select style="height: 28px !important; padding: 0px 5px;" class="form-control" name="formato" id="formato">
 													<option value="0">A4</option>
 												</select>
 											</div>
 											<div class="form-group">
-												<label class="control-label text-left">Scala</label>
-												<select class="form-control" name="scala" id="scala">
+												<label style="color: #fff;" class="control-label text-left">Scala</label>
+												<select style="height: 28px !important; padding: 0px 5px;" class="form-control" name="scala" id="scala">
 													<option value="0">1:500</option>
 													<option value="1">1:1000</option>
 													<option value="2">1:2000</option>
@@ -251,19 +253,19 @@
 												</select>
 											</div>
 											<div class="form-group">
-												<label class="control-label text-left">Dpi</label>
-												<select class="form-control" name="dpi" id="dpi">
+												<label style="color: #fff;" class="control-label text-left">Dpi</label>
+												<select style="height: 28px !important; padding: 0px 5px;" class="form-control" name="dpi" id="dpi">
 													<option value="0">150</option>
 													<option value="1">300</option>
 												</select>
 											</div>
 											<div class="form-group">
-												<label class="control-label text-left">Rotazione</label>
-												<input type="number" class="form-control" name="rotazione" id="rotazione" value="" />
+												<label style="color: #fff;" class="control-label text-left">Rotazione</label>
+												<input style="height: 28px !important; padding: 0px 5px;" type="number" class="form-control" name="rotazione" id="rotazione" value="" />
 											</div>
 											<div class="form-group">
-												<label class="control-label text-left">Formato</label>
-												<select class="form-control" name="formato" id="formato">
+												<label style="color: #fff;" class="control-label text-left">Formato</label>
+												<select style="height: 28px !important; padding: 0px 5px;" class="form-control" name="formato" id="formato">
 													<option value="0">PDF</option>
 													<option value="1">JPG</option>
 												</select>
@@ -277,12 +279,19 @@
 							
 						</ul>
 					</li>
+					<li><hr class="light-grey-hr mb-10"></li>
 					<li>
-						<a href="#" data-toggle="modal" data-target="#guasti"><div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Segnalazione Guasti e Disservizi</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
+						<!--<a href="#" data-toggle="modal" data-target="#guasti"><div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Guasti e Disservizi</span></div><div class="pull-right"></div><div class="clearfix"></div></a>-->
+						<a href="#"><div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Guasti e Manutenzioni</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
 					</li>
+					<li>
+						<!--<a href="#" data-toggle="modal" data-target="#guasti"><div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Guasti e Disservizi</span></div><div class="pull-right"></div><div class="clearfix"></div></a>-->
+						<a href="#"><div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Monitoraggio Scarichi</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
+					</li>
+					
 				<?php if(is_logged()): ?>
 					<li>
-						<a href="index.php?act=out"><div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Logout</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
+						<a href="index.php?act=out"><div class="pull-left"><i class="zmdi zmdi-power mr-20"></i><span class="right-nav-text">Logout</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
 					</li>
 				<?php endif; ?>
 				</ul>

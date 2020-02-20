@@ -22,7 +22,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<title>Arkigis</title>
 		<meta name="description" content="" />
-		<meta name="keywords" content="a" />
+		<meta name="keywords" content="" />
 		<meta name="author" content=""/>
 		
 		<!-- Favicon -->
@@ -168,7 +168,7 @@
 														
 														<td><?=date("d/m/Y", strtotime($riga['data_progetto']))?></td>
 														<td class="text-nowrap">
-															<a href="google-map.php?prj=<?=$riga['id']?>" class="mr-25 text-info" data-toggle="tooltip" data-original-title="Visualizza Mappa"><i class="fa fa-globe m-r-10"></i></a> 
+															<a href="google-map.php?prj=<?=$riga['id']?>" class="mr-25 text-info" data-toggle="tooltip" data-original-title="Visualizza Mappa" target="_blank"><i class="fa fa-globe m-r-10"></i></a> 
 															<a href="addProgetto.php?act=addLayer&prj=<?=$riga['id']?>" class="mr-25 text-success" data-toggle="tooltip" data-original-title="Nuovo Layer"><i class="fa fa-plus m-r-10"></i></a> 
 															<a href="addProgetto.php?prj=<?=$riga['id']?>" class="mr-25 text-warning" data-toggle="tooltip" data-original-title="Modifica progetto"><i class="fa fa-pencil m-r-10"></i></a> 
 															<a href="javascript:;" onclick="delProgetto(<?=$riga['id']?>)" class="text-danger" data-toggle="tooltip" data-original-title="Elimina progetto"><i class="fa fa-close"></i> </a> 
