@@ -64,7 +64,7 @@
 							{
 						?>
 							<li>
-								<a href="google-map.php?prj=<?=$f1->id?>"> <i class="fa fa-street-view" aria-hidden="true"></i> &nbsp;<span><?=dequotes($f1->nome_progetto)?></span></a>
+								<a href="google-map.php?prj=<?=$f1->id?>"> <i class="fa fa-map-o" aria-hidden="true"></i> &nbsp;<span><?=dequotes($f1->nome_progetto)?></span></a>
 							</li>
 						<?php
 							}
@@ -282,11 +282,11 @@
 					<li><hr class="light-grey-hr mb-10"></li>
 					<li>
 						<!--<a href="#" data-toggle="modal" data-target="#guasti"><div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Guasti e Disservizi</span></div><div class="pull-right"></div><div class="clearfix"></div></a>-->
-						<a href="#"><div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Guasti e Manutenzioni</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
+						<a href="#"><div class="pull-left"><i class="fa fa-map-o mr-20"></i><span class="right-nav-text">Guasti e Manutenzioni</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
 					</li>
 					<li>
 						<!--<a href="#" data-toggle="modal" data-target="#guasti"><div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Guasti e Disservizi</span></div><div class="pull-right"></div><div class="clearfix"></div></a>-->
-						<a href="#"><div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Monitoraggio Scarichi</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
+						<a href="#"><div class="pull-left"><i class="fa fa-map-o mr-20"></i><span class="right-nav-text">Monitoraggio Scarichi</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
 					</li>
 					
 				<?php if(is_logged()): ?>
@@ -297,65 +297,6 @@
 				</ul>
 			</div>
 			<!-- /Left Sidebar Menu -->
-			
-			<!-- Right Sidebar Menu -->
-			<div class="fixed-sidebar-right">
-				<ul class="right-sidebar">
-					<li>
-						<div  class="tab-struct custom-tab-1">
-							<ul role="tablist" class="nav nav-tabs" id="right_sidebar_tab">
-								<li class="active" role="presentation"><a aria-expanded="true"  data-toggle="tab" role="tab" id="chat_tab_btn" href="#chat_tab">3 Mappe Caricate</a></li>
-							</ul>
-							<div class="tab-content" id="right_sidebar_content">
-								<div  id="chat_tab" class="tab-pane fade active in" role="tabpanel">
-									<div class="chat-cmplt-wrap">
-										<div class="chat-box-wrap">
-											<div id="chat_list_scroll">
-												<div class="nicescroll-bar">
-													<ul class="chat-list-wrap">
-														<li class="chat-list">
-															<div class="chat-body">
-																<a  href="#">
-																	<div class="chat-data">
-																		<div class="user-data">
-																			<span class="name block capitalize-font">Mappa 1</span>
-																			<span class="time block truncate txt-grey">Lorem ipsum dolor sit amet</span>
-																		</div>
-																		<div class="clearfix"></div>
-																	</div>
-																</a>
-																<a  href="#">
-																	<div class="chat-data">
-																		<div class="user-data">
-																			<span class="name block capitalize-font">Mappa 2</span>
-																			<span class="time block truncate txt-grey">Lorem ipsum dolor sit amet</span>
-																		</div>
-																		<div class="clearfix"></div>
-																	</div>
-																</a>
-																<a  href="#">
-																	<div class="chat-data">
-																		<div class="user-data">
-																			<span class="name block capitalize-font">Mappa 3</span>
-																			<span class="time block truncate txt-grey">Lorem ipsum dolor sit amet</span>
-																		</div>
-																		<div class="clearfix"></div>
-																	</div>
-																</a>
-															</div>
-														</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</div>
-			<!-- /Right Sidebar Menu -->
 		<?php
 			if(isset($prj))
 			{
@@ -376,7 +317,7 @@
 										<div class="panel panel-info card-view">
 											<div class="panel-heading">
 												<div class="pull-left">
-													<h6 class="panel-title txt-light">INFORMAZIONI PROGETTO</h6>
+													<h6 class="panel-title txt-light">DETTAGLI PROGETTO</h6>
 												</div>
 												<div class="clearfix"></div>
 											</div>
@@ -472,14 +413,14 @@
 			<!-- /Right Sidebar Backdrop -->
 				
 			<!-- Main Content -->
-			<div class="page-wrapper">
+			<div style="height: 940px !important;" class="page-wrapper">
 				<div class="container-fluid">
 
 					<!-- Row -->
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="panel panel-default card-view">
-								<div class="panel-heading">
+								<div style="padding: 7px 15px;" class="panel-heading">
 									<div class="pull-left">
 										<button title="Ingrandisci Riquadro" class="btn left-label btn-info btn-lable-wrap all-btn" onclick="zoomIn()">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 2px;" class="fa fa-search-plus"> </i></span>
@@ -504,9 +445,12 @@
 										<button data-toggle="modal" data-target="#guasti" title="Segnalazione guasti e Disservizi" class="btn left-label btn-info btn-lable-wrap all-btn">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 2px; font-size: 15px;" class="fa fa-flag"> </i></span>
 										</button>
+										<button  title="Inserisci Puntatore" class="btn left-label btn-info btn-lable-wrap all-btn">
+											<span class="btn-label"><i style="color: #FFF; position: relative; top: 2px; font-size: 15px;" class="fa fa-street-view"> </i></span>
+										</button>
 									</div>
-									<div class="pull-right">
-										<h2><span class="badge badge-info" id="infoMappa"></span></h2>
+									<div class="">
+										<h2><span style="background: #234151; margin-top: -10px;" class="badge badge-info ml-10" id="infoMappa"></span></h2>
 									</div>
 									<div class="clearfix"></div>
 								</div>
@@ -516,10 +460,10 @@
 									</div>
 								</div>
 
-								<div class="row">
+								<div style="margin-bottom: -18px;" class="row">
 									<div class="col-md-2">
-										<div class="form-group mt-30 mb-30">
-											<select class="form-control" id="scalaMap" onchange="cambiaZoom(this.options[this.selectedIndex].value)">
+										<div style="margin-top: 10px;" class="form-group mb-30">
+											<select style="height: 33px;" class="form-control" id="scalaMap" onchange="cambiaZoom(this.options[this.selectedIndex].value)">
 												<option value="0">Full MAP</option>
 												<?php
 													for($i=1;$i<23;$i++)
@@ -535,8 +479,8 @@
 									</div>
 									
 									<div class="col-md-4">
-										<button style="padding: 10px;" class="btn left-label btn-info btn-lable-wrap mt-30"><i class="fa fa-arrows-h"></i> &nbsp;&nbsp;<span id="currentLat"></span></button>
-										<button style="padding: 10px;" class="btn left-label btn-info btn-lable-wrap mt-30"><i class="fa fa-arrows-v"></i> &nbsp;&nbsp;<span id="currentLng"></span></button>
+										<button style="padding: 5px; margin-top: 10px;" class="btn left-label btn-info btn-lable-wrap"><i class="fa fa-arrows-h"></i> &nbsp;&nbsp;<span id="currentLat"></span></button>
+										<button style="padding: 5px; margin-top: 10px;" class="btn left-label btn-info btn-lable-wrap"><i class="fa fa-arrows-v"></i> &nbsp;&nbsp;<span id="currentLng"></span></button>
 									</div>
 									
 								</div>
@@ -547,7 +491,7 @@
 					
 				</div>
 				
-				<!-- Footer -->
+				<!-- Footer
 				<footer class="footer container-fluid pl-30 pr-30">
 					<div class="row">
 						<div class="col-sm-12">
@@ -555,7 +499,7 @@
 						</div>
 					</div>
 				</footer>
-				<!-- /Footer -->
+				/Footer -->
 			
 			</div>
 			<!-- /Main Content -->
@@ -720,9 +664,7 @@
 		<!-- Init JavaScript -->
 		<script src="dist/js/init.js"></script>		
 
-			
 
-			
 
 		<!-- Tabs -->
 		<script src="dist/js/custom.js"></script>
@@ -761,10 +703,14 @@
 				  panControl: false,
 				  fullscreenControl: true,
 				  scaleControl: false,
-				  streetViewControl: true,
-				  mapTypeId: google.maps.MapTypeId.ROADMAP
+				  streetViewControl: false,
+				  mapTypeId: google.maps.MapTypeId.SATELLITE,
 				});
+				
+				
 
+				
+				
 				$("#treeview").hummingbird();
 
 				

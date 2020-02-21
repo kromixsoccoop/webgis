@@ -242,12 +242,12 @@ function formatDistance(distance)
 {
 	if (distance<10000)
 	{
-		return Math.round(distance)+"mt";
+		return Math.round(distance)+" mt";
 	}
 	else if (distance>=10000)
 	{
 		var distanza = Math.round(distance/1000);
-		return distanza+"km";
+		return distanza+" km<sup style='color: #fff;'>2</sup>";
 	}
 }
 

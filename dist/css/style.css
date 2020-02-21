@@ -853,7 +853,7 @@ ul.uo-list {
 button.fc-month-button.fc-state-default.fc-corner-left,
 button.fc-agendaWeek-button, .fc-prev-button, .fc-next-button, .fc-today-button {
   color: #fff;
-  padding: 21px;
+  padding: 18px;
   text-transform: capitalize;
   border-radius: 2px;
   outline: none;
@@ -1450,7 +1450,7 @@ button.fc-agendaWeek-button, .fc-prev-button, .fc-next-button, .fc-today-button 
     button.btn-lable-wrap.fc-month-button.fc-state-default.fc-corner-left .btn-label,
     button.btn-lable-wrap.fc-agendaWeek-button .btn-label, .btn-lable-wrap.fc-prev-button .btn-label, .btn-lable-wrap.fc-next-button .btn-label, .btn-lable-wrap.fc-today-button .btn-label {
       background: rgba(0, 0, 0, 0.05) none repeat scroll 0 0;
-      padding: 11px 15px;
+      padding: 8px 12px;
       position: absolute;
       top: -2px; }
       .btn.btn-lable-wrap .btn-label i, .wizard > .actions a.btn-lable-wrap .btn-label i, .dt-buttons .btn-lable-wrap.dt-button .btn-label i, .tablesaw-sortable th.tablesaw-sortable-head button.btn-lable-wrap .btn-label i, .sweet-alert button.btn-lable-wrap .btn-label i, .owl-theme .owl-nav .btn-lable-wrap[class*="owl-"] .btn-label i, button.btn-lable-wrap.fc-agendaDay-button.fc-state-default.fc-corner-right .btn-label i,
@@ -2288,7 +2288,7 @@ button.fc-agendaWeek-button, .fc-prev-button, .fc-next-button, .fc-today-button 
           font-size: 18px;
           width: 18px; }
         .fixed-sidebar-left .side-nav li a .pull-right i {
-          color: #878787; }
+          color: #fff; }
     .fixed-sidebar-left .side-nav > li > a {
       color: #212121;
       padding: 7px 15px; }
@@ -3031,7 +3031,7 @@ a#toggle_mobile_nav {
       top: 0;
       width: 100%; }
   .card-view.panel .panel-body {
-    padding: 5px 0 20px; }
+    padding: 5px 0 0px; }
   .card-view.panel.panel-default > .panel-heading {
     background: transparent; }
   .card-view.panel.panel-default.border-panel > .panel-heading, .card-view.panel.panel-default.panel-tabs > .panel-heading {
