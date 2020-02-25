@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document id="root_doc">
+    <Schema id="1_idranti" name="1_idranti">
+      <SimpleField name="Numero" type="float"/>
+      <SimpleField name="DN uscita" type="string"/>
+    </Schema>
+    <Schema id="__idranti.schema">
+      <SimpleField name="Numero" type="float"/>
+      <SimpleField name="DN uscita" type="string"/>
+    </Schema>
+    <Folder>
+      <name>1_idranti</name>
+      <Placemark>
+        <ExtendedData>
+          <SchemaData schemaUrl="#1_idranti">
+            <SimpleData name="Numero">7</SimpleData>
+            <SimpleData name="DN uscita">100</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.8523956267245,39.1876354200748,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <ExtendedData>
+          <SchemaData schemaUrl="#1_idranti">
+            <SimpleData name="Numero">1</SimpleData>
+            <SimpleData name="DN uscita">100</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.8527834829895,39.1877379807249,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <ExtendedData>
+          <SchemaData schemaUrl="#1_idranti">
+            <SimpleData name="Numero">4</SimpleData>
+            <SimpleData name="DN uscita">100</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.8550459493574,39.1874727569832,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <ExtendedData>
+          <SchemaData schemaUrl="#1_idranti">
+            <SimpleData name="Numero">2</SimpleData>
+            <SimpleData name="DN uscita">100</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.8531261165031,39.1877002050823,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <ExtendedData>
+          <SchemaData schemaUrl="#1_idranti">
+            <SimpleData name="Numero">5</SimpleData>
+            <SimpleData name="DN uscita">100</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.8560847388351,39.1873430711072,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <ExtendedData>
+          <SchemaData schemaUrl="#1_idranti">
+            <SimpleData name="Numero">6</SimpleData>
+            <SimpleData name="DN uscita">100</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.8577780786545,39.1874417020438,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <ExtendedData>
+          <SchemaData schemaUrl="#1_idranti">
+            <SimpleData name="Numero">3</SimpleData>
+            <SimpleData name="DN uscita">100</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.8538543647561,39.1876078042132,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Document id="__idranti">
+      <name>1 idranti</name>
+      <Placemark id="__idranti.1">
+        <ExtendedData>
+          <SchemaData schemaUrl="#__idranti.schema">
+            <SimpleData name="Numero">7</SimpleData>
+            <SimpleData name="DN uscita">100</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.8523956267245,39.1876354200748,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="__idranti.2">
+        <ExtendedData>
+          <SchemaData schemaUrl="#__idranti.schema">
+            <SimpleData name="Numero">1</SimpleData>
+            <SimpleData name="DN uscita">100</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.8527834829895,39.1877379807249,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="__idranti.3">
+        <ExtendedData>
+          <SchemaData schemaUrl="#__idranti.schema">
+            <SimpleData name="Numero">4</SimpleData>
+            <SimpleData name="DN uscita">100</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.8550459493574,39.1874727569832,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="__idranti.4">
+        <ExtendedData>
+          <SchemaData schemaUrl="#__idranti.schema">
+            <SimpleData name="Numero">2</SimpleData>
+            <SimpleData name="DN uscita">100</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.8531261165031,39.1877002050823,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="__idranti.5">
+        <ExtendedData>
+          <SchemaData schemaUrl="#__idranti.schema">
+            <SimpleData name="Numero">5</SimpleData>
+            <SimpleData name="DN uscita">100</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.8560847388351,39.1873430711072,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="__idranti.6">
+        <ExtendedData>
+          <SchemaData schemaUrl="#__idranti.schema">
+            <SimpleData name="Numero">6</SimpleData>
+            <SimpleData name="DN uscita">100</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.8577780786545,39.1874417020438,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="__idranti.7">
+        <ExtendedData>
+          <SchemaData schemaUrl="#__idranti.schema">
+            <SimpleData name="Numero">3</SimpleData>
+            <SimpleData name="DN uscita">100</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            16.8538543647561,39.1876078042132,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Document>
+  </Document>
+</kml>

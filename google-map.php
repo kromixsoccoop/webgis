@@ -96,7 +96,7 @@
 										<?php
 											$livUser = getLevel(true);
 
-											$g = $db->Query("SELECT id, nome_layer, attributi, colore, coloreinterno, tiposhape FROM wg_progetti_layers WHERE id_madre = '0' AND (visibilita = '0' OR visibilita >= '$livUser')");
+											$g = $db->Query("SELECT id, nome_layer, attributi, colore, coloreinterno, tiposhape FROM wg_progetti_layers WHERE id_madre = '0' AND id_progetto = '$prj' AND (visibilita = '0' OR visibilita >= '$livUser')");
 
 											if($db->Found($g))
 											{
@@ -451,7 +451,7 @@
 										<button data-toggle="modal" data-target="#guasti" title="Segnalazione guasti e Disservizi" class="btn left-label btn-info btn-lable-wrap all-btn">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 2px; font-size: 15px;" class="fa fa-flag"> </i></span>
 										</button>
-										<button  title="Inserisci Puntatore" class="btn left-label btn-info btn-lable-wrap all-btn">
+										<button  title="Inserisci Puntatore" id="toggleMarker" class="btn left-label btn-info btn-lable-wrap all-btn" onclick="addMarker()">
 											<span class="btn-label"><i style="color: #FFF; position: relative; top: 2px; font-size: 15px;" class="fa fa-street-view"> </i></span>
 										</button>
 									</div>

@@ -606,23 +606,23 @@
 														<div class="col-md-6">
 															<div class="form-group">
 																<label class="control-label mb-10 text-left font-500" for="nome_progetto">Nome Progetto <sup>*</sup></label>
-																<input type="text" class="form-control" name="nome_progetto" id="nome_progetto" value="<?=dequotes($f->nome_progetto)?>">
+																<input type="text" class="form-control" name="nome_progetto" id="nome_progetto" value="<?=($modifica) ? dequotes($f->nome_progetto) : '';?>">
 															</div>
 														</div>
 														<div class="col-md-2">
 															<div class="form-group">
 																<label class="control-label mb-10 text-left font-500" for="data_progetto">Data Progetto <sup>*</sup></label>
-																<input type="date" class="form-control" name="data_progetto" id="data_progetto" value="<?=dequotes($f->data_progetto)?>">
+																<input type="date" class="form-control" name="data_progetto" id="data_progetto" value="<?=($modifica) ? dequotes($f->data_progetto) : ''; ?>">
 															</div>
 														</div>
 														<div class="col-md-4">
 															<div class="form-group">
 																<label class="control-label mb-10 text-left font-500" for="visibilita">Visibilit&agrave; Progetto <sup>*</sup></label>
 																<select class="form-control" name="visibilita" id="visibilita">
-																	<option <?=($f->visibilita == 0) ? 'selected="selected"' : ''; ?> value="0">Pubblico</option>
-																	<option <?=($f->visibilita == 1) ? 'selected="selected"' : ''; ?> value="1">Solo Admin</option>
-																	<option <?=($f->visibilita == 2) ? 'selected="selected"' : ''; ?> value="2">Tecnici e Admin</option>
-																	<option <?=($f->visibilita == 3) ? 'selected="selected"' : ''; ?> value="3">Consorziate, Tecnici e Admin</option>
+																	<option <?=($modifica && $f->visibilita == 0) ? 'selected="selected"' : ''; ?> value="0">Pubblico</option>
+																	<option <?=($modifica && $f->visibilita == 1) ? 'selected="selected"' : ''; ?> value="1">Solo Admin</option>
+																	<option <?=($modifica && $f->visibilita == 2) ? 'selected="selected"' : ''; ?> value="2">Tecnici e Admin</option>
+																	<option <?=($modifica && $f->visibilita == 3) ? 'selected="selected"' : ''; ?> value="3">Consorziate, Tecnici e Admin</option>
 																</select>
 															</div>
 														</div>
@@ -631,7 +631,7 @@
 														<div class="col-md-12">
 															<div class="form-group">
 																<label class="control-label mb-10 text-left font-500" for="descrizione">Descrizione <sup>*</sup></label>
-																<textarea rows="3" class="form-control" name="descrizione" id="descrizione"><?=dequotes($f->descrizione)?></textarea>
+																<textarea rows="3" class="form-control" name="descrizione" id="descrizione"><?=($modifica) ? dequotes($f->descrizione) : ''; ?></textarea>
 															</div>
 														</div>
 													</div>
@@ -723,7 +723,7 @@
 															<div class="pull-left">
 																<a href="progetti.php" class="btn btn-sm btn-danger">Indietro</a>
 															</div>
-															<input type="hidden" name="iddt" id="iddt" value="<?=$prj?>">
+															<input type="hidden" name="iddt" id="iddt" value="<?=($modifica) ? $prj : 0; ?>">
 															<div class="pull-right">
 																<input type="hidden" name="<?=($modifica) ? 'mod' : 'send'; ?>Progetto" id="<?=($modifica) ? 'mod' : 'send'; ?>Progetto" value="1" />
 																<a href="javascript:;" onclick="creaProgetto()" class="btn btn-sm btn-success">Salva</a>
@@ -789,7 +789,7 @@
 											<h5 class="txt-dark">Layer Caricati</h5>
 											<hr />
 											<?php
-												$g = $db->Query("SELECT id, nome_layer, attributi FROM wg_progetti_layers WHERE id_madre = '0'");
+												$g = $db->Query("SELECT id, nome_layer, attributi FROM wg_progetti_layers WHERE id_madre = '0' AND id_progetto = '$prj'");
 
 												if($db->Found($g))
 												{
@@ -995,7 +995,7 @@
 											<h5 class="txt-dark">Layer Caricati</h5>
 											<hr />
 											<?php
-												$g = $db->Query("SELECT id, nome_layer, attributi FROM wg_progetti_layers WHERE id_madre = '0'");
+												$g = $db->Query("SELECT id, nome_layer, attributi FROM wg_progetti_layers WHERE id_madre = '0' AND id_progetto = '$prj'");
 
 												if($db->Found($g))
 												{

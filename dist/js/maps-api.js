@@ -428,6 +428,65 @@ function togliArea()
 	$('span#infoMappa').html("");
 }
 
+
+var listaMarkerSingolo = Array();
+var infoSingolo;
+
+function addMarker()
+{
+	$('button#toggleMarker').addClass("btn-warning");
+	$('button.all-btn').not("#toggleMarker").not("#screenshot").prop("disabled", true);
+	$('button#toggleMarker').attr("onclick", "togliMarker()");
+
+	google.maps.event.addListener(map,'click',function(event)
+	{
+		if(listaMarkerSingolo.length != 0)
+		{
+			listaMarkerSingolo[0].setMap(null);
+		}
+		
+		listaMarkerSingolo = [];
+
+		var posizioneAttuale = { lat: event.latLng.lat(), lng: event.latLng.lng() }
+
+		infoSingolo = new google.maps.InfoWindow({
+			content: "<strong style='color: #A00'>Coordinate:</strong><br /><span style='color: #000'><strong>lat:</strong> " + event.latLng.lat() + ", <strong>lng</strong>: " + event.latLng.lng() + "</span><br /><br /><strong style='color: #A00'>Coordinate DMS:</strong><br /><span style='color: #000'><strong>lat:</strong> " + toDegreesMinutesAndSeconds(event.latLng.lat()) + ", <strong>lng:</strong> " + toDegreesMinutesAndSeconds(event.latLng.lng()) + "</span>"
+		});
+		
+		
+		var punto = new google.maps.Marker({
+			position: posizioneAttuale,
+			map: map,
+			//icon: 'https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png',
+			draggable: false
+		});
+
+		punto.addListener('click', function() {
+			infoSingolo.open(map, punto);
+		});
+		
+
+		listaMarkerSingolo.push(punto);
+	});
+}
+
+function togliMarker()
+{
+	if(listaMarkerSingolo.length != 0)
+	{
+		google.maps.event.clearListeners(listaMarkerSingolo[0], "click");
+		listaMarkerSingolo[0].setMap(null);
+	}
+	
+	listaMarkerSingolo = [];
+	infoSingolo = null;
+	$('button#toggleMarker').removeClass("btn-warning");
+	$('button.all-btn').prop("disabled", false);
+	$('button#toggleMarker').attr("onclick", "addMarker()");
+	
+	google.maps.event.clearListeners(map, "click");
+}
+
 /* scala */
 /*
 20 : 1128.497220
