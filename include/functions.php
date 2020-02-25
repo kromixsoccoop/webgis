@@ -77,7 +77,7 @@
     {
         global $db;
 
-        $io = (int)$_SESSION['usid'];
+        $io = @(int)$_SESSION['usid'];
 
         if($io != 0)
         {

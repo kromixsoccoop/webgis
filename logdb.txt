@@ -28,3 +28,4 @@
 19/02/2020 08:16:18 - Si è verificato un errore: Unknown column 'tiposhape' in 'field list' - Query: SELECT colore, coloreinterno, nome_layer, tiposhape FROM wg_progetti_layers WHERE id_progetto = '2' ORDER BY ordine ASC
 20/02/2020 09:33:18 - Si è verificato un errore:  - Query: SELECT id, nome_progetto FROM wg_progetti WHERE visibilita = '0' OR visibilita >= '0' ORDER BY data_progetto ASC
 20/02/2020 09:33:21 - Si è verificato un errore:  - Query: SELECT id, nome_progetto FROM wg_progetti WHERE visibilita = '0' OR visibilita >= '0' ORDER BY data_progetto ASC
+25/02/2020 09:18:22 - Si è verificato un errore:  - Query: SELECT id, nome_progetto FROM wg_progetti WHERE visibilita = '0' OR visibilita >= '0' ORDER BY data_progetto ASC

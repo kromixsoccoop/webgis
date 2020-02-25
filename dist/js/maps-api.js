@@ -539,8 +539,8 @@ function displayCoordinates(pnt) {
 	lat = lat.toFixed(4);
 	var lng = pnt.lng();
 	lng = lng.toFixed(4);
-	$('span#currentLat').html(lat);
-	$('span#currentLng').html(lng);
+	$('span#currentLat').html(toDegreesMinutesAndSeconds(lat));
+	$('span#currentLng').html(toDegreesMinutesAndSeconds(lng));
 	//console.log("Latitude: " + lat + "  Longitude: " + lng);
 }
 
@@ -554,4 +554,24 @@ function roadmap()
 function satellite()
 {
 	map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+}
+
+function toDegreesMinutesAndSeconds(coordinate) {
+    var absolute = Math.abs(coordinate);
+    var degrees = Math.floor(absolute);
+    var minutesNotTruncated = (absolute - degrees) * 60;
+    var minutes = Math.floor(minutesNotTruncated);
+    var seconds = Math.floor((minutesNotTruncated - minutes) * 60);
+
+    return degrees + "&deg; " + minutes + "' " + seconds + "''";
+}
+
+function convertDMS(lat, lng) {
+    var latitude = toDegreesMinutesAndSeconds(lat);
+    var latitudeCardinal = lat >= 0 ? "N" : "S";
+
+    var longitude = toDegreesMinutesAndSeconds(lng);
+    var longitudeCardinal = lng >= 0 ? "E" : "W";
+
+    return latitude + " " + latitudeCardinal + "\n" + longitude + " " + longitudeCardinal;
 }

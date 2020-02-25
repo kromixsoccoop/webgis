@@ -284,11 +284,17 @@
 						<!--<a href="#" data-toggle="modal" data-target="#guasti"><div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Guasti e Disservizi</span></div><div class="pull-right"></div><div class="clearfix"></div></a>-->
 						<a href="#"><div class="pull-left"><i class="fa fa-map-o mr-20"></i><span class="right-nav-text">Guasti e Manutenzioni</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
 					</li>
+					<?php
+					if(isLevel("tecnico"))
+					{
+					?>
 					<li>
 						<!--<a href="#" data-toggle="modal" data-target="#guasti"><div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">Guasti e Disservizi</span></div><div class="pull-right"></div><div class="clearfix"></div></a>-->
 						<a href="#"><div class="pull-left"><i class="fa fa-map-o mr-20"></i><span class="right-nav-text">Monitoraggio Scarichi</span></div><div class="pull-right"></div><div class="clearfix"></div></a>
 					</li>
-					
+					<?php
+					}
+					?>
 				<?php if(is_logged()): ?>
 					<li>
 						<a href="index.php?act=out"><div class="pull-left"><i class="zmdi zmdi-power mr-20"></i><span class="right-nav-text">Logout</span></div><div class="pull-right"></div><div class="clearfix"></div></a>

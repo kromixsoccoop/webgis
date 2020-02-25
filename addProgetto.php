@@ -480,13 +480,16 @@
 	{
 		$summernote = aquotes($_POST['summernote']);
 
-		$lyr = (int)$_POST['lyr'];
-		$prj = (int)$_POST['prj'];
+		$lyr = (int)$_POST['id_layer'];
+		$prj = (int)$_POST['id_progetto'];
+
+		//print_r($_POST);
+		//exit();
 
 		$mod = $db->Query("UPDATE wg_progetti_layers SET template  = '$summernote' WHERE id_progetto = '$prj' AND id = '$lyr'");
 
 		$_SESSION['success'] = "Template modificato correttamente per il layer";
-		phpRedir("addProgetto.php?act=addLayer&prj=".$id_progetto);
+		phpRedir("addProgetto.php?act=modLayer&prj=".$prj."&lyr=".$lyr);
 	}
 ?>
 
